@@ -1,0 +1,11 @@
+.exitBackground {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.exit {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  z-index: 1;
+}

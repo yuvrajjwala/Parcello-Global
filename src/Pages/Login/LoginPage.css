@@ -1,0 +1,12 @@
+body {
+  background-image: none;
+  /* transition: all 0.5s; */
+}
+.loginPage {
+  display: flex;
+  justify-content: center;
+  /* padding-top: 171px; */
+  /* align-items: center; */
+  height: 128vh;
+  width: 100vw;
+}

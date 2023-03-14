@@ -1,0 +1,71 @@
+.getQouteForm{
+   margin-left: 7vw;
+   margin-right: 7vw;
+   padding: 30px;
+   margin-bottom: 30px;
+   margin-top: 50px;
+   padding: 20px 5vw;
+   border-radius: 15px;
+   box-shadow: 0px 10px 10px 3px #02888a18;
+}
+.formGetQoute{
+   display: flex;
+   justify-content: space-between;
+}
+.tryCalculatorHeading{
+   border: 2px solid #E6E8EC ;
+   padding: 5px 15px;
+   font-weight: 600; 
+   border-radius: 15px;
+}
+.form-field{
+   display: flex;
+   justify-content: space-between;
+   width: 16vw;
+   min-width: 200px;
+   margin-top: 35px;
+   margin-right: 20px;
+}
+
+.form-field-container{
+   display: flex;
+}
+.form-field-container h2, .form-field-container p{
+   margin: 0px;
+   margin-left: 12px;
+}
+.form-field-container img{
+   position: relative;
+   bottom: -4px;
+   height: 25px;
+}
+.downArrow{
+   position: relative;
+   top: 4px;
+   cursor: pointer;
+}
+.form-field-container p{
+   color: #777E90;
+   font-weight: 600;
+}
+.form-field-container input{
+   border: none;
+   outline: none;
+   width: 75%;
+   margin-left: 10px;
+   border-bottom: 2px solid #777E90;
+}
+.form-field-container span{
+   color:#777E90;
+   font-weight: 600;
+}
+.get-qoute button{
+   background-color: #02878A;
+   color:white;
+   border-radius: 15px;
+   border: none;
+   padding: 10px 20px;
+   font-size: 16px;
+   cursor: pointer;
+   margin-top: 35px;
+}

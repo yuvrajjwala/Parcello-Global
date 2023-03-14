@@ -1,0 +1,24 @@
+.division {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 338px;
+  }
+  
+  .division div {
+    background-color: #cdcdcd;
+    height: 1px;
+    width: 45%
+  }
+  
+  .division p {
+    margin: 5%;
+    color: black;
+  
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  

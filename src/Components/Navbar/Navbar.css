@@ -1,0 +1,53 @@
+.navbar{
+   margin-top: 20px;
+   display: flex;
+   justify-content: space-between;
+   padding: 0px 5vw;
+}
+.pagesLinks ul{
+   list-style: none;
+   float: left;
+   display: flex;
+}
+.pagesLinks ul li{
+   float: left;
+   margin-right: 20px;
+   font-size: 15px;
+   cursor: pointer;
+   color: #777E90;
+   font-weight: 500;
+   transition-duration: 0.3s;
+}
+.pagesLinks ul li:hover, .pagesLinks ul img:hover{
+   transform: scale(1.05);
+}
+.pagesLinks ul img{
+   margin-right: 20px;
+   height: 16px;
+   position: relative;
+   cursor: pointer;
+   top:5px;
+   transition-duration: 0.3s;
+}
+
+.logo-nav p{
+   font-size: 22px;
+   font-weight: 500;
+   margin-left: 2vw;
+   display: flex;
+}
+#signup{
+   color: black;
+    border: 2px solid #E6E8EC;
+    border-radius: 20px;
+    padding: 5px 10px;
+    position: relative;
+    bottom: 4px;
+    margin-right: 14px;
+    font-size: 12px;
+}
+.logo{
+   position: relative;
+    top: 8px;
+    height: 17px;
+}
