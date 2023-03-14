@@ -1,5 +1,4 @@
 import React, { lazy, Suspense } from "react";
-import LoginPage from "../../Pages/Login/LoginPage.jsx";
 import "./Home.css";
 
 const Navbar = lazy(() => import("../../Components/Navbar/Navbar"));
@@ -13,10 +12,10 @@ const WhyUs = lazy(() => import("../../Components/Home/whyChooseUs/WhyUs"));
 const Home = () => {
   return (
     <Suspense fallback={<div></div>}>
-      <Navbar />
-      <HeroSection />
-      <GetQouteForm />
-      <WhyUs />
+        <Navbar />
+        <HeroSection />
+        <GetQouteForm />
+        <WhyUs />
     </Suspense>
   );
 };
