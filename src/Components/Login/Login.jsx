@@ -1,112 +1,163 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Login.css";
-import Division from "./Division.jsx";
-import ExitBtn from "./ExitBtn.jsx";
-import LoginHeading from "./LoginHeading.jsx";
-// import { useAuthMethod } from "../../@common/helpers/AuthHooks";
-import gImage from "../../assets/login/google.svg";
-import otpImage from "../../assets/login/otpimg.svg";
-// import { EMAIL_REGEX } from "../../@common/constants/constantData";
-// import { notification } from "antd";
-// import { FETCH_START } from "../../@common/constants/ActionTypes";
-// import { useDispatch } from "react-redux";
+import React from "react";
+import logo from "../../assets/login/Parcello.svg";
+import { useState, useEffect } from "react";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
-const Login = ({ openOtp, openSignUp }) => {
-  //   const dispatch = useDispatch();
-  const [email, setEmail] = useState("");
+const Login = ({ setOpenLogin }) => {
+  const [userEmail, setUserEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const { signInUser } = useAuthMethod();
-  const [allEntry, setAllEntry] = useState([]);
+  const [userName, setUserName] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
-  //   const [api] = notification.useNotification();
+  const [signup, setSignup] = useState(false);
 
-  //   const openNotification = (placement) => {
-  //     api.info({
-  //       message: `Validation!!`,
-  //       description: "Please Match the Input",
-  //       placement,
-  //     });
-  //   };
-
-  //   const submitForm = (event) => {
-  //     dispatch({ type: FETCH_START });
-  //     event.preventDefault();
-  //     if (email.match(EMAIL_REGEX) && password.length >= 5) {
-  //       const newEntry = { email_address: email, password: password };
-  //       signInUser(newEntry);
-  //       setAllEntry([...allEntry, newEntry]);
-  //     } else {
-  //       openNotification("top");
-  //     }
-  //   };
+  const handleUserEmail = (e) => {
+    setUserEmail(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
+  };
+  const handleUserName = (e) => {
+    setUserName(e.target.value);
+  };
+  const handleConfirmPassword = (e) => {
+    setConfirmPassword(e.target.value);
+  };
+  //   useEffect(() => {
+  //     console.log(password);
+  //   }, [password]);
   return (
-    <div className="login lg:px-2 lg:pt-40 lg:items-center lg:text-center  lg:h-[100%] lg:w-[80%] lg:m-auto">
-      <ExitBtn />
-      <LoginHeading
-        highlightedText="Login to your Account"
-        text="and Practice your sessions!"
-      />
-      <span className="lg:my-2">Login With</span>
-
-      <div className="gLogin w-[100%] lg:flex lg:flex-col lg:items-center">
-        {/* add route for google login also*/}
-        <Link
-          to="/login"
-          className="w-[100%] flex justify_start lg:justify-center"
+    <>
+      <div className="fixed top-0 left-0 bg-black z-10 opacity-50 h-[100%] w-[100%]"></div>
+      <div className="fixed top-[5%] bg-white left-[35%] z-30 flex flex-col w-[30%] rounded-[10px] p-8">
+        <div className="flex justify-center items-center">
+          <img
+            src={logo}
+            alt="logo"
+            className="w-12 h-12 rounded-full border-black border-[1px] mr-2"
+          />
+          <h1 className="text-[20px] font-semibold">Parcello</h1>
+        </div>
+        <div className="flex justify-center my-4">
+          <h1 className="text-[25px] font-bold text-center">
+            Let's Login to your Parcello account first
+          </h1>
+        </div>
+        <div className="flex w-[100%] flex-col items-center">
+          {/* <label htmlFor="userEmail">Email</label> */}
+          {signup ? (
+            <div className="flex flex-col w-[100%] my-2">
+              <span className="text-[14px] leading-[17px] text-[#02878A]">
+                Name
+              </span>
+              <input
+                type="text"
+                placeholder="Enter Your name"
+                id="username"
+                className="border-[1px] rounded-[5px] border-gray-300 w-[100%] px-2 py-2 "
+                onChange={handleUserName}
+              />
+            </div>
+          ) : (
+            <></>
+          )}
+          <div className="flex flex-col w-[100%] my-2">
+            <span className="text-[14px] leading-[17px] text-[#02878A]">
+              Email
+            </span>
+            <input
+              type="email"
+              placeholder="Enter Your email"
+              id="userEmail"
+              className="border-[1px] rounded-[5px] border-gray-300 w-[100%] px-2 py-2 "
+              onChange={handleUserEmail}
+            />
+          </div>
+          <div className="flex flex-col w-[100%] my-2">
+            <span className="text-[14px] leading-[17px] text-[#02878A]">
+              Password
+            </span>
+            <input
+              type="password"
+              name="pass"
+              id="userPassword"
+              placeholder="Enter Your password"
+              className="border-[1px] rounded-[5px] border-gray-300 w-[100%] px-2 py-2"
+              onChange={handlePassword}
+            />
+          </div>
+          {signup ? (
+            <div className="flex flex-col w-[100%] my-2">
+              <span className="text-[14px] leading-[17px] text-[#02878A]">
+                Confirm Password
+              </span>
+              <input
+                type="password"
+                placeholder="Confirm password"
+                id="confirm-password"
+                className="border-[1px] rounded-[5px] border-gray-300 w-[100%] px-2 py-2 "
+                onChange={handleConfirmPassword}
+              />
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
+        <div className="flex justify-between items-center my-2">
+          <div className="flex items-center">
+            <input type="checkbox" name="remember" id="remember" />
+            <span className="text-[14px] leading-[17px] mx-2">Remember me</span>
+          </div>
+          <span className="text-[#02878A] text-[14px] leading-[17px] cursor-pointer hover:scale-110 transition">
+            Forgot your password
+          </span>
+        </div>
+        <button
+          className="w-[100%] rounded-[5px] bg-[#02878A] py-2 text-white mb-2 mt-4 ease-out duration-300 transition hover:scale-110"
+          onClick={() => {
+            setOpenLogin(false);
+          }}
         >
-          <button className="loginBtn  w-[100%]">
-            <img src={gImage} alt="" /> Login with Google
-          </button>
-        </Link>
-
-        <button className="loginBtn lg:w-[100%]" onClick={openOtp}>
-          <img src={otpImage} alt="otp-btn" /> Login with OTP
+          {signup ? "Signup" : "Login"}
         </button>
+        {signup ? (
+          <div className="text-center my-2">
+            <span className="text-[14px] leading-[17px]">
+              Already have an account?
+            </span>
+            <span
+              className="text-[#02878A] text-[14px] leading-[17px] ml-2 cursor-pointer"
+              onClick={() => {
+                setSignup(false);
+              }}
+            >
+              Login
+            </span>
+          </div>
+        ) : (
+          <div className="text-center my-2">
+            <span className="text-[14px] leading-[17px]">
+              Don't have an account?
+            </span>
+            <span
+              className="text-[#02878A] text-[14px] leading-[17px] ml-2 cursor-pointer "
+              onClick={() => {
+                setSignup(true);
+              }}
+            >
+              Register Here
+            </span>
+          </div>
+        )}
+
+        <AiOutlineCloseCircle
+          className="absolute top-[4px] right-[4px] cursor-pointer"
+          onClick={() => {
+            setOpenLogin(false);
+          }}
+        />
       </div>
-      <Division text="Or" />
-      <span>Enter Below Credentials to login</span>
-      <form
-        action=""
-        // onSubmit={submitForm}
-        className="lg:w-[100%] lg:flex lg:flex-col lg:items-center"
-      >
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={email}
-          placeholder="Enter Your Username or Email ID"
-          autoComplete="off"
-          onChange={(event) => {
-            setEmail(event.target.value);
-          }}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          value={password}
-          placeholder="Enter Your Password"
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-          required
-        />
-        <a href="" className="passLink">
-          Forgot Password?
-        </a>
-
-        <button className="loginSubmitBtn bg-[#113359]" type="submit">
-          Login to Your Account
-        </button>
-
-        <Link to="" className="newAccount max-w-[338px]" onClick={openSignUp}>
-          Dont Have an Account?
-        </Link>
-      </form>
-    </div>
+    </>
   );
 };
 
