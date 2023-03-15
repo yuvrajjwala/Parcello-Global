@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from "react";
 import "./Home.css";
+// import Testimonials from "../../Components/Testimonials/Testimonialss";
 
 const Navbar = lazy(() => import("../../Components/Navbar/Navbar"));
 const HeroSection = lazy(() =>
@@ -9,13 +10,17 @@ const GetQouteForm = lazy(() =>
   import("../../Components/GetQouteForm/GetQouteForm")
 );
 const WhyUs = lazy(() => import("../../Components/Home/whyChooseUs/WhyUs"));
+const Testimonials = lazy(() =>
+  import("../../Components/Testimonials/Testimonialss.jsx")
+);
 const Home = () => {
   return (
     <Suspense fallback={<div></div>}>
-        <Navbar />
-        <HeroSection />
-        <GetQouteForm />
-        <WhyUs />
+      <Navbar />
+      <HeroSection />
+      <GetQouteForm />
+      <WhyUs />
+      <Testimonials />
     </Suspense>
   );
 };
