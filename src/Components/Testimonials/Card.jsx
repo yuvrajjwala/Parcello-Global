@@ -8,7 +8,7 @@ const Card = ({ img, name, organization }) => {
       <img
         src={img}
         alt="profile"
-        className="w-[120px] h-[120px] absolute top-[-25%] left-[35%]"
+        className="w-[120px] h-[120px] absolute top-[-20%] left-[35%]"
       />
 
       <h1 className="mt-14 text-[#111029] font-semibold text-[24px] leading-[32px]">
