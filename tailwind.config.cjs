@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {
+      dm: ["DM Sans"],
+    },
     extend: {
       maxWidth: {
         "custom-xs": "94px",

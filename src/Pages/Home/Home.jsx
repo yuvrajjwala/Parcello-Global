@@ -13,6 +13,10 @@ const WhyUs = lazy(() => import("../../Components/Home/whyChooseUs/WhyUs"));
 const Testimonials = lazy(() =>
   import("../../Components/Testimonials/Testimonialss.jsx")
 );
+const Destinations = lazy(() =>
+  import("../../Components/destinations/Destinations.jsx")
+);
+
 const Home = () => {
   return (
     <Suspense fallback={<div></div>}>
@@ -20,6 +24,7 @@ const Home = () => {
       <HeroSection />
       <GetQouteForm />
       <WhyUs />
+      <Destinations />
       <Testimonials />
     </Suspense>
   );
