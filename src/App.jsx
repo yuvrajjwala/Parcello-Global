@@ -1,9 +1,8 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
-
+import Dashboard from "./Pages/dashboard/Dashboard.jsx";
 const Home = lazy(() => import("./Pages/Home/Home"));
 
 function App() {
@@ -21,6 +20,7 @@ function App() {
               </Suspense>
             }
           />
+          <Route path="/dashboard" element={<Dashboard />}></Route>
         </Routes>
       </Router>
     </div>

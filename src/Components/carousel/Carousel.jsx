@@ -4,7 +4,7 @@ import city1 from "../../assets/Destinations/city1.svg";
 import city2 from "../../assets/Destinations/city2.svg";
 import city3 from "../../assets/Destinations/city3.svg";
 import arrow from "../../assets/Destinations/button-arrow.svg";
-const Carousel = () => {
+const Carousel = ({ slider }) => {
   const settings = {
     dots: false,
     infinite: true,
@@ -14,7 +14,7 @@ const Carousel = () => {
   };
   return (
     <div className="w-[100%] mt-14 mb-2 ">
-      <Slider {...settings}>
+      <Slider ref={slider} {...settings}>
         <div className="flex flex-col mr-2 ">
           <img src={city1} alt="location" className="w-[90%]" />
 
@@ -46,7 +46,7 @@ const Carousel = () => {
           </p>
         </div>
         <div className="flex flex-col mx-2">
-          <img src={city1} alt="location" className="w-[90%]"/>
+          <img src={city1} alt="location" className="w-[90%]" />
 
           <h1 className="text-[#23262F] font-semibold text-[24px] leading-[32px] mt-4 mb-2">
             London
@@ -56,7 +56,7 @@ const Carousel = () => {
           </p>
         </div>
         <div className="flex flex-col mx-2">
-          <img src={city2} alt="location" className="w-[90%]"/>
+          <img src={city2} alt="location" className="w-[90%]" />
 
           <h1 className="text-[#23262F] font-semibold text-[24px] leading-[32px] mt-4 mb-2">
             Beijing
@@ -66,7 +66,7 @@ const Carousel = () => {
           </p>
         </div>
         <div className="flex flex-col mx-2">
-          <img src={city3} alt="location" className="w-[90%]"/>
+          <img src={city3} alt="location" className="w-[90%]" />
 
           <h1 className="text-[#23262F] font-semibold text-[24px] leading-[32px] mt-4 mb-2">
             Barcelona

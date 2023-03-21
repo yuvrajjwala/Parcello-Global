@@ -6,6 +6,10 @@ module.exports = {
       dm: ["DM Sans"],
     },
     extend: {
+      colors: {
+        "dark-purple": "#081A51",
+        "light-white": "rgba(255,255,255,0.17)",
+      },
       maxWidth: {
         "custom-xs": "94px",
         "custom-s": "250px",
