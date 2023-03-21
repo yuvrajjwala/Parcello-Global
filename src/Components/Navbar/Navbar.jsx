@@ -6,6 +6,7 @@ import cart from "../../assets/Navbar/cart.svg";
 import parcello from "../../assets/Navbar/parcello.png";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+
 // import Login from "../../Components/login/Login";
 
 const Login = lazy(() => import("../../Components/login/Login"));

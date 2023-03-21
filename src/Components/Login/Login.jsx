@@ -2,6 +2,8 @@ import React from "react";
 import logo from "../../assets/login/Parcello.svg";
 import { useState, useEffect } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { Button, Modal } from "antd";
+import "./login.css";
 
 const Login = ({ setOpenLogin }) => {
   const [userEmail, setUserEmail] = useState("");
@@ -10,6 +12,26 @@ const Login = ({ setOpenLogin }) => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [signup, setSignup] = useState(false);
+
+  const [modal, contextHolder] = Modal.useModal();
+  const countDown = () => {
+    let secondsToGo = 5;
+    const instance = modal.success({
+      title: "Successfuly logged In",
+      content: `It will close after ${secondsToGo} second.`,
+    });
+    const timer = setInterval(() => {
+      secondsToGo -= 1;
+      instance.update({
+        content: `It will close after ${secondsToGo} second.`,
+      });
+    }, 1000);
+    setTimeout(() => {
+      setOpenLogin(false);
+      clearInterval(timer);
+      instance.destroy();
+    }, secondsToGo * 1000);
+  };
 
   const handleUserEmail = (e) => {
     setUserEmail(e.target.value);
@@ -114,12 +136,16 @@ const Login = ({ setOpenLogin }) => {
         </div>
         <button
           className="w-[100%] rounded-[5px] bg-[#02878A] py-2 text-white mb-2 mt-4 ease-out duration-300 transition hover:scale-110"
-          onClick={() => {
-            setOpenLogin(false);
-          }}
+          onClick={countDown}
+          // onClick={() => {
+          //   setOpenLogin(false);
+          // }}
         >
           {signup ? "Signup" : "Login"}
         </button>
+        {/* <Button onClick={countDown}>Open modal to close in 5s</Button> */}
+        {contextHolder}
+
         {signup ? (
           <div className="text-center my-2">
             <span className="text-[14px] leading-[17px]">
