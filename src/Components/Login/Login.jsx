@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../assets/login/Parcello.svg";
 import { useState, useEffect } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import { Button, Modal } from "antd";
 import "./login.css";
 
@@ -15,7 +16,7 @@ const Login = ({ setOpenLogin }) => {
 
   const [modal, contextHolder] = Modal.useModal();
   const countDown = () => {
-    let secondsToGo = 5;
+    let secondsToGo = 3;
     const instance = modal.success({
       title: "Successfuly logged In",
       content: `It will close after ${secondsToGo} second.`,
@@ -28,6 +29,7 @@ const Login = ({ setOpenLogin }) => {
     }, 1000);
     setTimeout(() => {
       setOpenLogin(false);
+
       clearInterval(timer);
       instance.destroy();
     }, secondsToGo * 1000);
@@ -125,15 +127,25 @@ const Login = ({ setOpenLogin }) => {
             <></>
           )}
         </div>
-        <div className="flex justify-between items-center my-2">
-          <div className="flex items-center">
-            <input type="checkbox" name="remember" id="remember" />
-            <span className="text-[14px] leading-[17px] mx-2">Remember me</span>
+        {signup ? (
+          <></>
+        ) : (
+          <div className="flex justify-between items-center my-2">
+            <div className="flex items-center">
+              <input type="checkbox" name="remember" id="remember" />
+              <span className="text-[14px] leading-[17px] mx-2">
+                Remember me
+              </span>
+            </div>
+            <span
+              // to="/reset"
+              className="text-[#02878A] text-[14px] leading-[17px] cursor-pointer hover:scale-110 transition"
+            >
+              Forgot your password
+            </span>
           </div>
-          <span className="text-[#02878A] text-[14px] leading-[17px] cursor-pointer hover:scale-110 transition">
-            Forgot your password
-          </span>
-        </div>
+        )}
+
         <button
           className="w-[100%] rounded-[5px] bg-[#02878A] py-2 text-white mb-2 mt-4 ease-out duration-300 transition hover:scale-110"
           onClick={countDown}
