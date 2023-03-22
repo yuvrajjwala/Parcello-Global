@@ -137,12 +137,12 @@ const Login = ({ setOpenLogin }) => {
                 Remember me
               </span>
             </div>
-            <span
-              // to="/reset"
+            <Link
+              to="/reset"
               className="text-[#02878A] text-[14px] leading-[17px] cursor-pointer hover:scale-110 transition"
             >
               Forgot your password
-            </span>
+            </Link>
           </div>
         )}
 

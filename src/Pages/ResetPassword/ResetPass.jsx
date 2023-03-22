@@ -3,7 +3,7 @@ import logo from "../../assets/login/Parcello.svg";
 
 const ResetPass = () => {
   return (
-    <div className="flex flex-col w-[35%] m-auto h-[100vh] justify-start items-center py-20 bg-blue-300">
+    <div className="flex flex-col w-[35%] m-auto h-[100vh] justify-start items-center py-20 r">
       <img
         src={logo}
         alt="logo"
