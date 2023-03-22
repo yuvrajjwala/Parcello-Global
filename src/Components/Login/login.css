@@ -1,7 +1,9 @@
 .ant-btn {
+  display: none;
   background-color: #1677ff;
 }
 
 .ant-btn:hover {
+  display: none;
   background-color: #4096ff;
 }

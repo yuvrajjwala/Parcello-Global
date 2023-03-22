@@ -2,8 +2,9 @@ import { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
-import Dashboard from "./Pages/dashboard/Dashboard.jsx";
+const Dashboard = lazy(() => import("./Pages/dashboard/Dashboard.jsx"));
 const Home = lazy(() => import("./Pages/Home/Home"));
+import ResetPass from "./pages/ResetPassword/ResetPass";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,7 +21,15 @@ function App() {
               </Suspense>
             }
           />
-          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route
+            path="/dashboard"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Dashboard />
+              </Suspense>
+            }
+          />
+          <Route path="/reset" element={<ResetPass />} />
         </Routes>
       </Router>
     </div>
