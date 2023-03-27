@@ -5,14 +5,13 @@ import search from "../../assets/Navbar/search.svg";
 import cart from "../../assets/Navbar/cart.svg";
 import parcello from "../../assets/Navbar/parcello.png";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-// import Login from "../../Components/login/Login";
-
-const Login = lazy(() => import("../../Components/login/Login"));
+import Login from "../../Components/login/Login";
 
 const Navbar = () => {
   const [openLogin, setOpenLogin] = useState(false);
+
   return (
     <div className="navbar">
       <div className="logo-nav">
@@ -43,13 +42,7 @@ const Navbar = () => {
           <img src={ham}></img>
         </ul>
       </div>
-      {openLogin ? (
-        <Suspense fallback={<div></div>}>
-          <Login setOpenLogin={setOpenLogin}/>
-        </Suspense>
-      ) : (
-        <></>
-      )}
+      {openLogin ? <Login setOpenLogin={setOpenLogin} /> : <></>}
     </div>
   );
 };

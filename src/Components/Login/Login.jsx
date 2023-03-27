@@ -191,6 +191,7 @@ const Login = ({ setOpenLogin }) => {
         <AiOutlineCloseCircle
           className="absolute top-[4px] right-[4px] cursor-pointer"
           onClick={() => {
+            // console.log("clicked");
             setOpenLogin(false);
           }}
         />
