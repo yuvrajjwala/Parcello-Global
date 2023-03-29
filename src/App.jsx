@@ -5,6 +5,7 @@ import React, { lazy, Suspense } from "react";
 const Dashboard = lazy(() => import("./Pages/dashboard/Dashboard.jsx"));
 const Home = lazy(() => import("./Pages/Home/Home"));
 import ResetPass from "./pages/ResetPassword/ResetPass";
+import Booking from "./Pages/Booking/Booking";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -30,6 +31,7 @@ function App() {
             }
           />
           <Route path="/reset" element={<ResetPass />} />
+          <Route path="/booking" element={<Booking />} />
         </Routes>
       </Router>
     </div>
