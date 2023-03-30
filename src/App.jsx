@@ -2,9 +2,11 @@ import { useState } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
+import Result from "./Pages/Result/Result";
+
 const Dashboard = lazy(() => import("./Pages/dashboard/Dashboard.jsx"));
 const Home = lazy(() => import("./Pages/Home/Home"));
-import ResetPass from "./pages/ResetPassword/ResetPass";
+const ResetPass = lazy(() => import("./pages/ResetPassword/ResetPass"));
 import Booking from "./Pages/Booking/Booking";
 
 function App() {
@@ -30,8 +32,17 @@ function App() {
               </Suspense>
             }
           />
-          <Route path="/reset" element={<ResetPass />} />
+           <Route
+            path="/reset"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <ResetPass />
+              </Suspense>
+            }
+          />
+          <Route path="/result" element={<Result />}></Route>
           <Route path="/booking" element={<Booking />} />
+
         </Routes>
       </Router>
     </div>
