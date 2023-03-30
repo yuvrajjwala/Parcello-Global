@@ -7,6 +7,7 @@ import Result from "./Pages/Result/Result";
 const Dashboard = lazy(() => import("./Pages/dashboard/Dashboard.jsx"));
 const Home = lazy(() => import("./Pages/Home/Home"));
 const ResetPass = lazy(() => import("./pages/ResetPassword/ResetPass"));
+import Booking from "./Pages/Booking/Booking";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -31,7 +32,7 @@ function App() {
               </Suspense>
             }
           />
-          <Route
+           <Route
             path="/reset"
             element={
               <Suspense fallback={<div>Loading...</div>}>
@@ -40,6 +41,8 @@ function App() {
             }
           />
           <Route path="/result" element={<Result />}></Route>
+          <Route path="/booking" element={<Booking />} />
+
         </Routes>
       </Router>
     </div>
