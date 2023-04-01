@@ -42,7 +42,7 @@ const Navbar = () => {
           <img src={ham}></img>
         </ul>
       </div>
-      {openLogin ? <Login setOpenLogin={setOpenLogin} /> : <></>}
+      {openLogin ? <Login setOpenLogin={setOpenLogin} openLogin={openLogin}/> : <></>}
     </div>
   );
 };
