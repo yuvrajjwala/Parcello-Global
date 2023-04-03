@@ -1,9 +1,7 @@
 import React, { lazy, Suspense, useState } from "react";
 import { CiBookmark, CiCircleInfo, CiDeliveryTruck } from "react-icons/ci";
-import { useNavigate } from "react-router-dom";
 
-export default function BookingForm() {
-  const navigate = useNavigate();
+export default function ReviewForm(state) {
   const prop = {
     rpostcode: "KT174JL",
     dpostcode: "NW8",
@@ -11,63 +9,49 @@ export default function BookingForm() {
     price: 47.23,
     vat: 5,
   };
-  const [rAddress, setRaddress] = useState({
-    rPostcode: prop.rpostcode,
-    rName: "",
-    rEmail: "",
-    rContact: "",
-    rAddress: "",
-    rTown: "",
-    rCounty: "",
-    rCountry: "",
-  });
+  console.log(state)
+  
+  const rAddress = state.rAddress
+  const dAddress = state.dAddress
+  const additional = state.additional
+  // const rAddress = {
+  //   rPostcode: "KT174JL",
+  //   rName: "Debabrata Batabyal",
+  //   rEmail: "dbatabyal201@gmail.com",
+  //   rContact: "6295652894",
+  //   rAddress: "Srinagar Pally 9/1 Rabindra Sarani",
+  //   rTown: "Durgapur",
+  //   rCounty: "West Bengal",
+  //   rCountry: "United Kingdom",
+  // };
 
-  const [dAddress, setDaddress] = useState({
-    dPostcode: prop.dpostcode,
-    dName: "",
-    dEmail: "",
-    dContact: "",
-    dAddress: "",
-    dTown: "",
-    dCounty: "",
-    dCountry: "",
-  });
+  // const dAddress = {
+  //   dPostcode: "NW8",
+  //   dName: "Debabrata Batabyal",
+  //   dEmail: "dbatabyal201@gmail.com",
+  //   dContact: "6295652894",
+  //   dAddress: "Srinagar Pally 9/1 Rabindra Sarani",
+  //   dTown: "Durgapur",
+  //   dCounty: "West Bengal",
+  //   dCountry: "United Kingdom",
+  // };
 
-  const [additional, setAdditional] = useState({
-    cDate: "",
-    pContent: "",
-    liability: "",
-    contentValue: "",
-    extendedLiability:
-      "I want to extend the liability for my parcel (subject to the restricted items list and Terms and Condition)",
-    notes: "",
-  });
+
+  // const additional = {
+  //   cDate: "12-04-2023",
+  //   pContent: "Content",
+  //   extendedLiability: "0",
+  //   notes: "Customer Notes",
+  // };
 
   function handleSubmit(event) {
     event.preventDefault();
     console.log("Return Address :", rAddress);
     console.log("Delivery Address :", dAddress);
     console.log("Additioanal : ", additional);
-    navigate("/reviewOrder", {
-      state: {
-        rAddress,
-        dAddress,
-        additional
-      },
-    });
   }
 
-  const handleReturnChange = (e) => {
-    setRaddress({ ...rAddress, [e.target.name]: e.target.value });
-  };
 
-  const handleDeliveryChange = (e) => {
-    setDaddress({ ...dAddress, [e.target.name]: e.target.value });
-  };
-
-  const handleAdditionalChange = (e) => {
-    setAdditional({ ...additional, [e.target.name]: e.target.value });
-  };
 
   return (
     <Suspense fallback={<div></div>}>
@@ -76,14 +60,14 @@ export default function BookingForm() {
         onSubmit={handleSubmit}
       >
         <div className="justify-center col-span-2  md:col-span-1 ">
-          <h1 className=" text-2xl font-bold">Book Your Delivery</h1>
+          <h1 className=" text-2xl font-bold">Review Order</h1>
           <div className="mt-5 gap-5 grid grid-cols-2 md:grid-cols-1">
             <div className="mx-auto w-full formBg p-4">
-              <h2 className="text-lg font-medium required">Return Address</h2>
+              <h2 className="text-lg font-medium">Sender's Address</h2>
               <div className="my-4 w-full">
                 <label
                   htmlFor="rPostcode"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2"
                 >
                   Postcode:
                 </label>
@@ -95,13 +79,13 @@ export default function BookingForm() {
                   placeholder="Enter postcode"
                   readOnly="readonly"
                   value={rAddress.rPostcode}
-                  required
+                  
                 />
               </div>
-              <div className="mt-10 my-4 w-full">
+              <div className="my-4 w-full">
                 <label
                   htmlFor="rName"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2"
                 >
                   Name:
                 </label>
@@ -112,14 +96,14 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Name"
                   value={rAddress.rName}
-                  onChange={handleReturnChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="rEmail"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2"
                 >
                   Email:
                 </label>
@@ -130,14 +114,14 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Email"
                   value={rAddress.rEmail}
-                  onChange={handleReturnChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="rContact"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   Contact Number:
                 </label>
@@ -148,14 +132,14 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Contact Number"
                   value={rAddress.rContact}
-                  onChange={handleReturnChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="rAddress"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   Address:
                 </label>
@@ -166,14 +150,14 @@ export default function BookingForm() {
                   className="appearance-none border   w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Address"
                   value={rAddress.rAddress}
-                  onChange={handleReturnChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="rTown"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   Town:
                 </label>
@@ -184,14 +168,14 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Town"
                   value={rAddress.rTown}
-                  onChange={handleReturnChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="rCounty"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   County:
                 </label>
@@ -202,14 +186,14 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter County"
                   value={rAddress.rCounty}
-                  onChange={handleReturnChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="rCountry"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   Country:
                 </label>
@@ -220,17 +204,17 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Country"
                   value={rAddress.rCountry}
-                  onChange={handleReturnChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
             </div>
             <div className="mx-auto w-full formBg p-4">
-              <h2 className="text-lg font-medium required">Delivery Address</h2>
+              <h2 className="text-lg font-medium ">Reciever's Address</h2>
               <div className="my-4 w-full">
                 <label
                   htmlFor="dPostcode"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   Postcode:
                 </label>
@@ -242,13 +226,13 @@ export default function BookingForm() {
                   placeholder="Enter postcode"
                   readOnly="readonly"
                   value={dAddress.dPostcode}
-                  required
+                  
                 />
               </div>
-              <div className="mt-10 my-4 w-full">
+              <div className="my-4 w-full">
                 <label
                   htmlFor="dName"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   Name:
                 </label>
@@ -259,14 +243,14 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Name"
                   value={dAddress.dName}
-                  onChange={handleDeliveryChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="dEmail"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   Email:
                 </label>
@@ -277,14 +261,14 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Email"
                   value={dAddress.dEmail}
-                  onChange={handleDeliveryChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="dContact"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   Contact Number:
                 </label>
@@ -295,14 +279,14 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Contact Number"
                   value={dAddress.dContact}
-                  onChange={handleDeliveryChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="dAddress"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   Address:
                 </label>
@@ -313,14 +297,14 @@ export default function BookingForm() {
                   className="appearance-none border   w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Address"
                   value={dAddress.dAddress}
-                  onChange={handleDeliveryChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="dTown"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   Town:
                 </label>
@@ -331,14 +315,14 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Town"
                   value={dAddress.dTown}
-                  onChange={handleDeliveryChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="dCounty"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   County:
                 </label>
@@ -349,14 +333,14 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter County"
                   value={dAddress.dCounty}
-                  onChange={handleDeliveryChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
               <div className="mb-4 w-full">
                 <label
                   htmlFor="dCountry"
-                  className="block font-medium text-gray-700  mb-2 required"
+                  className="block font-medium text-gray-700  mb-2 "
                 >
                   Country:
                 </label>
@@ -367,15 +351,15 @@ export default function BookingForm() {
                   className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
                   placeholder="Enter Country"
                   value={dAddress.dCountry}
-                  onChange={handleDeliveryChange}
-                  required
+                  readOnly="readonly"
+                  
                 />
               </div>
             </div>
           </div>
         </div>
         <div className="flex flex-col md:order-first">
-          <h1 className=" text-2xl font-bold">Service Booked</h1>
+          <h1 className=" text-2xl font-bold">Tracked & Signed for</h1>
           <div className="flex flex-col w-full mt-5 rounded-md text-left justify-center">
             <div className="flex px-5 py-2 rounded-md bg-teal-700 items-center gap-5">
               <div className=" h-16 w-16 rounded-full bg-white">
@@ -408,197 +392,23 @@ export default function BookingForm() {
               </div>
               <div className="p-2 flex gap-1 items-center cursor-pointer  hover:bg-sky-200">
                 <CiBookmark />
-                <span className=" text-xs ">Print Required</span>
+                <span className=" text-xs ">Print </span>
               </div>
               <div className="p-2 flex gap-1 items-center cursor-pointer  hover:bg-sky-200">
                 <CiCircleInfo />
                 <span className=" text-xs">More Info</span>
               </div>
             </div>
-            <button className="p-5 m-auto mt-4 w-72   font-medium text-white rounded-3xl bg-orange-400 hover:shadow-lg hover:shadow-orange-300">
-              Change this Service
-            </button>
           </div>
+          <button
+          className="p-5 mt-5 m-auto w-64 font-medium text-white rounded-3xl bg-orange-400 hover:shadow-lg hover:shadow-orange-300"
+          type="submit"
+        >
+          Confirm and Pay
+        </button>
         </div>
-        <div className="col-span-2 flex justify-center md:col-span-1 ">
-          <div className="mx-auto w-full formBg p-4">
-            <h2 className="text-lg font-medium required">
-              Additional Information
-            </h2>
-            <div className="my-4 w-full">
-              <label
-                htmlFor="cDate"
-                className="block font-medium text-gray-700  mb-2 required"
-              >
-                Collection Date:
-              </label>
-              <input
-                type="date"
-                id="cDate"
-                name="cDate"
-                className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
-                placeholder="Enter Collection Date"
-                value={additional.cDate}
-                onChange={handleAdditionalChange}
-                required
-              />
-            </div>
-            <div className="my-4 w-full">
-              <label
-                htmlFor="pContent"
-                className="block font-medium text-gray-700  mb-2 required"
-              >
-                Package Content:
-              </label>
-              <input
-                type="text"
-                id="pContent"
-                name="pContent"
-                className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
-                placeholder="Enter Package Content"
-                value={additional.pContent}
-                onChange={handleAdditionalChange}
-                required
-              />
-            </div>
-            <div className="my-4 w-full">
-              <label
-                htmlFor="liability"
-                className="block font-medium text-gray-700  mb-2 required"
-              >
-                Extended Liability:
-              </label>
-              <input
-                type="radio"
-                name="liability"
-                value={true}
-                className="m-2"
-                onChange={handleAdditionalChange}
-                required
-              />
-              <label>
-                I want to extend the liability for my parcel (subject to the
-                restricted items list and Terms and Condition)
-              </label>
-              <br />
-              <input
-                type="radio"
-                name="liability"
-                value={false}
-                className="m-2"
-                onChange={handleAdditionalChange}
-                required
-              />
-              <label>
-                I want to opt-out thus declaring my item of negligible value
-              </label>
-            </div>
-            <div className="my-4 w-full">
-              <label
-                htmlFor="contentValue"
-                className="block font-medium text-gray-700  mb-2 required"
-              >
-                Value of Content:
-              </label>
-              <input
-                type="number"
-                id="contentValue"
-                name="contentValue"
-                className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
-                placeholder="Enter Value of Content"
-                value={additional.contentValue}
-                onChange={handleAdditionalChange}
-                required
-              />
-            </div>
-            {additional.liability == "true" && (
-              <div className="my-4 w-full">
-                <label
-                  htmlFor="extendedLiability"
-                  className="block font-medium text-gray-700  mb-2 required"
-                >
-                  Extended Liability (Max £1000 for this service):
-                </label>
-                <select
-                  id="extendedLiability"
-                  value={additional.extendedLiability}
-                  onChange={handleAdditionalChange}
-                  className="p-2 w-full"
-                  required
-                >
-                  <option value="No extended Liability Selected">
-                    No extended Liability Selected
-                  </option>
-                </select>
-              </div>
-            )}
-
-            <div className="my-4 w-full">
-              <label
-                htmlFor="notes"
-                className="block font-medium text-gray-700  mb-2 optional"
-              >
-                Courier Notes:
-              </label>
-              <input
-                type="text"
-                id="notes"
-                name="notes"
-                className="appearance-none border  w-full py-2 px-3 text-gray-700 leading-tight"
-                placeholder="Notes for the driver delivering the Items"
-                value={additional.notes}
-                onChange={handleAdditionalChange}
-              />
-            </div>
-          </div>
-        </div>
-        <div className="col-span-2 flex justify-center md:col-span-1">
-          <div className=" font-medium inline-flex gap-3 flex-col mx-auto w-full formBg p-4">
-            <h2 className="text-lg font-medium required">
-              Additional Information
-            </h2>
-            <label htmlFor="toc" className=" inline-flex items-center">
-              <input type="checkbox" className="m-3" required />
-              <p>
-                I agree to the{" "}
-                <a className=" text-blue-500" href="">
-                  Terms and Conditions
-                </a>{" "}
-                and{" "}
-                <a className=" text-blue-500" href="">
-                  Privacy Policy
-                </a>{" "}
-                and confirm that my shipment complies with the{" "}
-                <a className=" text-blue-500" href="">
-                  {" "}
-                  Restricted items{" "}
-                </a>
-                list and{" "}
-                <a className=" text-blue-500" href="">
-                  {" "}
-                  Packaging Guidelines
-                </a>
-                .
-              </p>
-            </label>
-            <label htmlFor="dim" className=" inline-flex items-center">
-              <input type="checkbox" className="m-3" required />I agree that if
-              the dimensions and weight of my parcel(s) are incorrect,
-              additional charges will be applied to my card based on information
-              provided by the courier.
-            </label>
-            <label htmlFor="val" className=" inline-flex items-center">
-              <input type="checkbox" className="m-3" required />I confirm that
-              the value of goods that I have declared is correct.
-            </label>
-            <button
-              className="p-5 w-64 font-medium text-white rounded-3xl bg-orange-400 hover:shadow-lg hover:shadow-orange-300"
-              type="submit"
-            >
-              Confirm Booking
-            </button>
-          </div>
-        </div>
+        
+       
       </form>
     </Suspense>
   );
