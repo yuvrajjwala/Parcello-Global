@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import Card from "../../Components/Result/Card.jsx";
 import logo from "../../assets/login/Parcello.svg";
@@ -6,7 +6,7 @@ import drop from "../../assets/Result/drop-off.png";
 import special from "../../assets/Result/special-services.png";
 import sameDay from "../../assets/Result/same-day.png";
 import all from "../../assets/Result/all.png";
-
+import { useLocation } from "react-router-dom";
 import collection from "../../assets/Result/collection.png";
 import { useState } from "react";
 
@@ -21,6 +21,15 @@ const Result = () => {
     { title: "Same Day", src: sameDay },
     { title: "All", src: all },
   ];
+  const [data, setData] = useState([]);
+  let location = useLocation();
+  useEffect(() => {
+    setData(location.state);
+  }, []);
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data]);
+  // console.log(location?.state);
   return (
     <div className="flex">
       <div
@@ -92,12 +101,16 @@ const Result = () => {
             </ul> */}
           </div>
           <div className="flex flex-wrap px-2 justify-center">
+            {data.map((item, index) => (
+              <Card data={item} />
+            ))}
+
+            {/* <Card />
             <Card />
             <Card />
             <Card />
             <Card />
-            <Card />
-            <Card />
+            <Card /> */}
           </div>
         </div>
         {/* <h1 className="text-2xl font-semibold ">H</h1> */}

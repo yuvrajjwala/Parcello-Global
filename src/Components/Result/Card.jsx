@@ -3,7 +3,9 @@ import logo from "../../assets/Result/citySprint.png";
 import { ImTruck } from "react-icons/im";
 import { AiFillPrinter } from "react-icons/ai";
 import { BsFillInfoCircleFill } from "react-icons/bs";
-const Card = () => {
+const Card = ({ data }) => {
+  // console.log(data);
+  // const price = MATH.round(data.price);
   return (
     <div className="flex rounded-[5px] flex-col max-w-[30vw] border-[1px] border-gray-300 mx-2 my-4">
       <div className="bg-[#02878A] flex px-2 py-2 items-center w-[100%] rounded-t-[5px]">
@@ -13,7 +15,8 @@ const Card = () => {
             CitySprint
           </h1>
           <p className="text-white font-light text-[12px] leading-[17px]">
-            Same Day Delivery (Push Bike)
+            {data.service_name}
+            {/* Same Day Delivery (Push Bike) */}
           </p>
         </div>
       </div>
@@ -25,8 +28,10 @@ const Card = () => {
       </div>
       <div className="flex justify-between mt-8 my-4 mx-4 items-center">
         <div className="flex flex-col">
-          <h1 className="text-blue-500 font-bold">$37.30</h1>
-          <p className="text-gray-600 text-[12px]">$44.75 inc VAT</p>
+          <h1 className="text-blue-500 font-bold">${data.price + 0.2}</h1>
+          <p className="text-gray-600 text-[12px]">
+            ${data.price + data.VAT} inc VAT
+          </p>
         </div>
         <button className="Capitalize bg-yellow-400 py-2 px-4 rounded-[25px] text-[12px] font-semibold min-w-[170px] hover:scale-110 trasition ease-in duration-300">
           Book this service
