@@ -8,6 +8,7 @@ const Dashboard = lazy(() => import("./Pages/dashboard/Dashboard.jsx"));
 const Home = lazy(() => import("./Pages/Home/Home"));
 const ResetPass = lazy(() => import("./pages/ResetPassword/ResetPass"));
 import Booking from "./Pages/Booking/Booking";
+import ReviewOrder from "./Pages/ReviewOrder/ReviewOrder";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -42,6 +43,7 @@ function App() {
           />
           <Route path="/result" element={<Result />}></Route>
           <Route path="/booking" element={<Booking />} />
+          <Route path="/reviewOrder" element={<ReviewOrder />} />
 
         </Routes>
       </Router>
