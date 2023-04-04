@@ -7,6 +7,7 @@ import { Button, Modal, Space } from "antd";
 import "./login.css";
 import axios from "../../api/axios";
 import AuthContext from "../../context/AuthContext";
+
 import {
   faCheck,
   faTimes,
@@ -154,7 +155,7 @@ const Login = ({ openLogin, setOpenLogin }) => {
         { email: loginEmail, password: loginPass },
         {
           headers: { "content-Type": "application/json" },
-          // withCredentials: true,
+          withCredentials: true,
         }
       );
       const accessToken = response?.data?.tokens?.access;

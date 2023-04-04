@@ -10,4 +10,7 @@ export default defineConfig({
   server: {
     watch: true,
   },
+  define: {
+    "process.env": process.env,
+  },
 });
