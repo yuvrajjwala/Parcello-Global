@@ -25,8 +25,7 @@ const GetQouteForm = () => {
   var min = 10;
   var max = 20;
   var rand = min + Math.random() * (max - min);
-//   rand = Math.round(rand * 100) / 100;
-  // let val=MATH.random();
+
   let navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
