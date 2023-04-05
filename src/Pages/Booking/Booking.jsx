@@ -8,8 +8,8 @@ export default function Booking() {
 
   return (
     <Suspense fallback={<div>Loading</div>}>
+      <Navbar />
       <div className="flex flex-col gap-5 mx-5">
-        <Navbar />
         <ProgressBar step={1} />
         <BookingForm />
       </div>

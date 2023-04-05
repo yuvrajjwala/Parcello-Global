@@ -1,5 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import "./Home.css";
+import AmaizingServices from "../../Components/Home/AmaizingServices/AmaizingServices";
+import LearnHow from "../../Components/Home/LearnHow/LearnHow";
 // import Testimonials from "../../Components/Testimonials/Testimonialss";
 
 const Navbar = lazy(() => import("../../Components/Navbar/Navbar"));
@@ -24,7 +26,9 @@ const Home = () => {
       <HeroSection />
       <GetQouteForm />
       <WhyUs />
+      <AmaizingServices/>
       <Destinations />
+      <LearnHow/>
       <Testimonials />
     </Suspense>
   );
