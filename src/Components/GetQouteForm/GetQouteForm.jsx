@@ -20,16 +20,13 @@ const GetQouteForm = () => {
   const [distance, setDistance] = useState("10");
   const [serviceType, setServiceType] = useState("same Day");
 
-  useEffect(() => {
-    console.log("h", height);
-  }, [height]);
-  useEffect(() => {
-    console.log("w", width);
-  }, [width]);
-  useEffect(() => {
-    console.log("l", length);
-  }, [length]);
-
+  //   const [j, setJ] = useState(0);
+  //   const arr = [10, 12, 13, 14, 15, 17, 18, 19, 22];
+  var min = 10;
+  var max = 20;
+  var rand = min + Math.random() * (max - min);
+//   rand = Math.round(rand * 100) / 100;
+  // let val=MATH.random();
   let navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -49,13 +46,14 @@ const GetQouteForm = () => {
           Length: length,
           Height: height,
           Width: width,
-          Distance: distance,
+          Distance: rand,
           service_type: serviceType,
         },
         {
           headers: { "content-Type": "application/json" },
         }
       );
+
       const Data = await response?.data;
 
       console.log(Data);
