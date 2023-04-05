@@ -30,22 +30,21 @@ const GetQouteForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    //  try{
-
-    //  }
-    //  catch(e){
-    //    console.log(e);
-    //  }
     try {
-      //  const response = await axios.get(DELIVERY_URL);
-
+      const distanceRes = await axios.get(
+        `https://maps.googleapis.com/maps/api/distancematrix/json?&origins=${source}&destinations=${destination}"&key=${apiKey}`
+      );
+      let currDst = Math.round(
+        distanceRes.data.rows[0]?.elements[0]?.distance?.value / 10000
+      );
+      console.log(currDst);
       const response = await axios.post(
         DELIVERY_URL,
         {
-          Length: length,
-          Height: height,
-          Width: width,
-          Distance: rand,
+          Length: parseInt(length),
+          Height: parseInt(height),
+          Width: parseInt(width),
+          Distance: currDst,
           service_type: serviceType,
         },
         {
@@ -62,9 +61,9 @@ const GetQouteForm = () => {
       console.log(e);
     }
   };
-  useEffect(() => {
-    console.log(source);
-  }, [source]);
+  // useEffect(() => {
+  //   console.log(source);
+  // }, [source]);
 
   return (
     <div className="getQouteForm">
