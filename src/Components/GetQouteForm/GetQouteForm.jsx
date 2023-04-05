@@ -7,18 +7,7 @@ import calendar from "../../assets/Home/calendar.svg";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../api/axios";
-import React from "react";
-import "./GetQouteForm.css";
-import location from "../../assets/Home/location.svg";
-import downArrow from "../../assets/Home/downArrow.svg";
-import to from "../../assets/Home/to.svg";
-import calendar from "../../assets/Home/calendar.svg";
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "../../api/axios";
 
-const apiKey = import.meta.env.VITE_API_KEY;
-const DELIVERY_URL = "/api/couriers/fetchbydelivery/";
 const apiKey = import.meta.env.VITE_API_KEY;
 const DELIVERY_URL = "/api/couriers/fetchbydelivery/";
 const GetQouteForm = () => {
@@ -76,15 +65,7 @@ const GetQouteForm = () => {
         <span className="tryCalculatorHeading">
           Try our shipping calculator
         </span>
-    <div className="getQouteForm">
-      <div>
-        <span className="tryCalculatorHeading">
-          Try our shipping calculator
-        </span>
       </div>
-      <form className="formGetQoute" onSubmit={handleSubmit}>
-        <div className="form-field">
-          <div className="form-field-container">
       <form className="formGetQoute" onSubmit={handleSubmit}>
         <div className="form-field">
           <div className="form-field-container">
@@ -98,24 +79,10 @@ const GetQouteForm = () => {
                   setSource(e.target.value);
                 }}
               />
-              <h2>From</h2>
-              <input
-                type="text"
-                placeholder="Enter Pincode"
-                onChange={(e) => {
-                  setSource(e.target.value);
-                }}
-              />
             </div>
           </div>
           {/* <div className='downArrow'>
-          </div>
-          {/* <div className='downArrow'>
                <img src={downArrow}></img>
-            </div> */}
-        </div>
-        <div className="form-field">
-          <div className="form-field-container">
             </div> */}
         </div>
         <div className="form-field">
@@ -130,14 +97,6 @@ const GetQouteForm = () => {
                   setDestination(e.target.value);
                 }}
               />
-              <h2>To</h2>
-              <input
-                type="text"
-                placeholder="Enter Pincode"
-                onChange={(e) => {
-                  setDestination(e.target.value);
-                }}
-              />
             </div>
           </div>
           {/* <div className="downArrow">
@@ -156,28 +115,7 @@ const GetQouteForm = () => {
                 }}
               />
               <span>m</span>
-          </div>
-          {/* <div className="downArrow">
-            <img src={downArrow}></img>
-          </div> */}
-        </div>
-        <div className="form-field">
-          <div className="form-field-container">
-            <img src={calendar}></img>
-            <div>
-              <h2>Width?</h2>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setWidth(e.target.value);
-                }}
-              />
-              <span>m</span>
             </div>
-          </div>
-        </div>
-        <div className="form-field">
-          <div className="form-field-container">
           </div>
         </div>
         <div className="form-field">
@@ -192,36 +130,7 @@ const GetQouteForm = () => {
                 }}
               />
               <span>m</span>
-              <h2>length?</h2>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setLength(e.target.value);
-                }}
-              />
-              <span>m</span>
             </div>
-          </div>
-        </div>
-        <div className="form-field">
-          <div className="form-field-container">
-            <img src={calendar}></img>
-            <div>
-              <h2>height?</h2>
-              <input
-                type="text"
-                onChange={(e) => {
-                  setHeight(e.target.value);
-                }}
-              />
-              <span>m</span>
-            </div>
-          </div>
-        </div>
-        <div className="get-qoute">
-          <button type="submit">Get Qoute</button>
-        </div>
-      </form>
           </div>
         </div>
         <div className="form-field">
@@ -244,10 +153,6 @@ const GetQouteForm = () => {
         </div>
       </form>
     </div>
-  );
-};
-
-export default GetQouteForm;
   );
 };
 
