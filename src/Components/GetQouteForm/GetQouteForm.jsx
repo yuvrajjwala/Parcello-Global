@@ -20,12 +20,6 @@ const GetQouteForm = () => {
   const [distance, setDistance] = useState("10");
   const [serviceType, setServiceType] = useState("same Day");
 
-  //   const [j, setJ] = useState(0);
-  //   const arr = [10, 12, 13, 14, 15, 17, 18, 19, 22];
-  var min = 10;
-  var max = 20;
-  var rand = min + Math.random() * (max - min);
-
   let navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -35,9 +29,9 @@ const GetQouteForm = () => {
         `https://maps.googleapis.com/maps/api/distancematrix/json?&origins=${source}&destinations=${destination}"&key=${apiKey}`
       );
       let currDst = Math.round(
-        distanceRes.data.rows[0]?.elements[0]?.distance?.value / 10000
+        distanceRes.data.rows[0]?.elements[0]?.distance?.value / 1000
       );
-      console.log(currDst);
+      // console.log(currDst);
       const response = await axios.post(
         DELIVERY_URL,
         {
