@@ -18,10 +18,10 @@ function LearnHow() {
               tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
             </span>
           </div>
-          <div className="flex flex-row items-start p-0 gap-8 md:flex-col">
+          <div className="flex  flex-row items-start p-0 gap-8 md:flex-col">
             {/* card1 */}
             <div className="flex flex-col items-center p-0 gap-6">
-              <div className="w-72 h-96">
+              <div className="w-[352px] h-[480px]">
                 <img
                   src={learn1}
                   className=" w-fill h-full object-cover"
@@ -43,7 +43,7 @@ function LearnHow() {
 
             {/* card1 */}
             <div className="flex flex-col items-center p-0 gap-6">
-              <div className="w-72 h-96">
+              <div className="w-[352px] h-[480px]">
                 <img
                   src={learn2}
                   className=" w-fill h-full object-cover"
@@ -65,7 +65,7 @@ function LearnHow() {
 
             {/* card1 */}
             <div className="flex flex-col items-center p-0 gap-6">
-              <div className="w-72 h-96">
+              <div className="w-[352px] h-[480px]">
                 <img
                   src={learn3}
                   className=" w-fill h-full object-cover"
