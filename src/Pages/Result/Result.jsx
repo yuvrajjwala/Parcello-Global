@@ -29,6 +29,7 @@ const Result = () => {
   // useEffect(() => {
   //   console.log(data);
   // }, [data]);
+  
   // console.log(location?.state);
   return (
     <div className="flex">
