@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import "./Home.css";
 import AmaizingServices from "../../Components/Home/AmaizingServices/AmaizingServices";
 import LearnHow from "../../Components/Home/LearnHow/LearnHow";
+import FAQ from "../../Components/Home/FAQ/FAQ";
 // import Testimonials from "../../Components/Testimonials/Testimonialss";
 
 const Navbar = lazy(() => import("../../Components/Navbar/Navbar"));
@@ -21,7 +22,7 @@ const Destinations = lazy(() =>
 
 const Home = () => {
   return (
-    <Suspense fallback={<div></div>}>
+    <Suspense fallback={<div>lOADING</div>}>
       <Navbar />
       <HeroSection />
       <GetQouteForm />
@@ -30,6 +31,7 @@ const Home = () => {
       <Destinations />
       <LearnHow/>
       <Testimonials />
+      <FAQ />
     </Suspense>
   );
 };
