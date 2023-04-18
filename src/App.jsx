@@ -11,6 +11,7 @@ import Booking from "./Pages/Booking/Booking";
 import ReviewOrder from "./Pages/ReviewOrder/ReviewOrder";
 import Signin from "./Pages/Signin/Signin";
 import Signup from "./Pages/Signup/Signup";
+import Otp from "./Pages/OTP/Otp";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -48,6 +49,7 @@ function App() {
           <Route path="/reviewOrder" element={<ReviewOrder />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/signup/otp" element={<Otp />} />
         </Routes>
       </Router>
     </div>

@@ -10,6 +10,7 @@ import axios from "../../api/axios";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 const DELIVERY_URL = "/api/couriers/fetchbydelivery/";
+const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const GetQouteForm = () => {
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
@@ -27,8 +28,8 @@ const GetQouteForm = () => {
     try {
       const distanceRes = await axios.get(
         `https://maps.googleapis.com/maps/api/distancematrix/json?&origins=${
-          source + ",UK"
-        }&destinations=${destination + ",UK"}"&&units=imperial&key=${apiKey}`
+          source + ",IND"
+        }&destinations=${destination + ",IND"}"&&units=imperial&key=${apiKey}`
       );
       let currDst = Math.round(
         distanceRes.data.rows[0]?.elements[0]?.distance?.value / 1000 / 1.6

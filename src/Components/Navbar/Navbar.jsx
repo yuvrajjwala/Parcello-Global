@@ -10,7 +10,7 @@ import { useState, useEffect } from "react";
 import Login from "../../Components/login/Login";
 
 const Navbar = () => {
-  const [openLogin, setOpenLogin] = useState(false);
+  // const [openLogin, setOpenLogin] = useState(false);
 
   return (
     <div className="navbar">
@@ -23,26 +23,33 @@ const Navbar = () => {
         <ul>
           <li>Ship A Package</li>
           <li>Tracking</li>
-          <li
-            onClick={() => {
-              setOpenLogin(true);
-            }}
-          >
-            Login
+          <li>
+            <NavLink
+              to="/signin"
+              // onClick={() => {
+              //   setOpenLogin(true);
+              // }}
+            >
+              Login
+            </NavLink>
           </li>
-          {/* <li
-            onClick={() => {
-              setOpenLogin(true);
-            }}
-          >
-            Signup
-          </li> */}
+          <li>
+            <NavLink
+              to="/signup"
+              // onClick={() => {
+              //   setOpenLogin(true);
+              // }}
+            >
+              Signup
+            </NavLink>
+          </li>
+
           <img src={search}></img>
           <img src={cart}></img>
           <img src={ham}></img>
         </ul>
       </div>
-      {openLogin ? <Login setOpenLogin={setOpenLogin} openLogin={openLogin}/> : <></>}
+      {/* {openLogin ? <Login setOpenLogin={setOpenLogin} openLogin={openLogin}/> : <></>} */}
     </div>
   );
 };

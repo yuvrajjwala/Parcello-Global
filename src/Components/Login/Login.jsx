@@ -155,7 +155,7 @@ const Login = ({ openLogin, setOpenLogin }) => {
         { email: loginEmail, password: loginPass },
         {
           headers: { "content-Type": "application/json" },
-          withCredentials: true,
+          // withCredentials: true,
         }
       );
       const accessToken = response?.data?.tokens?.access;

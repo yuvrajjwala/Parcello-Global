@@ -2,25 +2,60 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import logo from "../../assets/Navbar/parcello.png";
+import axios from "../../api/axios";
+import AuthContext from "../../context/AuthContext";
+
+const LOGIN_URL = "/auth/users/API/login/";
 
 export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
 
-  const submitHandler = async (e) => {
-    e.preventDefault();
-    const body = {
-      email: email,
-      password: password,
-    };
-    console.log(body);
-  };
+  // const submitHandler = async (e) => {
+  //   e.preventDefault();
+  //   const body = {
+  //     email: email,
+  //     password: password,
+  //   };
+  //   console.log(body);
+  // };
 
+  const handleLoginSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await axios.post(
+        LOGIN_URL,
+        { email: email, password: password },
+        {
+          headers: { "content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      const accessToken = response?.data?.tokens?.access;
+      const refreshToken = response?.data?.tokens?.refresh;
+
+      // const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      updateAuth({
+        email: email,
+        // password: loginPass,
+        accessToken,
+        refreshToken,
+      });
+      setEmail("");
+      setPassword("");
+      console.log("logged in");
+    } catch (e) {
+      if (e.response?.status === 403) {
+        error("Invalid Email id");
+      }
+    }
+  };
   return (
     <div className="flex h-screen">
       <div className="formBg h-full w-2/5 flex items-center justify-center md:hidden"></div>
-      <form className="mx-auto flex justify-center items-start flex-col gap-8 w-80">
+      <form className="mx-auto flex justify-center items-start flex-col gap-8 w-80" onSubmit={handleLoginSubmit}>
         <div className=" my-5 h-5 flex">
           <h1 className="text-lg font-bold">Parcello</h1>
           <img src={logo} className="h-full w-full" alt="" />
@@ -63,15 +98,15 @@ export default function Signin() {
             {isVisible ? (
               <AiOutlineEye className="text-slate-500" />
             ) : (
-              <AiOutlineEyeInvisible  className="text-slate-500"/>
+              <AiOutlineEyeInvisible className="text-slate-500" />
             )}
           </button>
         </div>
-        
+
         <button
           className="bg-[#02878A] text-white w-full h-10 rounded-lg cursor-pointer disabled:bg-slate-500"
           type="submit"
-          onClick={submitHandler}
+          // onClick={submitHandler}
           disabled={email.length == 0 || password.length == 0 ? true : false}
         >
           Sign In
