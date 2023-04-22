@@ -9,7 +9,7 @@ function HeroSectionNew() {
       <div className="flex flex-col justify-center items-center px-40 relative  max-h-5xl h-screen bg-[#008185] overflow-hidden">
         <div className="flex flex-row justify-center items-center w-full">
           <h1 className=" font-dm font-bold text-6xl text-white z-10 flex-wrap">
-            Compare and book <span className=" text-yellow-400"> low cost</span>{" "}
+            Compare and book <span className=" text-[#FFB526]"> low cost</span>{" "}
             shipping services
           </h1>
           <div className="relative flex flex-row items-center p-0 justify-center w-full">
