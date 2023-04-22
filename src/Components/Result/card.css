@@ -1,0 +1,14 @@
+.citysprint {
+  background-image: url(../../assets/Result/citysprint.svg);
+}
+
+.dpd {
+  background-image: url(../../assets/Result/DpD.svg);
+}
+.dhl {
+  background-image: url(../../assets/Result/dhl.svg);
+}
+
+.crd {
+  box-shadow: 10px 40px 64px 10px rgba(15, 15, 15, 0.1);
+}

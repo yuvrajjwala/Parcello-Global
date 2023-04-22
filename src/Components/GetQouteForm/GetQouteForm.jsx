@@ -28,8 +28,8 @@ const GetQouteForm = () => {
     try {
       const distanceRes = await axios.get(
         `https://maps.googleapis.com/maps/api/distancematrix/json?&origins=${
-          source + ",IND"
-        }&destinations=${destination + ",IND"}"&&units=imperial&key=${apiKey}`
+          source + ",UK"
+        }&destinations=${destination + ",UK"}"&&units=imperial&key=${apiKey}`
       );
       let currDst = Math.round(
         distanceRes.data.rows[0]?.elements[0]?.distance?.value / 1000 / 1.6
