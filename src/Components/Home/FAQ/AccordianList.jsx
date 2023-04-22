@@ -6,7 +6,7 @@ function AccordianList({ content }) {
   return (
     <>
       {content.map((con , i) => (
-       <Accordian con = {con} i = {i} />
+       <Accordian key = {i} con = {con} i = {i} />
       ))}
     </>
   );
