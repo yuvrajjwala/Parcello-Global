@@ -73,7 +73,7 @@ export default function HeroForm() {
   return (
     <form className="heroForm w-full" onSubmit={handleSubmit}>
       <div className="flex flex-col justify-center items-center  gap-7 w-full">
-        <div className="flex flex-row items-center gap-5 justify-center p-0 ">
+        <div className="flex flex-row items-center min-w-[85%] gap-5 justify-start p-0 ">
           <h1 className="font-bold text-lg ">Try Our Shipping Calculator</h1>
           <div
             onClick={() => {
@@ -106,13 +106,13 @@ export default function HeroForm() {
             Same Day
           </div>
         </div>
-        <div className="flex items-center p-0 gap-10 w-full justify-center">
+        <div className="flex items-center p-0 gap-10 min-w-[85%] justify-between formHero">
           {type == "Domestic" && (
             <>
-              <div className="flex items-center mr-2 gap-2">
+              <div className="flex items-center mr-2 gap-2 w-full">
                 {/* logo */}
                 <CiLocationOn className=" text-4xl" />
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                   <span className="font-semibold text-[24px] leading-[32px]">
                     From
                   </span>
@@ -122,14 +122,14 @@ export default function HeroForm() {
                     onChange={(e) => setFrom(e.target.value)}
                     placeholder="Enter City"
                     required
-                    className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] bg-transparent"
+                    className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
                   />
                 </div>
               </div>
-              <div className="flex items-center mr-2 gap-2">
+              <div className="flex items-center mr-2 gap-2 w-full">
                 {/* logo */}
                 <CiLocationArrow1 className=" text-4xl" />
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                   <span className="font-semibold text-[24px] leading-[32px]">
                     To
                   </span>
@@ -139,7 +139,7 @@ export default function HeroForm() {
                     onChange={(e) => setTo(e.target.value)}
                     placeholder="Enter City"
                     required
-                    className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] bg-transparent"
+                    className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
                   />
                 </div>
               </div>
@@ -147,10 +147,10 @@ export default function HeroForm() {
           )}
           {type == "Same Day" && (
             <>
-              <div className="flex items-center mr-2 gap-2">
+              <div className="flex items-center mr-2 gap-2 w-full">
                 {/* logo */}
                 <CiLocationOn className=" text-4xl" />
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                   <span className="font-semibold text-[24px] leading-[32px]">
                     From
                   </span>
@@ -160,14 +160,14 @@ export default function HeroForm() {
                     onChange={(e) => setFromZip(e.target.value)}
                     placeholder="Enter Zip Code"
                     required
-                    className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] bg-transparent"
+                    className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
                   />
                 </div>
               </div>
-              <div className="flex items-center mr-2 gap-2">
+              <div className="flex items-center mr-2 gap-2 w-full">
                 {/* logo */}
                 <CiLocationArrow1 className=" text-4xl" />
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                   <span className="font-semibold text-[24px] leading-[32px]">
                     To
                   </span>
@@ -177,7 +177,7 @@ export default function HeroForm() {
                     onChange={(e) => setToZip(e.target.value)}
                     placeholder="Enter Zip Code"
                     required
-                    className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] bg-transparent"
+                    className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
                   />
                 </div>
               </div>
@@ -185,10 +185,10 @@ export default function HeroForm() {
           )}
           {type == "International" && (
             <>
-              <div className="flex items-center mr-2 gap-2">
+              <div className="flex items-center mr-2 gap-2 w-full">
                 {/* logo */}
                 <CiLocationOn className=" text-4xl" />
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full ">
                   <span className="font-semibold text-[24px] leading-[32px]">
                     From
                   </span>
@@ -196,19 +196,19 @@ export default function HeroForm() {
                     type="text"
                     value="United Kingdom"
                     readOnly
-                    className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] bg-transparent"
+                    className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
                   />
                 </div>
               </div>
               <div className="flex items-center mr-2 gap-2">
                 {/* logo */}
                 <CiLocationArrow1 className=" text-4xl" />
-                <div className="flex flex-col">
+                <div className="flex flex-col w-full">
                   <span className="font-semibold text-[24px] leading-[32px]">
                     To
                   </span>
                   <select
-                    className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
+                    className="border-b-[1px] w-[250px] focus:outline-none hover:outline-none my-[1px] bg-transparent"
                     value={selectedOption}
                     onChange={handleSelect}
                   >
@@ -221,7 +221,7 @@ export default function HeroForm() {
             </>
           )}
           <button
-            className="flex justify-center items-center py-4 px-6 text-white bg-[#008185] rounded-[90px]"
+            className="flex w-full min-w-[300px] max-w-[300px]  justify-center items-center py-4 px-6 text-white bg-[#008185] rounded-[90px]"
             type="submit"
           >
             Get Quote
