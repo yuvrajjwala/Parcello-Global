@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import Card from "../../Components/Result/Card.jsx";
+import StaticCard from "../../Components/Result/StaticCard.jsx";
 import logo from "../../assets/login/Parcello.svg";
 import drop from "../../assets/Result/drop-off.png";
 import special from "../../assets/Result/special-services.png";
@@ -10,10 +10,14 @@ import { useLocation } from "react-router-dom";
 import collection from "../../assets/Result/collection.png";
 import tape from "../../assets/Result/tape.jpg";
 import wtIcon from "../../assets/Result/weight.png";
+import axios from "../../api/axios";
 import { useState } from "react";
+import Card from "../../Components/Result/Card.jsx";
+
 import "./result.css";
 
 import control from "../../assets/control.png";
+const DELIVERY_URL = "/api/couriers/fetchbydelivery/";
 
 const Result = () => {
   const [open, setOpen] = useState(true);
@@ -37,11 +41,35 @@ const Result = () => {
   const [length, setLength] = useState("");
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
-  const [weight, setWeight] = useState ("");
+  const [weight, setWeight] = useState(0);
+  const [serviceType, setServiceType] = useState("Same Day");
+  const [distance, setDistance] = useState(15);
+  const [data, setData] = useState([]);
+  const [toggleStatic, setToggleStatic] = useState(true);
 
-  const handleSubmit = () => {
-    console.log();
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const response = await axios.post(
+      DELIVERY_URL,
+      {
+        Length: parseInt(length),
+        Height: parseInt(height),
+        Width: parseInt(width),
+        Weight: parseInt(weight),
+        Distance: distance,
+        service_type: serviceType,
+      },
+      {
+        headers: { "content-Type": "application/json" },
+      }
+    );
+    const Data = await response?.data;
+    setData(response.data);
+    setToggleStatic(false);
+
+    // console.log(data);
   };
+
   return (
     <div className="flex page">
       {/* <div
@@ -122,7 +150,7 @@ const Result = () => {
               </div>
             </div>
             <div className="my-2 flex items-center">
-              <form action="" className="flex" onSubmit={handleSubmit}>
+              <form className="flex" onSubmit={handleSubmit}>
                 <div className="flex items-center mr-2">
                   {/* logo */}
                   <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
@@ -134,6 +162,7 @@ const Result = () => {
                       type="text"
                       placeholder="in cm"
                       className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] "
+                      onChange={(e) => setLength(e.target.value)}
                     />
                   </div>
                 </div>
@@ -149,6 +178,7 @@ const Result = () => {
                         type="text"
                         placeholder="in cm"
                         className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] "
+                        onChange={(e) => setWidth(e.target.value)}
                       />
                     </div>
                   </div>
@@ -165,6 +195,7 @@ const Result = () => {
                         type="text"
                         placeholder="in cm"
                         className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] "
+                        onChange={(e) => setHeight(e.target.value)}
                       />
                     </div>
                   </div>
@@ -181,6 +212,7 @@ const Result = () => {
                         type="text"
                         placeholder="in Kg"
                         className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] "
+                        onChange={(e) => setWeight(e.target.value)}
                       />
                     </div>
                   </div>
@@ -202,13 +234,15 @@ const Result = () => {
               </p>
             </div>
             <div className="flex flex-wrap px-2 justify-center py-4 my-4 bg-white calculator-background rounded-[24px] ">
-              {/* {data.map((item, index) => (
-              <Card data={item} />
-            ))} */}
-
-              <Card company="citysprint" />
-              <Card company="dpd" />
-              <Card company="dhl" />
+              {toggleStatic ? (
+                <>
+                  <StaticCard company="citysprint" />
+                  <StaticCard company="dpd" />
+                  <StaticCard company="dhl" />
+                </>
+              ) : (
+                data.map((item, index) => <Card data={item} />)
+              )}
             </div>
           </div>
         </div>

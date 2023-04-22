@@ -35,25 +35,25 @@ const GetQouteForm = () => {
         distanceRes.data.rows[0]?.elements[0]?.distance?.value / 1000 / 1.6
       );
       // console.log(currDst);
-      const response = await axios.post(
-        DELIVERY_URL,
-        {
-          Length: parseInt(length),
-          Height: parseInt(height),
-          Width: parseInt(width),
-          Distance: currDst,
-          service_type: serviceType,
-        },
-        {
-          headers: { "content-Type": "application/json" },
-        }
-      );
+      // const response = await axios.post(
+      //   DELIVERY_URL,
+      //   {
+      //     Length: parseInt(length),
+      //     Height: parseInt(height),
+      //     Width: parseInt(width),
+      //     Distance: currDst,
+      //     service_type: serviceType,
+      //   },
+      //   {
+      //     headers: { "content-Type": "application/json" },
+      //   }
+      // );
 
-      const Data = await response?.data;
+      // const Data = await response?.data;
 
-      console.log(Data);
-      setData(response.data);
-      navigate("/result", { state: Data });
+      // console.log(Data);
+      // setData(response.data);
+      // navigate("/result", { state: Data });
     } catch (e) {
       console.log(e);
     }
