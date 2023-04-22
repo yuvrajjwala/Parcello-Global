@@ -3,6 +3,7 @@ import "./Home.css";
 import AmaizingServices from "../../Components/Home/AmaizingServices/AmaizingServices";
 import LearnHow from "../../Components/Home/LearnHow/LearnHow";
 import FAQ from "../../Components/Home/FAQ/FAQ";
+import HeroSectionNew from "../../Components/Home/HeroSectionNew/HeroSectionNew";
 // import Testimonials from "../../Components/Testimonials/Testimonialss";
 
 const Navbar = lazy(() => import("../../Components/Navbar/Navbar"));
@@ -24,8 +25,9 @@ const Home = () => {
   return (
     <Suspense fallback={<div>lOADING</div>}>
       <Navbar />
-      <HeroSection />
-      <GetQouteForm />
+      {/* <HeroSection /> */}
+      <HeroSectionNew />
+      {/* <GetQouteForm /> */}
       <WhyUs />
       <AmaizingServices/>
       <Destinations />
