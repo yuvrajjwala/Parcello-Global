@@ -48,11 +48,14 @@ const Card = ({ data, serviceType }) => {
       </div>
       <div className="flex justify-between mt-8 my-4 mx-4 items-center">
         <div className="flex flex-col">
-          <h1 className="text-blue-500 font-bold">${data.price.toFixed(2)}</h1>
+          <h1 className="text-blue-500 font-bold">
+            &#163;{data.price.toFixed(2)}
+          </h1>
           {/* <h1 className="text-blue-500 font-bold">$2</h1> */}
 
           <p className="text-gray-600 text-[12px]">
-            {/* $23 inc VAT */}${(data.price + data.VAT).toFixed(2)} inc VAT
+            {/* $23 inc VAT */}&#163;{(data.price + data.VAT).toFixed(2)} inc
+            VAT
           </p>
         </div>
         <button className="Capitalize bg-yellow-400 py-2 px-4 rounded-[25px] text-[12px] font-semibold min-w-[170px] hover:scale-110 trasition ease-in duration-300">
