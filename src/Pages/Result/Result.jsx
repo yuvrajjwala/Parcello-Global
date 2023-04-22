@@ -3,6 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import StaticCard from "../../Components/Result/StaticCard.jsx";
 import logo from "../../assets/login/Parcello.svg";
 import drop from "../../assets/Result/drop-off.png";
+
 import special from "../../assets/Result/special-services.png";
 import sameDay from "../../assets/Result/same-day.png";
 import all from "../../assets/Result/all.png";
@@ -30,7 +31,7 @@ const Result = () => {
   // ];
   // const [data, setData] = useState([]);
 
-  // let location = useLocation();
+  let location = useLocation();
   // useEffect(() => {
   //   setData(location.state);
   // }, []);
@@ -46,25 +47,74 @@ const Result = () => {
   const [distance, setDistance] = useState(15);
   const [data, setData] = useState([]);
   const [toggleStatic, setToggleStatic] = useState(true);
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+
+  useEffect(() => {
+    if (location?.state?.body?.service === "Same Day") {
+      setDistance(location?.state?.body?.dist);
+    } else {
+      setFrom(location?.state?.body?.from);
+      setTo(location?.state?.body?.to);
+    }
+
+    setServiceType(location?.state?.body?.service);
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const response = await axios.post(
-      DELIVERY_URL,
-      {
-        Length: parseInt(length),
-        Height: parseInt(height),
-        Width: parseInt(width),
-        Weight: parseInt(weight),
-        Distance: distance,
-        service_type: serviceType,
-      },
-      {
-        headers: { "content-Type": "application/json" },
-      }
-    );
-    const Data = await response?.data;
-    setData(response.data);
+    let Data;
+    if (serviceType === "Same Day") {
+      const response = await axios.post(
+        DELIVERY_URL,
+        {
+          Length: parseInt(length),
+          Height: parseInt(height),
+          Width: parseInt(width),
+          Weight: parseInt(weight),
+          Distance: distance,
+          service_type: serviceType,
+        },
+        {
+          headers: { "content-Type": "application/json" },
+        }
+      );
+      Data = await response?.data;
+      setData(response.data);
+    } else if (serviceType === "International") {
+      const response = await axios.post(
+        DELIVERY_URL,
+        {
+          Length: parseInt(length),
+          Height: parseInt(height),
+          Width: parseInt(width),
+          From: from,
+          To: to,
+          Service: serviceType,
+        },
+        {
+          headers: { "content-Type": "application/json" },
+        }
+      );
+      Data = await response?.data;
+      setData(response.data);
+    } else if (serviceType === "Domestic") {
+      const response = await axios.post(
+        DELIVERY_URL,
+        {
+          Distance: distance,
+          service_type: serviceType,
+        },
+        {
+          headers: { "content-Type": "application/json" },
+        }
+      );
+      Data = await response?.data;
+      setData(response.data);
+    } else {
+      console.log("invalid service type");
+    }
+
     setToggleStatic(false);
 
     // console.log(data);
@@ -146,10 +196,10 @@ const Result = () => {
                 Try our shipping calculator
               </div>
               <div className="bg-[#008185] border-[2px] border-[#FFFFFF] rounded-[90px] px-4 py-2 font-bold text-[14px] leading-[16px] text-right text-white ml-2">
-                Domestic
+                {serviceType}
               </div>
             </div>
-            <div className="my-2 flex items-center">
+            <div className="my-2 flex items-center justify-center">
               <form className="flex" onSubmit={handleSubmit}>
                 <div className="flex items-center mr-2">
                   {/* logo */}
@@ -163,6 +213,7 @@ const Result = () => {
                       placeholder="in cm"
                       className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] "
                       onChange={(e) => setLength(e.target.value)}
+                      required
                     />
                   </div>
                 </div>
@@ -179,6 +230,7 @@ const Result = () => {
                         placeholder="in cm"
                         className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] "
                         onChange={(e) => setWidth(e.target.value)}
+                        required
                       />
                     </div>
                   </div>
@@ -241,7 +293,7 @@ const Result = () => {
                   <StaticCard company="dhl" />
                 </>
               ) : (
-                data.map((item, index) => <Card data={item} />)
+                data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
               )}
             </div>
           </div>

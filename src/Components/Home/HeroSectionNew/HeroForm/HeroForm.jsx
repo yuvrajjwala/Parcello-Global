@@ -19,7 +19,7 @@ export default function HeroForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let currDist
+    let currDist;
     try {
       const distanceRes = await axios.get(
         `https://maps.googleapis.com/maps/api/distancematrix/json?&origins=${
@@ -30,36 +30,35 @@ export default function HeroForm() {
       currDist = Math.round(
         distanceRes.data.rows[0]?.elements[0]?.distance?.value / 1000 / 1.6
       );
-    } catch (e) {
-    }
-    
-    let body
-    if(type == "Domestic"){
+    } catch (e) {}
+
+    let body;
+    if (type == "Domestic") {
       body = {
-        service : "Domestic",
-        from : type,
-        to : to,
-      }
-    }else if(type == "International"){
+        service: "Domestic",
+        from: type,
+        to: to,
+      };
+    } else if (type == "International") {
       body = {
-        service : "International",
-        from : "United Kingdom",
-        to : selectedOption,
-      }
-    }else if(type == "Same Day"){
+        service: "International",
+        from: "United Kingdom",
+        to: selectedOption,
+      };
+    } else if (type == "Same Day") {
       body = {
-        service : "Same Day",
-        dist : currDist
-      }
-    }else{
-      alert("error")
+        service: "Same Day",
+        dist: currDist,
+      };
+    } else {
+      alert("error");
     }
 
-    if(body && currDist){
-      console.log(body)
+    if (body) {
+      console.log(body);
       navigate("/result", {
         state: {
-          body
+          body,
         },
       });
     }
@@ -105,10 +104,7 @@ export default function HeroForm() {
           {type == "Domestic" && (
             <>
               <div className="flex flex-col">
-                <label className=" font-semibold">
-                  {" "}
-                  From
-                </label>
+                <label className=" font-semibold"> From</label>
                 <input
                   className=" border-b-2 border-slate-300 outline-none"
                   type="text"
@@ -119,10 +115,7 @@ export default function HeroForm() {
                 />
               </div>
               <div className="flex flex-col">
-                <label className=" font-semibold">
-                  {" "}
-                  To
-                </label>
+                <label className=" font-semibold"> To</label>
                 <input
                   className=" border-b-2 border-slate-300 outline-none"
                   type="text"
@@ -137,9 +130,7 @@ export default function HeroForm() {
           {type == "Same Day" && (
             <>
               <div className="flex flex-col">
-                <label className=" font-semibold">
-                  From
-                </label>
+                <label className=" font-semibold">From</label>
                 <input
                   className=" border-b-2 border-slate-300 outline-none"
                   type="text"
@@ -150,9 +141,7 @@ export default function HeroForm() {
                 />
               </div>
               <div className="flex flex-col">
-                <label className=" font-semibold">
-                  To
-                </label>
+                <label className=" font-semibold">To</label>
                 <input
                   className=" border-b-2 border-slate-300 outline-none"
                   type="text"
@@ -189,7 +178,10 @@ export default function HeroForm() {
               </div>
             </>
           )}
-          <button className="flex justify-center items-center py-4 px-6 text-white bg-[#008185] rounded-[90px]" type="submit">
+          <button
+            className="flex justify-center items-center py-4 px-6 text-white bg-[#008185] rounded-[90px]"
+            type="submit"
+          >
             Get Quote
           </button>
         </div>
