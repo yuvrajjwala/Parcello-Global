@@ -101,7 +101,7 @@ export default function HeroForm() {
                   className=" border-b-2 border-slate-300 outline-none"
                   type="text"
                   value={from}
-                  onChange={(e) = setFrom(e.target.value)}
+                  onChange={(e) => setFrom(e.target.value)}
                   placeholder="Enter City"
                   required
                 />
@@ -156,7 +156,6 @@ export default function HeroForm() {
             <>
               <div className="flex flex-col">
                 <label htmlFor="from" className=" font-semibold">
-                  {" "}
                   From
                 </label>
                 <input
@@ -168,7 +167,6 @@ export default function HeroForm() {
               </div>
               <div className="flex flex-col">
                 <label htmlFor="to" className=" font-semibold">
-                  {" "}
                   To
                 </label>
                 <select value={selectedOption} onChange={handleSelect}>
