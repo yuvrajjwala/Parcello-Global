@@ -38,6 +38,8 @@ const Result = () => {
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState ("");
+  const { state } = useLocation();
+  console.log(state)
 
   const handleSubmit = () => {
     console.log();

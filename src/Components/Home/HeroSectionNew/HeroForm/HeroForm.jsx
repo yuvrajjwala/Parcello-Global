@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import "../HeroSection.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+const apiKey = import.meta.env.VITE_API_KEY;
 
 export default function HeroForm() {
-
   const navigate = useNavigate();
-
-  
   const [type, setType] = useState("Domestic");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
@@ -18,8 +17,22 @@ export default function HeroForm() {
     setSelectedOption(event.target.value);
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    let currDist
+    try {
+      const distanceRes = await axios.get(
+        `https://maps.googleapis.com/maps/api/distancematrix/json?&origins=${
+          fromZip + ",UK"
+        }&destinations=${toZip + ",UK"}"&&units=imperial&key=${apiKey}`
+      );
+
+      currDist = Math.round(
+        distanceRes.data.rows[0]?.elements[0]?.distance?.value / 1000 / 1.6
+      );
+    } catch (e) {
+    }
+    
     let body
     if(type == "Domestic"){
       body = {
@@ -36,14 +49,13 @@ export default function HeroForm() {
     }else if(type == "Same Day"){
       body = {
         service : "Same Day",
-        from : fromZip,
-        to : toZip,
+        dist : currDist
       }
     }else{
       alert("error")
     }
 
-    if(body){
+    if(body && currDist){
       console.log(body)
       navigate("/result", {
         state: {
