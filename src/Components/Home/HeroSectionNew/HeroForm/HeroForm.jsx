@@ -75,7 +75,7 @@ export default function HeroForm() {
       <div className="flex flex-col justify-center items-center  gap-7 w-full">
         <div className="flex flex-row lg:flex-col items-center min-w-[85%] gap-5 justify-start p-0 ">
           <h1 className="font-bold text-lg ">Try Our Shipping Calculator</h1>
-          <div className=" flex">
+          <div className=" flex gap-4">
             <div
               onClick={() => {
                 setType("Domestic");
@@ -108,7 +108,7 @@ export default function HeroForm() {
             </div>
           </div>
         </div>
-        <div className="flex lg:flex-col items-center p-0 gap-10 min-w-[85%] justify-between formHero">
+        <div className="flex lg:flex-col lg:items-start items-center p-0 gap-10 min-w-[85%] justify-between formHero">
           {type == "Domestic" && (
             <>
               <div className="flex items-center mr-2 gap-2 w-full">
@@ -210,11 +210,11 @@ export default function HeroForm() {
                     To
                   </span>
                   <select
-                    className="border-b-[1px] w-[250px] focus:outline-none hover:outline-none my-[1px] bg-transparent"
+                    className="border-b-[1px] w-[250px] lg:w-600px focus:outline-none hover:outline-none my-[1px] bg-transparent"
                     value={selectedOption}
                     onChange={handleSelect}
                   >
-                    <option value="India">India</option>
+                    <option  value="India">India</option>
                     <option value="USA">USA</option>
                     <option value="China">China</option>
                   </select>
@@ -223,7 +223,7 @@ export default function HeroForm() {
             </>
           )}
           <button
-            className="flex w-full min-w-[300px] max-w-[300px]  justify-center items-center py-4 px-6 text-white bg-[#008185] rounded-[90px]"
+            className="flex w-full min-w-[300px] lg:max-w-full max-w-[300px]  justify-center items-center py-4 px-6 text-white bg-[#008185] rounded-[90px]"
             type="submit"
           >
             Get Quote

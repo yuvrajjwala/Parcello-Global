@@ -26,11 +26,12 @@ function TabBar({ heading, items }) {
   
   return (
     <div className="flex flex-col items-center p-12 gap-12">
-      <h1 className=" font-extrabold text-5xl">{heading}</h1>
+      <h1 className=" font-extrabold text-5xl text-center">{heading}</h1>
       <div className="flex flex-col items-center gap-16">
         <ul className="flex flex-start gap-3">
           {items.map((item, i) => (
             <button
+            key={i}
               onClick={() => setActiveTab(i)}
               className={` flex  rounded-[100px] transition-[background-color] duration-200 ease-in justify-center items-center py-2 px-3 ${
                 i == activeTab ? "bg-[#353945] text-white" : "text-[#353945] bg-transparent"

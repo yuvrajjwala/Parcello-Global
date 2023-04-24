@@ -5,13 +5,13 @@ import { BsFillEmojiSmileFill, BsGiftFill, BsLightningChargeFill } from "react-i
 function AmaizingServices() {
   return (
     <Suspense fallback={<div>Loading</div>}>
-      <div className="flex flex-col items-center justify-center p-32 gap-20 ">
+      <div className="flex flex-col items-center justify-center p-32 gap-20 sm:p-10">
         <div className="flex flex-col items-center p-0 gap-8">
           <div className="flex flex-col gap-2 p-0 items-center">
-            <span className=" font-medium text-sm text-slate-500 uppercase">
+            <span className=" font-medium text-sm text-slate-500 uppercase text-center">
               A creative agency that lead and inspire{" "}
             </span>
-            <h1 className=" font-extrabold text-5xl  ">Amazing Services</h1>
+            <h1 className=" font-extrabold text-5xl  text-center">Amazing Services</h1>
           </div>
           <button className="bg-[#02878A] text-white px-6 py-4 rounded-[90px]">
             Contact Us

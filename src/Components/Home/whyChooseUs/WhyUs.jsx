@@ -7,7 +7,7 @@ import whyChooseUs from "../../../assets/Home/whyChooseUspng.png";
 const whyUs = () => {
   return (
     <>
-      <div className="why-choose-us">
+      <div className="why-choose-us w-full">
         <h2>Why You Choose Us?</h2>
         <p>Parcel Delivery Made Easy!</p>
       </div>
@@ -58,7 +58,7 @@ const whyUs = () => {
             <br></br>
             <button className="btn" >Send Parcel Now!</button>
           </div>
-          <div className="choose-image">
+          <div className="choose-image lg:hidden">
             <img src={whyChooseUs}></img>
           </div>
         </div>
