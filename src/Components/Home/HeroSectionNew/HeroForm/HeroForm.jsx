@@ -73,40 +73,42 @@ export default function HeroForm() {
   return (
     <form className="heroForm w-full" onSubmit={handleSubmit}>
       <div className="flex flex-col justify-center items-center  gap-7 w-full">
-        <div className="flex flex-row items-center min-w-[85%] gap-5 justify-start p-0 ">
+        <div className="flex flex-row lg:flex-col items-center min-w-[85%] gap-5 justify-start p-0 ">
           <h1 className="font-bold text-lg ">Try Our Shipping Calculator</h1>
-          <div
-            onClick={() => {
-              setType("Domestic");
-            }}
-            className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 ${
-              type == "Domestic" ? "border-[#4b7de1]" : "border-[#4b7de]"
-            } `}
-          >
-            Domestic
-          </div>
-          <div
-            onClick={() => {
-              setType("International");
-            }}
-            className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 ${
-              type == "International" ? "border-[#4b7de1]" : "border-[#4b7de]"
-            }  cursor-pointer `}
-          >
-            International
-          </div>
-          <div
-            onClick={() => {
-              setType("Same Day");
-            }}
-            className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 ${
-              type == "Same Day" ? "border-[#4b7de1]" : "border-[#4b7de]"
-            }  cursor-pointer `}
-          >
-            Same Day
+          <div className=" flex">
+            <div
+              onClick={() => {
+                setType("Domestic");
+              }}
+              className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 ${
+                type == "Domestic" ? "border-[#4b7de1]" : "border-[#4b7de]"
+              } `}
+            >
+              Domestic
+            </div>
+            <div
+              onClick={() => {
+                setType("International");
+              }}
+              className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 ${
+                type == "International" ? "border-[#4b7de1]" : "border-[#4b7de]"
+              }  cursor-pointer `}
+            >
+              International
+            </div>
+            <div
+              onClick={() => {
+                setType("Same Day");
+              }}
+              className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 ${
+                type == "Same Day" ? "border-[#4b7de1]" : "border-[#4b7de]"
+              }  cursor-pointer `}
+            >
+              Same Day
+            </div>
           </div>
         </div>
-        <div className="flex items-center p-0 gap-10 min-w-[85%] justify-between formHero">
+        <div className="flex lg:flex-col items-center p-0 gap-10 min-w-[85%] justify-between formHero">
           {type == "Domestic" && (
             <>
               <div className="flex items-center mr-2 gap-2 w-full">
