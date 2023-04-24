@@ -15,7 +15,7 @@ const Testimonialss = () => {
           Some testimonials from our customers
         </span>
 
-        <div className="flex w-[100%] justify-between">
+        <div className="flex lg:flex-col items-center w-[100%] justify-between">
           <Suspense fallback={<div></div>}>
             <Card
               img={img1}

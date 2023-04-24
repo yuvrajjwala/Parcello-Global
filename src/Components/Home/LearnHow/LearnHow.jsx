@@ -7,20 +7,20 @@ import { ImSpinner } from "react-icons/im";
 function LearnHow() {
   return (
     <Suspense fallback={<div>Loading</div>}>
-      <div className="flex flex-col justify-center items-center pt-0 px-40 pb-32 gap-3">
+      <div className="flex flex-col justify-center items-center pt-0 px-40 pb-32 gap-3 md:px-10">
         <div className="flex flex-col items-center p-0 gap-16">
-          <div className="flex flex-col items-center p-0 gap-3">
-            <h1 className=" font-bold text-5xl text-center max-w-3xl">
+          <div className="flex flex-col items-center p-0 gap-3 max-w-[60%] lg:max-w-full">
+            <h1 className=" font-bold text-5xl text-center  ">
               Learn how we help our customers achieve their goals
             </h1>
-            <span className=" text-2xl text-center text-[#777E90]">
+            <span className="  text-center text-[#777E90] text-xl">
               Lorem ipsum dolor sit amet, consectetur adipiscing elite Ut elit
               tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
             </span>
           </div>
-          <div className="flex  flex-row items-start p-0 gap-8 md:flex-col">
+          <div className="flex  flex-row items-start p-0 gap-8 lg:flex-col lg:w-[352px]">
             {/* card1 */}
-            <div className="flex flex-col items-center p-0 gap-6">
+            <div className="flex flex-col items-center p-0 gap-6 ">
               <div className="w-[352px] h-[480px]">
                 <img
                   src={learn1}

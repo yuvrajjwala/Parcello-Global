@@ -6,7 +6,7 @@ function Accordian({con , i}) {
   const [activeAccordian, setActiveAccoridan] = useState(true);
   return (
     <div
-      className={` flex flex-col gap-6 items-start p-3 w-[546px]  transition-[max-height] duration-300 ease-in overflow-hidden  ${
+      className={` flex flex-col gap-6 items-start p-3 max-w-[546px]  transition-[max-height] duration-300 ease-in overflow-hidden  ${
         activeAccordian ? " max-h-20 " : "max-h-60"
       } `}
     >

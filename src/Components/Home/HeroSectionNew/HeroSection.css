@@ -28,3 +28,8 @@ z-index: 20;
 margin-top: -70px;
 }
 
+
+.formHero input{
+  width: 100%;
+}
+

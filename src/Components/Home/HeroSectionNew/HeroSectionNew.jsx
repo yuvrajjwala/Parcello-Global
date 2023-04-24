@@ -6,16 +6,16 @@ import HeroForm from "./HeroForm/HeroForm";
 function HeroSectionNew() {
   return (
     <Suspense fallback={<div>lOADING</div>}>
-      <div className="flex flex-col justify-center items-center px-40 relative  max-h-5xl h-screen bg-[#008185] overflow-hidden">
-        <div className="flex flex-row justify-center items-center w-full">
-          <h1 className=" font-dm font-bold text-6xl text-white z-10 flex-wrap">
-            Compare and book <span className=" text-yellow-400"> low cost</span>{" "}
+      <div className="flex flex-col justify-center items-center px-40 py-20 md:px-20 sm:px-5 relative lg:h-fit   h-screen bg-[#008185] overflow-hidden">
+        <div className="flex lg:flex-col flex-row justify-center items-center w-full">
+          <h1 className=" font-dm lg:text-center font-bold text-6xl text-white z-10 flex-wrap lg:text-5xl ">
+            Compare and book <span className=" text-[#FFB526]"> low cost</span>{" "}
             shipping services
           </h1>
-          <div className="relative flex flex-row items-center p-0 justify-center w-full">
+          <div className="relative flex flex-row items-center p-0 justify-center max-w-[50%]">
             <img
               src={Vector}
-              className=" absolute w-[721.56px] h-[697.91px]  rotate-[-19.36deg] "
+              className=" w-full h-full absolute rotate-[-19.36deg] "
               alt=""
             />
             <img
