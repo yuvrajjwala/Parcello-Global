@@ -18,6 +18,7 @@ import Card from "../../Components/Result/Card.jsx";
 import "./result.css";
 
 import control from "../../assets/control.png";
+import NewCard from "../../Components/Result/NewCard";
 const DELIVERY_URL = "/api/couriers/fetchbydelivery/";
 
 const Result = () => {
@@ -285,7 +286,7 @@ const Result = () => {
                 Popular Domestic Services
               </p>
             </div>
-            <div className="flex flex-wrap px-2 justify-center py-4 my-4 bg-white calculator-background rounded-[24px] ">
+            <div className={`flex ${toggleStatic? "flex-row" : "flex-col"}  gap-5 flex-wrap px-2 justify-center py-4 my-4 bg-white calculator-background rounded-[24px]`}>
               {toggleStatic ? (
                 <>
                   <StaticCard company="citysprint" />
@@ -293,7 +294,8 @@ const Result = () => {
                   <StaticCard company="dhl" />
                 </>
               ) : (
-                data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
+                // data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
+                data.map((item, index) => <NewCard data={item} serviceType={serviceType}/>)
               )}
             </div>
           </div>
