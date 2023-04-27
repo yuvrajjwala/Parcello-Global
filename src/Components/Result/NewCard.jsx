@@ -10,9 +10,9 @@ import StarRating from "./StarRating";
 
 export default function NewCard({ data, serviceType }) {
   return (
-    <div className="flex flex-col w-full border-[1px] border-slate-300 rounded-md p-5 text-[#008185]">
+    <div className="flex flex-col w-full border-[1px] border-slate-300 rounded-md p-5 text-[#008185] ">
       <div className="flex justify-between items-center w-full border-b-[1px] pb-2 border-slate-200 rounded-xl">
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center w-full">
           <div className=" w-36 bg-green-300 rounded-lg p-4"></div>
           <h3 className="text-sm font-semibold text-[#008185]">
             Yodel Direct Economy
@@ -32,48 +32,50 @@ export default function NewCard({ data, serviceType }) {
           </a>
         </div>
       </div>
-      <div className="flex justify-between my-2 items-center">
-        <div className="flex justify-center items-center gap-3">
-          <div className="flex flex-col items-center justify-center p-3 border-[1px] border-slate-200 rounded-lg">
-            <h1 className="font-medium ">Rating : 4.4</h1>
-            <StarRating rating={4.4} />
+      <div className="flex justify-between my-2 items-center md:flex-col w-full gap-5">
+        <div className="flex  gap-4 w-full items-center " >
+          <div className="flex justify-center items-center gap-3">
+            <div className="flex flex-col items-center justify-center p-3 border-[1px] border-slate-200 rounded-lg">
+              <h1 className="font-medium ">Rating : 4.4</h1>
+              <StarRating rating={4.4} />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold">Drop off Today</span>
+              <a href="#" className="font-bold text-xs underline text-blue-500">
+                Find Nearest Dropoff
+              </a>
+            </div>
           </div>
-          <div className="flex flex-col">
-            <span className="text-sm font-bold">Drop off Today</span>
-            <a href="#" className="font-bold text-xs underline text-blue-500">
-              Find Nearest Dropoff
-            </a>
-          </div>
-        </div>
-        <div className="flex-col px-3 border-l-[1px] items-centet justify-center border-slate-200">
-          <h1 className="text-sm font-bold ">Estimated Delivery :</h1>
-          <div className="flex items-center gap-1">
-            <span className="text-black text-sm">Wed ,26 Apr</span>
-            <h3 className=" text-xs p-1 px-2 rounded-md bg-slate-200 font-bold">
-              2+ Days Delivery
-            </h3>
+          <div className="flex-col px-3 border-l-[1px] items-center justify-center border-slate-200">
+            <h1 className="text-sm font-bold ">Estimated Delivery :</h1>
+            <div className="flex items-center gap-1">
+              <span className="text-black text-sm">Wed ,26 Apr</span>
+              <h3 className=" text-xs p-1 px-2 rounded-md bg-slate-200 font-bold">
+                2+ Days Delivery
+              </h3>
+            </div>
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-2">
-          <div className=" border-[1px] border-slate-200 p-3 rounded-md flex gap-3 items-center">
+        <div className="flex justify-center items-center gap-2 w-full">
+          <div className=" border-[1px] border-slate-200 p-3 rounded-md flex gap-3 items-center md:flex-col md:w-full">
             <div>
               <p className="font-bold text-lg">$2.25</p>
               <p className="text-sm text-black">$2.75 with vat</p>
             </div>
-            <button className=" p-3 max-w-[150px] rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center text-left">
+            <button className=" p-3 max-w-[150px] md:max-w-full rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center text-left w-full">
               <h1>Book without Protection</h1>
-              <AiOutlineRight className="text-xl"/>
+              <AiOutlineRight className="text-xl" />
             </button>
           </div>
-          <div className=" bg-sky-50  p-3 rounded-md flex gap-3 items-center">
+          <div className=" bg-sky-50  p-3 rounded-md flex gap-3 items-center md:flex-col md:w-full">
             <div>
               <p className="font-bold text-lg">$2.25</p>
               <p className="text-sm text-black">$2.75 with vat</p>
             </div>
-            <button className=" bg-green-600 text-white p-3 max-w-[150px] rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center  text-left">
+            <button className=" bg-green-600 text-white p-3 max-w-[150px] md:max-w-full rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center  text-left w-full">
               <h1>Book with $20 Protection</h1>
-              <AiOutlineRight className="text-xl"/>
+              <AiOutlineRight className="text-xl" />
             </button>
           </div>
         </div>

@@ -200,36 +200,36 @@ const Result = () => {
                 {serviceType}
               </div>
             </div>
-            <div className="my-2 flex items-center justify-center">
-              <form className="flex" onSubmit={handleSubmit}>
+            <div className="my-2 flex items-center justify-center md:flex-col ">
+              <form className="flex md:flex-col w-full gap-2" onSubmit={handleSubmit}>
                 <div className="flex items-center mr-2">
                   {/* logo */}
                   <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
-                  <div className="flex flex-col">
+                  <div className="flex flex-col w-full">
                     <span className="font-semibold text-[24px] leading-[32px]">
                       Length
                     </span>
                     <input
                       type="text"
                       placeholder="in cm"
-                      className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] "
+                      className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px] "
                       onChange={(e) => setLength(e.target.value)}
                       required
                     />
                   </div>
                 </div>
                 <div>
-                  <div className="flex items-center mr-2">
+                  <div className="flex items-center mr-2  w-full">
                     {/* logo */}
                     <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
-                    <div className="flex flex-col">
+                    <div className="flex flex-col  w-full">
                       <span className="font-semibold text-[24px] leading-[32px]">
                         Width
                       </span>
                       <input
                         type="text"
                         placeholder="in cm"
-                        className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] "
+                        className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px]  w-full"
                         onChange={(e) => setWidth(e.target.value)}
                         required
                       />
@@ -237,34 +237,34 @@ const Result = () => {
                   </div>
                 </div>
                 <div>
-                  <div className="flex items-center mr-2">
+                  <div className="flex items-center mr-2  w-full">
                     {/* logo */}
                     <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
-                    <div className="flex flex-col">
+                    <div className="flex flex-col  w-full">
                       <span className="font-semibold text-[24px] leading-[32px]">
                         Height
                       </span>
                       <input
                         type="text"
                         placeholder="in cm"
-                        className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] "
+                        className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px]  w-full"
                         onChange={(e) => setHeight(e.target.value)}
                       />
                     </div>
                   </div>
                 </div>
                 <div>
-                  <div className="flex items-center mr-2">
+                  <div className="flex items-center mr-2  w-full">
                     {/* logo */}
                     <img src={wtIcon} alt="tape" className="w-8 h-auto mr-4" />
-                    <div className="flex flex-col">
+                    <div className="flex flex-col  w-full">
                       <span className="font-semibold text-[24px] leading-[32px]">
                         Weight
                       </span>
                       <input
                         type="text"
                         placeholder="in Kg"
-                        className="border-b-[1px] w-[80%] focus:outline-none hover:outline-none my-[1px] "
+                        className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px]  w-full"
                         onChange={(e) => setWeight(e.target.value)}
                       />
                     </div>
