@@ -88,7 +88,7 @@ export default function NewCard({ data, serviceType }) {
           <div className=" bg-sky-50  p-3 rounded-md flex gap-3 items-center md:flex-col md:w-full">
             <div>
               <p className="font-bold text-lg">${price}</p>
-              <p className="text-sm text-black">${(price+vat).toFixed(2)} vat</p>
+              <p className="text-sm text-black">${(price+vat).toFixed(2)} with vat</p>
             </div>
             <button className=" bg-green-600 text-white p-3 max-w-[150px] md:max-w-full rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center  text-left w-full">
               <h1>Book with $20 Protection</h1>
