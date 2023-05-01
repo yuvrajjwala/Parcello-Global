@@ -24,7 +24,7 @@ const Destinations = lazy(() =>
 const Home = () => {
   return (
     <Suspense fallback={<div>lOADING</div>}>
-      {/* <Navbar /> */}
+      <Navbar />
       {/* <HeroSection /> */}
       <HeroSectionNew />
       {/* <GetQouteForm /> */}
