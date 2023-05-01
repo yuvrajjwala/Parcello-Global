@@ -10,10 +10,10 @@ function LearnHow() {
       <div className="flex flex-col justify-center items-center pt-0 px-40 pb-32 gap-3 md:px-10">
         <div className="flex flex-col items-center p-0 gap-16">
           <div className="flex flex-col items-center p-0 gap-3 max-w-[60%] lg:max-w-full">
-            <h1 className=" font-bold text-5xl text-center  ">
+            <h1 className=" font-bold text-5xl text-center   sm:text-4xl">
               Learn how we help our customers achieve their goals
             </h1>
-            <span className="  text-center text-[#777E90] text-xl">
+            <span className="  text-center text-[#777E90] text-xl sm:text-base">
               Lorem ipsum dolor sit amet, consectetur adipiscing elite Ut elit
               tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
             </span>

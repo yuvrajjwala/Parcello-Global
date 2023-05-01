@@ -6,7 +6,7 @@ import TabBar from './TabBar'
 function FAQ() {
   return (
     <Suspense fallback={<div>lOADING</div>}>
-      <div className='flex flex-col justify-center items-center gap-3 px-40 md:px-10'>
+      <div className='flex flex-col justify-center items-center gap-3 px-40 md:px-10  sm:px-6'>
         <TabBar heading ="Frequently asked questions" items = {["General" , "Support" , "Hosting" , "Product"]} />
       </div>
     </Suspense>

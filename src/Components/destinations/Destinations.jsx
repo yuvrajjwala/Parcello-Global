@@ -8,11 +8,11 @@ const Destinations = () => {
   return (
     <div className="bg-[#FCFCFD] mt-10 py-14">
       <div className="w-[80%] m-auto flex flex-col items-center">
-        <div className="flex justify-between w-[100%] items-center">
-          <h1 className="text-[#23262F] font-bold text-[48px] leading-[56px]">
+        <div className="flex sm:flex-col gap-2 justify-between w-[100%] items-center">
+          <h1 className="text-[#23262F] font-bold text-[48px] leading-[56px] sm:text-4xl">
             Explore popular delivery destinations
           </h1>
-          <div>
+          <div className="flex whitespace-nowrap sm:hidden">
             <button
               className="rounded-full mx-2 hover:border-[#E6E8EC] hover:border-[2px] py-[10px] px-[10px] w-10 h-10"
               onClick={() => slider?.current?.slickPrev()}

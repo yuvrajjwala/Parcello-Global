@@ -1,5 +1,4 @@
 .why-choose-us h2{
-   font-size: 2.3rem;
    text-align: center;
    margin-top: 100px;
    color: #23262F;
@@ -26,7 +25,6 @@
    display: flex;
    margin-left: 7vw;
    margin-right: 5vw;
-   margin-top: 60px;
    justify-content: space-between;
 }
 .number-chooseUs{

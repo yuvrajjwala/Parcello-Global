@@ -25,8 +25,8 @@ function TabBar({ heading, items }) {
   ]
   
   return (
-    <div className="flex flex-col items-center p-12 gap-12">
-      <h1 className=" font-extrabold text-5xl text-center">{heading}</h1>
+    <div className="flex flex-col items-center p-12 gap-12 sm:px-0">
+      <h1 className=" font-extrabold text-5xl text-center sm:text-4xl">{heading}</h1>
       <div className="flex flex-col items-center gap-16">
         <ul className="flex flex-start gap-3">
           {items.map((item, i) => (

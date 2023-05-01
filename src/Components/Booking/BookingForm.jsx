@@ -98,7 +98,7 @@ export default function BookingForm() {
                   required
                 />
               </div>
-              <div className="mt-10 my-4 w-full">
+              <div className=" my-4 w-full">
                 <label
                   htmlFor="rName"
                   className="block font-medium text-gray-700  mb-2 required"
@@ -245,7 +245,7 @@ export default function BookingForm() {
                   required
                 />
               </div>
-              <div className="mt-10 my-4 w-full">
+              <div className=" my-4 w-full">
                 <label
                   htmlFor="dName"
                   className="block font-medium text-gray-700  mb-2 required"

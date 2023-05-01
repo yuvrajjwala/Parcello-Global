@@ -75,12 +75,12 @@ export default function HeroForm() {
       <div className="flex flex-col justify-center items-center  gap-7 w-full">
         <div className="flex flex-row lg:flex-col items-center min-w-[85%] gap-5 justify-start p-0 ">
           <h1 className="font-bold text-lg ">Try Our Shipping Calculator</h1>
-          <div className=" flex gap-4">
+          <div className=" flex gap-4 sm:gap-1 sm:text-sm">
             <div
               onClick={() => {
                 setType("Domestic");
               }}
-              className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 ${
+              className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 sm:p-2 ${
                 type == "Domestic" ? "border-[#4b7de1]" : "border-[#4b7de]"
               } `}
             >
@@ -90,7 +90,7 @@ export default function HeroForm() {
               onClick={() => {
                 setType("International");
               }}
-              className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 ${
+              className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 sm:p-2 ${
                 type == "International" ? "border-[#4b7de1]" : "border-[#4b7de]"
               }  cursor-pointer `}
             >
@@ -100,7 +100,7 @@ export default function HeroForm() {
               onClick={() => {
                 setType("Same Day");
               }}
-              className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 ${
+              className={` cursor-pointer flex items-center justify-center px-4 py-3 rounded-[90px] border-2 sm:p-2 whitespace-nowrap ${
                 type == "Same Day" ? "border-[#4b7de1]" : "border-[#4b7de]"
               }  cursor-pointer `}
             >
