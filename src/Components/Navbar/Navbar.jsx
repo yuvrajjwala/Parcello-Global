@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useCallback, useEffect } from "react";
 import "./Navbar.css";
 import ham from "../../assets/Navbar/ham.svg";
 import close from "../../assets/Navbar/close.svg";
@@ -10,7 +10,14 @@ import Login from "../../Components/login/Login";
 
 const Navbar = () => {
   // const [openLogin, setOpenLogin] = useState(false);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  const closeNavBar = useCallback(() => setIsCollapsed(true), []);
+
+  useEffect(()=>{
+    window.addEventListener('scroll', closeNavBar);
+    return () => window.removeEventListener("scroll", closeNavBar);
+  },[])
 
   return (
     // <div className="navbar">
