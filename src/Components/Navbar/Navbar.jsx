@@ -122,8 +122,8 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className={`hidden overflow-hidden md:block`} >
-        <div className={`flex flex-col overflow-hidden right-0 ease-in-out duration-300  w-3/4  gap-4 h-screen absolute bg-white z-40 text-slate-500 p-5 ${!isCollapsed ? " translate-x-0" : " translate-x-full"}`}  >
+      <div className={`hidden overflow-hidden md:block  absolute`} >
+        <div className={`flex flex-col overflow-hidden right-0 ease-in-out duration-300  w-3/4  gap-4 h-screen fixed  bg-white z-40 text-slate-500 p-5 ${!isCollapsed ? " translate-x-0" : " translate-x-full"}`}  >
           <NavLink
             to="/signin"
             onClick={() => {
