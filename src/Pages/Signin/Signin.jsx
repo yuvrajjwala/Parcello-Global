@@ -4,6 +4,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import logo from "../../assets/Navbar/parcello.png";
 import axios from "../../api/axios";
 import AuthContext from "../../context/AuthContext";
+import truck from "../../assets/login/truck.jpg"
 
 const LOGIN_URL = "/auth/users/API/login/";
 
@@ -54,7 +55,9 @@ export default function Signin() {
   };
   return (
     <div className="flex h-screen">
-      <div className="formBg h-full w-2/5 flex items-center justify-center md:hidden"></div>
+      <div className="formBg h-full w-2/5  flex items-center justify-center md:hidden">
+        <img src={truck} className="w-full h-full overflow-hidden object-cover" alt="" />
+      </div>
       <form className="mx-auto flex justify-center items-start flex-col gap-8 w-80" onSubmit={handleLoginSubmit}>
         <div className=" my-5 h-5 flex">
           <h1 className="text-lg font-bold">Parcello</h1>

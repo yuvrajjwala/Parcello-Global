@@ -168,7 +168,7 @@ const Result = () => {
           ))}
         </ul>
       </div> */}
-      <div className=" flex-1 px-7 py-0">
+      <div className=" flex-1 px-7 py-0 md:px-3 sm:px-2">
         {/* <Result /> */}
         <div>
           <Navbar></Navbar>
@@ -191,17 +191,17 @@ const Result = () => {
               </li>
             </ul> */}
           </div>
-          <div className="flex flex-col m-auto bg-white w-[86%] calculator-background border-[1px] border-[#FCFCFD] rounded-[24px] py-8 px-10 my-8">
-            <div className="flex mb-2 w-[100%]">
-              <div className="border-[2px] border-[#E6E8EC] rounded-[90px] font-bold text-[14px] leading-[16px] text-right text-[#23262F] px-4 py-2 mr-2">
+          <div className="flex flex-col m-auto bg-white w-fit md:w-full md:px-6 calculator-background border-[1px] border-[#FCFCFD] rounded-[24px] py-8 px-10 ">
+            <div className="flex mb-2 w-[100%] md:flex-col gap-2 md:justify-center items-center">
+              <div className="border-[2px] md:w-full flex justify-center border-[#E6E8EC] rounded-[90px] font-bold text-[14px] leading-[16px]  text-[#23262F] px-4 py-2">
                 Try our shipping calculator
               </div>
-              <div className="bg-[#008185] border-[2px] border-[#FFFFFF] rounded-[90px] px-4 py-2 font-bold text-[14px] leading-[16px] text-right text-white ml-2">
+              <div className="bg-[#008185] border-[2px] border-[#FFFFFF] rounded-[90px] px-4 py-2 font-bold text-[14px] leading-[16px] text-right text-white  flex justify-center md:w-full">
                 {serviceType}
               </div>
             </div>
             <div className="my-2 flex items-center justify-center md:flex-col ">
-              <form className="flex md:flex-col w-full gap-2" onSubmit={handleSubmit}>
+              <form className="flex md:flex-col w-full gap-3" onSubmit={handleSubmit}>
                 <div className="flex items-center mr-2">
                   {/* logo */}
                   <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
@@ -280,13 +280,13 @@ const Result = () => {
             </div>
           </div>
 
-          <div className="flex w-[85%] m-auto flex-col">
+          <div className="flex px-6 m-auto flex-col">
             <div className="flex justify-start text-left w-[100%] border-b-[2px] py-2 border-b-[#008185]">
               <p className="text-[20px] leading-6 font-semibold text-[#008185]">
                 Popular Domestic Services
               </p>
             </div>
-            <div className={`flex ${toggleStatic? "flex-row" : "flex-col"}  gap-5 flex-wrap px-2 justify-center py-4 my-4 bg-white calculator-background rounded-[24px]`}>
+            <div className={`flex ${toggleStatic? "flex-row" : "flex-col"}  gap-5 flex-wrap px-2 justify-center py-4 md:px-0 my-4 bg-white calculator-background rounded-[24px]`}>
               {toggleStatic ? (
                 <>
                   <StaticCard company="citysprint" />

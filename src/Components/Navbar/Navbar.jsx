@@ -64,7 +64,7 @@ const Navbar = () => {
           <h1 className="text-2xl text-black font-bold">Pacello</h1>{" "}
           <img className="max-w-[50px]" src={parcello}></img>
         </div>
-        <div className="flex items-center gap-4  md:hidden justify-end w-full">
+        <div className="flex items-center gap-5  md:hidden justify-end w-full">
           <NavLink
             to="/contactus"
             onClick={() => {
@@ -80,7 +80,7 @@ const Navbar = () => {
               setOpenLogin(true);
             }}
           >
-            SignIn
+            Log In
           </NavLink>
           <NavLink
             to="/signup"
@@ -88,7 +88,7 @@ const Navbar = () => {
               setOpenLogin(true);
             }}
           >
-            SignUp
+            Sign Up
           </NavLink>
           <div className="dropdown relative">
             <button className="">
@@ -140,7 +140,7 @@ const Navbar = () => {
               "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
             }
           >
-            SignIn
+            Log In
           </NavLink>
           <NavLink
             to="/signup"
@@ -151,7 +151,7 @@ const Navbar = () => {
               "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
             }
           >
-            SignUp
+            Sign Up
           </NavLink>
 
           <NavLink

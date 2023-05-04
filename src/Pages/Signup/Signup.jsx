@@ -7,6 +7,7 @@ import axios from "../../api/axios";
 import AuthContext from "../../context/AuthContext";
 const REGISTER_URL = "/auth/users/API/register/";
 import { useNavigate } from "react-router-dom";
+import dock from "../../assets/login/dock.jpg"
 
 export default function Signup() {
   let navigate = useNavigate();
@@ -79,7 +80,9 @@ export default function Signup() {
 
   return (
     <div className="flex h-screen">
-      <div className="formBg h-full w-2/5 flex items-center justify-center md:hidden"></div>
+      <div className="formBg h-full w-2/5  flex items-center justify-center md:hidden">
+        <img src={dock} className="w-full h-full overflow-hidden object-cover" alt="" />
+      </div>
       <form
         className="mx-auto flex justify-center items-start flex-col gap-8 w-80"
         onSubmit={submitHandler}
