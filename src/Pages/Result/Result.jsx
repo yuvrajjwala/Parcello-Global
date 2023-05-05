@@ -52,6 +52,7 @@ const Result = () => {
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
   const [loading, setLoading] = useState(false);
+  const [formError, setFormError] = useState(false);
 
   useEffect(() => {
     if (location?.state?.body?.service === "Same Day") {
@@ -64,8 +65,16 @@ const Result = () => {
     setServiceType(location?.state?.body?.service);
   }, []);
 
+  const handleCardClick = () => {
+    if (height && weight && length && width) {
+      handleSubmit();
+    } else {
+      setFormError(true);
+    }
+  };
+
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event?.preventDefault();
     setLoading(true);
     let Data;
     try {
@@ -120,6 +129,7 @@ const Result = () => {
     } catch (err) {
       console.log(err);
     } finally {
+      setFormError(false)
       setToggleStatic(false);
       setLoading(false);
     }
@@ -197,7 +207,13 @@ const Result = () => {
               </li>
             </ul> */}
           </div>
-          <div className="flex flex-col m-auto bg-white w-fit md:w-full md:px-6 calculator-background border-[1px] border-[#FCFCFD] rounded-[24px] py-8 px-10 ">
+          <div
+            className={`flex flex-col m-auto ${
+              formError
+                ? " border-[#ff2525]"
+                : " border-[#FCFCFD]"
+            }  w-fit md:w-full md:px-6 calculator-background border-[1px] bg-white  rounded-[24px] py-8 px-10`}
+          >
             <div className="flex mb-2 w-[100%] md:flex-col gap-2 md:justify-center items-center">
               <div className="border-[2px] md:w-full flex justify-center border-[#E6E8EC] rounded-[90px] font-bold text-[14px] leading-[16px]  text-[#23262F] px-4 py-2">
                 Try our shipping calculator
@@ -306,9 +322,15 @@ const Result = () => {
                 <>
                   {toggleStatic ? (
                     <>
-                      <StaticCard company="citysprint" />
-                      <StaticCard company="dpd" />
-                      <StaticCard company="dhl" />
+                      <button onClick={() => handleCardClick()}>
+                        <StaticCard company="citysprint" />
+                      </button>
+                      <button onClick={() => handleCardClick()}>
+                        <StaticCard company="dpd" />
+                      </button>
+                      <button onClick={() => handleCardClick()}>
+                        <StaticCard company="dhl" />
+                      </button>
                     </>
                   ) : (
                     // data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
