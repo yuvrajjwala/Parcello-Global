@@ -19,6 +19,7 @@ import "./result.css";
 
 import control from "../../assets/control.png";
 import NewCard from "../../Components/Result/NewCard";
+import Spinner from "../../Components/Result/Spinner";
 const DELIVERY_URL = "/api/couriers/fetchbydelivery/";
 
 const Result = () => {
@@ -50,6 +51,7 @@ const Result = () => {
   const [toggleStatic, setToggleStatic] = useState(true);
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (location?.state?.body?.service === "Same Day") {
@@ -64,59 +66,63 @@ const Result = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setLoading(true);
     let Data;
-    if (serviceType === "Same Day") {
-      const response = await axios.post(
-        DELIVERY_URL,
-        {
-          Length: parseInt(length),
-          Height: parseInt(height),
-          Width: parseInt(width),
-          Weight: parseInt(weight),
-          Distance: distance,
-          service_type: serviceType,
-        },
-        {
-          headers: { "content-Type": "application/json" },
-        }
-      );
-      Data = await response?.data;
-      setData(response.data);
-    } else if (serviceType === "International") {
-      const response = await axios.post(
-        DELIVERY_URL,
-        {
-          Length: parseInt(length),
-          Height: parseInt(height),
-          Width: parseInt(width),
-          From: from,
-          To: to,
-          Service: serviceType,
-        },
-        {
-          headers: { "content-Type": "application/json" },
-        }
-      );
-      Data = await response?.data;
-      setData(response.data);
-    } else if (serviceType === "Domestic") {
-      const response = await axios.post(
-        DELIVERY_URL,
-        {
-          Distance: distance,
-          service_type: serviceType,
-        },
-        {
-          headers: { "content-Type": "application/json" },
-        }
-      );
-      Data = await response?.data;
-      setData(response.data);
-    } else {
-      console.log("invalid service type");
+    try {
+      if (serviceType === "Same Day") {
+        const response = await axios.post(
+          DELIVERY_URL,
+          {
+            Length: parseInt(length),
+            Height: parseInt(height),
+            Width: parseInt(width),
+            Weight: parseInt(weight),
+            Distance: distance,
+            service_type: serviceType,
+          },
+          {
+            headers: { "content-Type": "application/json" },
+          }
+        );
+        Data = await response?.data;
+        setData(response.data);
+      } else if (serviceType === "International") {
+        const response = await axios.post(
+          DELIVERY_URL,
+          {
+            Length: parseInt(length),
+            Height: parseInt(height),
+            Width: parseInt(width),
+            From: from,
+            To: to,
+            Service: serviceType,
+          },
+          {
+            headers: { "content-Type": "application/json" },
+          }
+        );
+        Data = await response?.data;
+        setData(response.data);
+      } else if (serviceType === "Domestic") {
+        const response = await axios.post(
+          DELIVERY_URL,
+          {
+            Distance: distance,
+            service_type: serviceType,
+          },
+          {
+            headers: { "content-Type": "application/json" },
+          }
+        );
+        Data = await response?.data;
+        setData(response.data);
+      }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setToggleStatic(false);
+      setLoading(false);
     }
-
-    setToggleStatic(false);
 
     // console.log(data);
   };
@@ -201,7 +207,10 @@ const Result = () => {
               </div>
             </div>
             <div className="my-2 flex items-center justify-center md:flex-col ">
-              <form className="flex md:flex-col w-full gap-3" onSubmit={handleSubmit}>
+              <form
+                className="flex md:flex-col w-full gap-3"
+                onSubmit={handleSubmit}
+              >
                 <div className="flex items-center mr-2">
                   {/* logo */}
                   <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
@@ -286,16 +295,28 @@ const Result = () => {
                 Popular Domestic Services
               </p>
             </div>
-            <div className={`flex ${toggleStatic? "flex-row" : "flex-col"}  gap-5 flex-wrap px-2 justify-center mx-32 md:mx-16 sm:mx-0 py-4 md:px-0 my-4 bg-white calculator-background rounded-[24px]`}>
-              {toggleStatic ? (
-                <>
-                  <StaticCard company="citysprint" />
-                  <StaticCard company="dpd" />
-                  <StaticCard company="dhl" />
-                </>
+            <div
+              className={`flex ${
+                toggleStatic ? "flex-row" : "flex-col"
+              }  gap-5 flex-wrap px-2 justify-center mx-32 md:mx-16 sm:mx-0 py-4 md:px-0 my-4 bg-white calculator-background rounded-[24px]`}
+            >
+              {loading ? (
+                <Spinner />
               ) : (
-                // data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
-                data.map((item, index) => <NewCard data={item} serviceType={serviceType}/>)
+                <>
+                  {toggleStatic ? (
+                    <>
+                      <StaticCard company="citysprint" />
+                      <StaticCard company="dpd" />
+                      <StaticCard company="dhl" />
+                    </>
+                  ) : (
+                    // data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
+                    data.map((item, index) => (
+                      <NewCard data={item} serviceType={serviceType} />
+                    ))
+                  )}
+                </>
               )}
             </div>
           </div>
