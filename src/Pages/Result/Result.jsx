@@ -212,7 +212,7 @@ const Result = () => {
               formError
                 ? " border-[#ff2525]"
                 : " border-[#FCFCFD]"
-            }  w-fit md:w-full md:px-6 calculator-background border-[1px] bg-white  rounded-[24px] py-8 px-10`}
+            }  w-fit md:w-full md:px-6 calculator-background border-[2px] bg-white  rounded-[24px] py-8 px-10`}
           >
             <div className="flex mb-2 w-[100%] md:flex-col gap-2 md:justify-center items-center">
               <div className="border-[2px] md:w-full flex justify-center border-[#E6E8EC] rounded-[90px] font-bold text-[14px] leading-[16px]  text-[#23262F] px-4 py-2">
