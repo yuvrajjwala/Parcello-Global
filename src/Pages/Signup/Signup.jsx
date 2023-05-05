@@ -80,7 +80,7 @@ export default function Signup() {
 
   return (
     <div className="flex h-screen">
-      <div className="formBg h-full w-2/5  flex items-center justify-center md:hidden">
+      <div className="formBg h-full w-[55%]  flex items-center justify-center md:hidden">
         <img src={dock} className="w-full h-full overflow-hidden object-cover" alt="" />
       </div>
       <form

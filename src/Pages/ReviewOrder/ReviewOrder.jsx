@@ -13,8 +13,9 @@ export default function Booking() {
        <Navbar />
       <div className="flex flex-col gap-3 mx-5 items-center">
         <ProgressBar step={2} />
-        <Link to ="/booking" ><button className="m-auto text-white p-2 bg-teal-600 rounded-md">Go Back</button></Link>
-        <ReviewForm rAddress = {state.rAddress} dAddress = {state.dAddress} additional = {state.additional} />
+        
+        <ReviewForm rAddress = {state.rAddress} dAddress = {state.dAddress} additional = {state.additional} data = {state.state} />
+        {/* <Link to ="/booking" ><button className="m-auto text-white p-2 bg-teal-600 rounded-md">Go Back</button></Link> */}
       </div>
     </Suspense>
   );

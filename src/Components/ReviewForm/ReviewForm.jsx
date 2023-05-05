@@ -1,5 +1,6 @@
 import React, { lazy, Suspense, useState } from "react";
 import { CiBookmark, CiCircleInfo, CiDeliveryTruck } from "react-icons/ci";
+import NewCardForm from "../Booking/NewCardForm";
 
 export default function ReviewForm(state) {
   const prop = {
@@ -9,11 +10,11 @@ export default function ReviewForm(state) {
     price: 47.23,
     vat: 5,
   };
-  console.log(state)
   
   const rAddress = state.rAddress
   const dAddress = state.dAddress
   const additional = state.additional
+  const data = state.data
   // const rAddress = {
   //   rPostcode: "KT174JL",
   //   rName: "Debabrata Batabyal",
@@ -360,7 +361,7 @@ export default function ReviewForm(state) {
         </div>
         <div className="flex flex-col md:order-first">
           <h1 className=" text-2xl font-bold">Tracked & Signed for</h1>
-          <div className="flex flex-col w-full mt-5 rounded-md text-left justify-center">
+          {/* <div className="flex flex-col w-full mt-5 rounded-md text-left justify-center">
             <div className="flex px-5 py-2 rounded-md bg-teal-700 items-center gap-5">
               <div className=" h-16 w-16 rounded-full bg-white">
                 <img
@@ -399,9 +400,10 @@ export default function ReviewForm(state) {
                 <span className=" text-xs">More Info</span>
               </div>
             </div>
-          </div>
+          </div> */}
+          <NewCardForm data = {data}/>
           <button
-          className="p-5 mt-5 m-auto w-64 font-medium text-white rounded-3xl bg-orange-400 hover:shadow-lg hover:shadow-orange-300"
+          className="p-5 mt-5 m-auto w-64 font-medium text-white rounded-3xl bg-green-400 hover:shadow-lg hover:shadow-green-300"
           type="submit"
         >
           Confirm and Pay

@@ -8,7 +8,7 @@ const StaticCard = ({ data, company }) => {
   // console.log(data);
   // const price = MATH.round(data.price);
   return (
-    <div className="flex  flex-col w-[352px]   mx-4 my-4 bg-[#FCFCFD] h-[55vh] min-h-[464px] p-0 crd rounded-[20px]">
+    <div className="flex  flex-col w-[352px]   mx-4 my-4 bg-[#FCFCFD]  min-h-[464px] p-0 crd rounded-[20px]">
       <div
         className={`relative h-[240px] max-w-[352px] rounded-t-[10px] ${company}  top-0`}
       >

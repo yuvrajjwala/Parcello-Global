@@ -10,7 +10,7 @@ export default function ProgressBar({ step }){
   const progress = ((step - 1) / (steps.length - 1)) * 100;
 
   return (
-    <div className="m-auto my-5 md:w-full flex flex-wrap">
+    <div className="m-auto my-5 sm:hidden flex ">
       <div className="flex justify-between w-full">
         {steps.map((label, index) => (
           <div

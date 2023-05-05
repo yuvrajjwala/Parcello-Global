@@ -55,7 +55,7 @@ export default function Signin() {
   };
   return (
     <div className="flex h-screen">
-      <div className="formBg h-full w-2/5  flex items-center justify-center md:hidden">
+      <div className="formBg h-full w-[55%]  flex items-center justify-center md:hidden">
         <img src={truck} className="w-full h-full overflow-hidden object-cover" alt="" />
       </div>
       <form className="mx-auto flex justify-center items-start flex-col gap-8 w-80" onSubmit={handleLoginSubmit}>

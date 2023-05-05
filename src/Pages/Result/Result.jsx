@@ -286,7 +286,7 @@ const Result = () => {
                 Popular Domestic Services
               </p>
             </div>
-            <div className={`flex ${toggleStatic? "flex-row" : "flex-col"}  gap-5 flex-wrap px-2 justify-center py-4 md:px-0 my-4 bg-white calculator-background rounded-[24px]`}>
+            <div className={`flex ${toggleStatic? "flex-row" : "flex-col"}  gap-5 flex-wrap px-2 justify-center mx-32 md:mx-16 sm:mx-0 py-4 md:px-0 my-4 bg-white calculator-background rounded-[24px]`}>
               {toggleStatic ? (
                 <>
                   <StaticCard company="citysprint" />
