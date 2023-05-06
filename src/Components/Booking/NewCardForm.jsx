@@ -94,7 +94,7 @@ export default function NewCardForm({ data }) {
                 onClick={() => handleSubmit(true)}
                 className=" bg-green-600 text-white p-3 max-w-[150px] md:max-w-fit rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center  text-left w-full"
               >
-                <h1>Booked with £{price * 0.2} Protection</h1>
+                <h1>Booked with £{(price * 0.2).toFixed(2)} Protection</h1>
               </div>
             ) : (
               <div
