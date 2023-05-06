@@ -85,10 +85,10 @@ function LearnHow() {
             </div>
             {/* card1 */}
           </div>
-          <button className="flex gap-3 py-3 px-4 rounded-[90px] text-center items-center justify-center border-2 border-[#E6E8EC]">
+          {/* <button className="flex gap-3 py-3 px-4 rounded-[90px] text-center items-center justify-center border-2 border-[#E6E8EC]">
             <ImSpinner/>
             Load More
-            </button>
+            </button> */}
         </div>
       </div>
     </Suspense>

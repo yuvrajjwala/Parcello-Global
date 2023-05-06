@@ -59,10 +59,10 @@ export default function Signin() {
         <img src={truck} className="w-full h-full overflow-hidden object-cover" alt="" />
       </div>
       <form className="mx-auto flex justify-center items-start flex-col gap-8 w-80" onSubmit={handleLoginSubmit}>
-        <div className=" my-5 h-5 flex">
+        {/* <div className=" my-5 h-5 flex">
           <h1 className="text-lg font-bold">Parcello</h1>
           <img src={logo} className="h-full w-full" alt="" />
-        </div>
+        </div> */}
         <div className="flex flex-col">
           <span className="text-xl text-primary font-semibold">
             Get Started With Parcello
