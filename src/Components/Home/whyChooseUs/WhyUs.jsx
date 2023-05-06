@@ -3,7 +3,6 @@ import React from "react";
 import "./WhyUs.css";
 import whyChooseUs from "../../../assets/Home/whyChooseUspng.png";
 
-
 const whyUs = () => {
   return (
     <>
@@ -11,7 +10,7 @@ const whyUs = () => {
         <h2 className="sm:text-4xl text-5xl">Why You Choose Us?</h2>
         <p>Parcel Delivery Made Easy!</p>
       </div>
-      <div>
+      <div className=" mt-20 md:mt-5">
         <div className="why-choose-container">
           <div className="choose-content w-full mt-6">
             <div className="number-chooseUs">1</div>
@@ -56,7 +55,7 @@ const whyUs = () => {
               </p>
             </div>
             <br></br>
-            <button className="btn sm:w-full" >Send Parcel Now!</button>
+            <button className="btn sm:w-full">Send Parcel Now!</button>
           </div>
           <div className="choose-image lg:hidden">
             <img src={whyChooseUs}></img>
