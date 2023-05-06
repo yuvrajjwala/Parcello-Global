@@ -90,11 +90,11 @@ const Navbar = () => {
           >
             Sign Up
           </NavLink>
-          <div className="dropdown relative">
+          <div className="flex dropdown relative items-center flex-col">
             <button className="">
-              <img src={ham}></img>
+              <img src={ham} className=" w-[18px] h-[18px]"></img>
             </button>
-            <div className="dropdown-content p-3 gap-2">
+            <div className="dropdown-content p-3 gap-2 absolute top-[15px]">
               <NavLink
                 to="/privacy"
                 onClick={() => {
