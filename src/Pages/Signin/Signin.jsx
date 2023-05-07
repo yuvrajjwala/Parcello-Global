@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import logo from "../../assets/Navbar/parcello.png";
 import axios from "../../api/axios";
+import exit from "../../assets/login/exit.svg";
 import AuthContext from "../../context/AuthContext";
+import { useNavigate } from 'react-router-dom';
+
 
 const LOGIN_URL = "/auth/users/API/login/";
 
@@ -11,6 +14,7 @@ export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   // const submitHandler = async (e) => {
   //   e.preventDefault();
@@ -32,6 +36,7 @@ export default function Signin() {
           withCredentials: true,
         }
       );
+      // console.log(response); 
       const accessToken = response?.data?.tokens?.access;
       const refreshToken = response?.data?.tokens?.refresh;
 
@@ -55,11 +60,19 @@ export default function Signin() {
   return (
     <div className="flex h-screen">
       <div className="formBg h-full w-2/5 flex items-center justify-center md:hidden"></div>
-      <form className="mx-auto flex justify-center items-start flex-col gap-8 w-80" onSubmit={handleLoginSubmit}>
-        <div className=" my-5 h-5 flex">
-          <h1 className="text-lg font-bold">Parcello</h1>
-          <img src={logo} className="h-full w-full" alt="" />
-        </div>
+      <div className="absolute top-[-13px] right-[-10px] bg-[#E7E3F6] rounded-full w-12 h-12 flex justify-start p-3 items-end cursor-pointer" onClick={()=>{
+        navigate("/");
+      }}>
+        <img src={exit} alt="exit" className="w-4 h-4" />
+      </div>
+      <form
+        className="mx-auto flex justify-center items-start flex-col gap-8 w-80"
+        onSubmit={handleLoginSubmit}
+      >
+        {/* <div className=" my-5 h-5 flex">
+            <h1 className="text-lg font-bold">Parcello</h1>
+            <img src={logo} className="h-full w-full" alt="" />
+          </div> */}
         <div className="flex flex-col">
           <span className="text-xl text-primary font-semibold">
             Get Started With Parcello

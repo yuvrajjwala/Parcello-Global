@@ -7,6 +7,8 @@ import { Button, Modal, Space } from "antd";
 import "./login.css";
 import axios from "../../api/axios";
 import AuthContext from "../../context/AuthContext";
+// import ToastContainer from "../Toast/ToastContainer";
+import { ToastContainer, toast } from "react-toastify";
 
 import {
   faCheck,
@@ -36,6 +38,8 @@ const Login = ({ openLogin, setOpenLogin }) => {
   const [userEmail, setUserEmail] = useState("");
   const [validEmail, setValidEmail] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
+  const toastId = React.useRef(null);
+  const notify = (text) => (toastId.current = toast(text));
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPass, setLoginPass] = useState("");
@@ -146,7 +150,6 @@ const Login = ({ openLogin, setOpenLogin }) => {
 
   const interests = "hello";
 
-  
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -172,8 +175,10 @@ const Login = ({ openLogin, setOpenLogin }) => {
       setLoginEmail("");
       setLoginPass("");
       setOpenLogin(false);
+      notify("fuck u");
+      // console.log("clicked");
     } catch (e) {
-      if(e.response?.status === 403){
+      if (e.response?.status === 403) {
         error("Invalid Email id");
         setErrMsg("Invalid Email Id");
       }
