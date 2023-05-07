@@ -7,6 +7,7 @@ import axios from "../../api/axios";
 import AuthContext from "../../context/AuthContext";
 const REGISTER_URL = "/auth/users/API/register/";
 import { useNavigate } from "react-router-dom";
+import dock from "../../assets/login/dock.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import exit from "../../assets/login/exit.svg";
@@ -61,10 +62,8 @@ export default function Signup() {
       setConfirmPassword("");
       setFirstName("");
       setLastName("");
-      // console.log(response);
       setSignup(false);
     } catch (err) {
-      // console.log(err);
       if (err.response?.status === 400) {
         error("User already exists");
         setErrMsg("User already exists");
@@ -87,21 +86,20 @@ export default function Signup() {
 
   return (
     <div className="flex h-screen">
-      <div className="formBg h-full w-2/5 flex items-center justify-center md:hidden"></div>
+      {/* <div className="formBg h-full w-[55%]  flex items-center justify-center md:hidden">
+        <img src={dock} className="w-full h-full overflow-hidden object-cover" alt="" />
+      </div> */}
 
-      <div
-        className="absolute top-[-13px] right-[-10px] bg-[#E7E3F6] rounded-full w-12 h-12 flex justify-start p-3 items-end cursor-pointer"
-        onClick={() => {
-          navigate("/");
-        }}
+      <Link
+        to="/"
+        className="absolute -top-3 -right-3 bg-slate-500   rounded-full w-12 h-12 flex justify-start items-end p-4 cursor-pointer overflow-hidden"
       >
-        <img src={exit} alt="exit" className="w-4 h-4" />
-      </div>
+        <img src={exit} alt="exit" className="w-4 h-4 exit " />
+      </Link>
       <form
         className="mx-auto flex justify-center items-start flex-col gap-8 w-80"
         onSubmit={submitHandler}
       >
-        
         <div className="flex flex-col">
           <span className="text-xl text-primary font-semibold">
             Get Started With Parcello

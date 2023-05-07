@@ -19,6 +19,7 @@ import "./result.css";
 
 import control from "../../assets/control.png";
 import NewCard from "../../Components/Result/NewCard";
+import Spinner from "../../Components/Result/Spinner";
 const DELIVERY_URL = "/api/couriers/fetchbydelivery/";
 
 const Result = () => {
@@ -50,6 +51,8 @@ const Result = () => {
   const [toggleStatic, setToggleStatic] = useState(true);
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [formError, setFormError] = useState(false);
 
   useEffect(() => {
     if (location?.state?.body?.service === "Same Day") {
@@ -62,61 +65,73 @@ const Result = () => {
     setServiceType(location?.state?.body?.service);
   }, []);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    let Data;
-    if (serviceType === "Same Day") {
-      const response = await axios.post(
-        DELIVERY_URL,
-        {
-          Length: parseInt(length),
-          Height: parseInt(height),
-          Width: parseInt(width),
-          Weight: parseInt(weight),
-          Distance: distance,
-          service_type: serviceType,
-        },
-        {
-          headers: { "content-Type": "application/json" },
-        }
-      );
-      Data = await response?.data;
-      setData(response.data);
-    } else if (serviceType === "International") {
-      const response = await axios.post(
-        DELIVERY_URL,
-        {
-          Length: parseInt(length),
-          Height: parseInt(height),
-          Width: parseInt(width),
-          From: from,
-          To: to,
-          Service: serviceType,
-        },
-        {
-          headers: { "content-Type": "application/json" },
-        }
-      );
-      Data = await response?.data;
-      setData(response.data);
-    } else if (serviceType === "Domestic") {
-      const response = await axios.post(
-        DELIVERY_URL,
-        {
-          Distance: distance,
-          service_type: serviceType,
-        },
-        {
-          headers: { "content-Type": "application/json" },
-        }
-      );
-      Data = await response?.data;
-      setData(response.data);
+  const handleCardClick = () => {
+    if (height && weight && length && width) {
+      handleSubmit();
     } else {
-      console.log("invalid service type");
+      setFormError(true);
     }
+  };
 
-    setToggleStatic(false);
+  const handleSubmit = async (event) => {
+    event?.preventDefault();
+    setLoading(true);
+    let Data;
+    try {
+      if (serviceType === "Same Day") {
+        const response = await axios.post(
+          DELIVERY_URL,
+          {
+            Length: parseInt(length),
+            Height: parseInt(height),
+            Width: parseInt(width),
+            Weight: parseInt(weight),
+            Distance: distance,
+            service_type: serviceType,
+          },
+          {
+            headers: { "content-Type": "application/json" },
+          }
+        );
+        Data = await response?.data;
+        setData(response.data);
+      } else if (serviceType === "International") {
+        const response = await axios.post(
+          DELIVERY_URL,
+          {
+            Length: parseInt(length),
+            Height: parseInt(height),
+            Width: parseInt(width),
+            From: from,
+            To: to,
+            Service: serviceType,
+          },
+          {
+            headers: { "content-Type": "application/json" },
+          }
+        );
+        Data = await response?.data;
+        setData(response.data);
+      } else if (serviceType === "Domestic") {
+        const response = await axios.post(
+          DELIVERY_URL,
+          {
+            Distance: distance,
+            service_type: serviceType,
+          },
+          {
+            headers: { "content-Type": "application/json" },
+          }
+        );
+        Data = await response?.data;
+        setData(response.data);
+      }
+    } catch (err) {
+    } finally {
+      setFormError(false)
+      setToggleStatic(false);
+      setLoading(false);
+    }
 
     // console.log(data);
   };
@@ -168,7 +183,7 @@ const Result = () => {
           ))}
         </ul>
       </div> */}
-      <div className=" flex-1 px-7 py-0">
+      <div className=" flex-1 px-7 py-0 md:px-3 sm:px-2">
         {/* <Result /> */}
         <div>
           <Navbar></Navbar>
@@ -191,17 +206,26 @@ const Result = () => {
               </li>
             </ul> */}
           </div>
-          <div className="flex flex-col m-auto bg-white w-[86%] calculator-background border-[1px] border-[#FCFCFD] rounded-[24px] py-8 px-10 my-8">
-            <div className="flex mb-2 w-[100%]">
-              <div className="border-[2px] border-[#E6E8EC] rounded-[90px] font-bold text-[14px] leading-[16px] text-right text-[#23262F] px-4 py-2 mr-2">
+          <div
+            className={`flex flex-col m-auto ${
+              formError
+                ? " border-[#ff2525] shadow-red-300"
+                : " border-[#FCFCFD]"
+            }  w-fit md:w-full md:px-6 shadow-md  border-[2px] bg-white my-[50px] rounded-[24px] py-8 px-10`}
+          >
+            <div className="flex mb-2 w-[100%] md:flex-col gap-2 md:justify-center items-center">
+              <div className="border-[2px] md:w-full flex justify-center border-[#E6E8EC] rounded-[90px] font-bold text-[14px] leading-[16px]  text-[#23262F] px-4 py-2">
                 Try our shipping calculator
               </div>
-              <div className="bg-[#008185] border-[2px] border-[#FFFFFF] rounded-[90px] px-4 py-2 font-bold text-[14px] leading-[16px] text-right text-white ml-2">
+              <div className="bg-[#008185] border-[2px] border-[#FFFFFF] rounded-[90px] px-4 py-2 font-bold text-[14px] leading-[16px] text-right text-white  flex justify-center md:w-full">
                 {serviceType}
               </div>
             </div>
             <div className="my-2 flex items-center justify-center md:flex-col ">
-              <form className="flex md:flex-col w-full gap-2" onSubmit={handleSubmit}>
+              <form
+                className="flex md:flex-col w-full gap-3"
+                onSubmit={handleSubmit}
+              >
                 <div className="flex items-center mr-2">
                   {/* logo */}
                   <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
@@ -280,22 +304,40 @@ const Result = () => {
             </div>
           </div>
 
-          <div className="flex w-[85%] m-auto flex-col">
-            <div className="flex justify-start text-left w-[100%] border-b-[2px] py-2 border-b-[#008185]">
+          <div className="flex px-6 m-auto flex-col">
+            <div className="flex justify-start text-left w-[100%] border-b-[2px] py-2 border-b-[#008185] mb-4">
               <p className="text-[20px] leading-6 font-semibold text-[#008185]">
                 Popular Domestic Services
               </p>
             </div>
-            <div className={`flex ${toggleStatic? "flex-row" : "flex-col"}  gap-5 flex-wrap px-2 justify-center py-4 my-4 bg-white calculator-background rounded-[24px]`}>
-              {toggleStatic ? (
-                <>
-                  <StaticCard company="citysprint" />
-                  <StaticCard company="dpd" />
-                  <StaticCard company="dhl" />
-                </>
+            <div
+              className={`flex ${
+                toggleStatic ? "flex-row" : "flex-col"
+              }  gap-5 flex-wrap px-2 justify-center min-h-fit mx-32 md:mx-16 sm:mx-0 py-4 md:px-0 my-4 bg-white calculator-background rounded-[24px]`}
+            >
+              {loading ? (
+                <Spinner />
               ) : (
-                // data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
-                data.map((item, index) => <NewCard data={item} serviceType={serviceType}/>)
+                <>
+                  {toggleStatic ? (
+                    <>
+                      <button onClick={() => handleCardClick()}>
+                        <StaticCard company="citysprint" />
+                      </button>
+                      <button onClick={() => handleCardClick()}>
+                        <StaticCard company="dpd" />
+                      </button>
+                      <button onClick={() => handleCardClick()}>
+                        <StaticCard company="dhl" />
+                      </button>
+                    </>
+                  ) : (
+                    // data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
+                    data.map((item, index) => (
+                      <NewCard data={item} serviceType={serviceType} />
+                    ))
+                  )}
+                </>
               )}
             </div>
           </div>

@@ -12,6 +12,7 @@ import ReviewOrder from "./Pages/ReviewOrder/ReviewOrder";
 import Signin from "./Pages/Signin/Signin";
 import Signup from "./Pages/Signup/Signup";
 import Otp from "./Pages/OTP/Otp";
+import ScrollToTop from "./hooks/ScrollToTop";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route
             path="/"

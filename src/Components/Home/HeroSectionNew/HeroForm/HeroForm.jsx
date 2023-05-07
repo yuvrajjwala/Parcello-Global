@@ -61,7 +61,7 @@ export default function HeroForm() {
     }
 
     if (body) {
-      console.log(body);
+      // console.log(body);
       navigate("/result", {
         state: {
           body,
@@ -202,7 +202,7 @@ export default function HeroForm() {
                   />
                 </div>
               </div>
-              <div className="flex items-center mr-2 gap-2">
+              <div className="flex items-center mr-2 gap-2 w-full">
                 {/* logo */}
                 <CiLocationArrow1 className=" text-4xl" />
                 <div className="flex flex-col w-full">
@@ -210,7 +210,7 @@ export default function HeroForm() {
                     To
                   </span>
                   <select
-                    className="border-b-[1px] w-[250px] lg:w-600px focus:outline-none hover:outline-none my-[1px] bg-transparent"
+                    className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
                     value={selectedOption}
                     onChange={handleSelect}
                   >

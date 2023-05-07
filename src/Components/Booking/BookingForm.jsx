@@ -1,18 +1,13 @@
 import React, { lazy, Suspense, useState } from "react";
 import { CiBookmark, CiCircleInfo, CiDeliveryTruck } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import NewCardForm from "./NewCardForm";
 
-export default function BookingForm() {
+export default function BookingForm(state) {
   const navigate = useNavigate();
-  const prop = {
-    rpostcode: "KT174JL",
-    dpostcode: "NW8",
-    img: "https://www.parcello.co.uk/main/uploads/logo/citysprint.png",
-    price: 47.23,
-    vat: 5,
-  };
+  state = state.state;
   const [rAddress, setRaddress] = useState({
-    rPostcode: prop.rpostcode,
+    rPostcode: "",
     rName: "",
     rEmail: "",
     rContact: "",
@@ -23,7 +18,7 @@ export default function BookingForm() {
   });
 
   const [dAddress, setDaddress] = useState({
-    dPostcode: prop.dpostcode,
+    dPostcode: "",
     dName: "",
     dEmail: "",
     dContact: "",
@@ -45,14 +40,12 @@ export default function BookingForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("Return Address :", rAddress);
-    console.log("Delivery Address :", dAddress);
-    console.log("Additioanal : ", additional);
     navigate("/reviewOrder", {
       state: {
         rAddress,
         dAddress,
-        additional
+        additional,
+        state
       },
     });
   }
@@ -93,8 +86,8 @@ export default function BookingForm() {
                   name="rPostcode"
                   className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
                   placeholder="Enter postcode"
-                  readOnly="readonly"
                   value={rAddress.rPostcode}
+                  onChange={handleReturnChange}
                   required
                 />
               </div>
@@ -240,7 +233,7 @@ export default function BookingForm() {
                   name="dPostcode"
                   className="appearance-none border w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none"
                   placeholder="Enter postcode"
-                  readOnly="readonly"
+                  onChange={handleDeliveryChange}
                   value={dAddress.dPostcode}
                   required
                 />
@@ -376,7 +369,7 @@ export default function BookingForm() {
         </div>
         <div className="flex flex-col md:order-first">
           <h1 className=" text-2xl font-bold">Service Booked</h1>
-          <div className="flex flex-col w-full mt-5 rounded-md text-left justify-center">
+          {/* <div className="flex flex-col w-full mt-5 rounded-md text-left justify-center">
             <div className="flex px-5 py-2 rounded-md bg-teal-700 items-center gap-5">
               <div className=" h-16 w-16 rounded-full bg-white">
                 <img
@@ -418,7 +411,11 @@ export default function BookingForm() {
             <button className="p-5 m-auto mt-4 w-72   font-medium text-white rounded-3xl bg-orange-400 hover:shadow-lg hover:shadow-orange-300">
               Change this Service
             </button>
-          </div>
+          </div> */}
+          <NewCardForm data={state} />
+          <button className="p-5 m-auto mt-4 w-72   font-medium text-white rounded-3xl bg-orange-400 hover:shadow-lg hover:shadow-orange-300">
+            Change this Service
+          </button>
         </div>
         <div className="col-span-2 flex justify-center md:col-span-1 ">
           <div className="mx-auto w-full formBg p-4">

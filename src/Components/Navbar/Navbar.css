@@ -51,3 +51,19 @@
     top: 8px;
     height: 17px;
 }
+
+.dropdown-content {
+   display: none;
+   position: absolute;
+   width: auto;
+   background-color: white;
+   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+   z-index: 90;
+   right:3px;
+ }
+ 
+ 
+ 
+ /* Show the dropdown menu on hover */
+ .dropdown:hover .dropdown-content {display: block;}
+ 
