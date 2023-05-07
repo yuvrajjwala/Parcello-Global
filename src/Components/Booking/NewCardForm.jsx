@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import StarRating from "../Result/StarRating";
 
 export default function NewCardForm({ data }) {
-  console.log(data);
+  // console.log(data);
   const courier_name = data.courier_name;
   const courier_logo = data.courier_logo;
   const max_height = data.max_height;

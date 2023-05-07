@@ -47,9 +47,6 @@ export default function ReviewForm(state) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log("Return Address :", rAddress);
-    console.log("Delivery Address :", dAddress);
-    console.log("Additioanal : ", additional);
   }
 
 

@@ -46,7 +46,6 @@ export default function Signin() {
       });
       setEmail("");
       setPassword("");
-      console.log("logged in");
     } catch (e) {
       if (e.response?.status === 403) {
         error("Invalid Email id");

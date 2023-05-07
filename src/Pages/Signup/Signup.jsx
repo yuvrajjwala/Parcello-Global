@@ -55,10 +55,8 @@ export default function Signup() {
       setConfirmPassword("");
       setFirstName("");
       setLastName("");
-      // console.log(response);
       setSignup(false);
     } catch (err) {
-      // console.log(err);
       if (err.response?.status === 400) {
         error("User already exists");
         setErrMsg("User already exists");
