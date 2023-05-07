@@ -54,7 +54,6 @@ export default function Otp() {
   };
   const submitOTP = async (event) => {
     event.preventDefault();
-    console.log(data);
   };
   return (
     <div className="flex h-screen">

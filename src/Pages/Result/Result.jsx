@@ -127,7 +127,6 @@ const Result = () => {
         setData(response.data);
       }
     } catch (err) {
-      console.log(err);
     } finally {
       setFormError(false)
       setToggleStatic(false);

@@ -61,7 +61,7 @@ export default function HeroForm() {
     }
 
     if (body) {
-      console.log(body);
+      // console.log(body);
       navigate("/result", {
         state: {
           body,
