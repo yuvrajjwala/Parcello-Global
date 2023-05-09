@@ -13,6 +13,8 @@ import Signin from "./Pages/Signin/Signin";
 import Signup from "./Pages/Signup/Signup";
 import Otp from "./Pages/OTP/Otp";
 import ScrollToTop from "./hooks/ScrollToTop";
+import Contact from "./Pages/Contact/Contact";
+import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -52,6 +54,8 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup/otp" element={<Otp />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*"  element={<ErrorPage />} />
         </Routes>
       </Router>
     </div>

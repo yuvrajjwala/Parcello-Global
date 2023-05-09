@@ -1,20 +1,13 @@
 import React, { lazy, Suspense, useState } from "react";
 import { CiBookmark, CiCircleInfo, CiDeliveryTruck } from "react-icons/ci";
 import NewCardForm from "../Booking/NewCardForm";
+import axios from "../../api/axios";
 
 export default function ReviewForm(state) {
-  const prop = {
-    rpostcode: "KT174JL",
-    dpostcode: "NW8",
-    img: "https://www.parcello.co.uk/main/uploads/logo/citysprint.png",
-    price: 47.23,
-    vat: 5,
-  };
-  
-  const rAddress = state.rAddress
-  const dAddress = state.dAddress
-  const additional = state.additional
-  const data = state.data
+  const rAddress = state.rAddress;
+  const dAddress = state.dAddress;
+  const additional = state.additional;
+  const data = state.data;
   // const rAddress = {
   //   rPostcode: "KT174JL",
   //   rName: "Debabrata Batabyal",
@@ -37,7 +30,6 @@ export default function ReviewForm(state) {
   //   dCountry: "United Kingdom",
   // };
 
-
   // const additional = {
   //   cDate: "12-04-2023",
   //   pContent: "Content",
@@ -45,11 +37,65 @@ export default function ReviewForm(state) {
   //   notes: "Customer Notes",
   // };
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+    const body = {
+      from_address: [
+        {
+          post_code: rAddress.rPostcode,
+          name: rAddress.rName,
+          email: rAddress.rEmail,
+          contact_number: rAddress.rContact,
+          address: rAddress.rAddress,
+          town: rAddress.rTown,
+          city: rAddress.rCounty,
+          country: rAddress.rCountry,
+        },
+      ],
+      to_address: [
+        {
+          post_code: dAddress.dPostcode,
+          name: dAddress.dName,
+          email: dAddress.dEmail,
+          contact_number: dAddress.dContact,
+          address: dAddress.dAddress,
+          town: dAddress.dTown,
+          city: dAddress.dCounty,
+          country: dAddress.dCountry,
+        },
+      ],
+      collection_date: additional.cDate,
+      package_content: additional.pContent,
+      value_of_content: additional.contentValue,
+      extended_liability:additional.extendedLiability,
+      cancelling_option: true,
+      cancelling_fee: 0,
+      total_price: data.price + data.vat,
+      price: data.price,
+      VAT: data.vat,
+      courier_notes: additional.note,
+      document_type: "string",
+      customs_documents: "string",
+      label: "string",
+      indemnity_form: "string",
+      created_by: "string",
+      updated_by: "string",
+      courier_service: [0],
+      rate_card: [0],
+    }
+    console.log(body)
+    try {
+      // const response = await axios.post(
+      //   "/api/bookings/delivery/",
+      //   body,
+      //   {
+      //     headers: { "content-Type": "application/json" },
+      //   }
+      // );
+    } catch (e) {
+      console.log(e);
+    }
   }
-
-
 
   return (
     <Suspense fallback={<div></div>}>
@@ -77,7 +123,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter postcode"
                   readOnly="readonly"
                   value={rAddress.rPostcode}
-                  
                 />
               </div>
               <div className="my-4 w-full">
@@ -95,7 +140,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Name"
                   value={rAddress.rName}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -113,7 +157,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Email"
                   value={rAddress.rEmail}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -131,7 +174,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Contact Number"
                   value={rAddress.rContact}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -149,7 +191,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Address"
                   value={rAddress.rAddress}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -167,7 +208,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Town"
                   value={rAddress.rTown}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -185,7 +225,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter County"
                   value={rAddress.rCounty}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -203,7 +242,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Country"
                   value={rAddress.rCountry}
                   readOnly="readonly"
-                  
                 />
               </div>
             </div>
@@ -224,7 +262,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter postcode"
                   readOnly="readonly"
                   value={dAddress.dPostcode}
-                  
                 />
               </div>
               <div className="my-4 w-full">
@@ -242,7 +279,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Name"
                   value={dAddress.dName}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -260,7 +296,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Email"
                   value={dAddress.dEmail}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -278,7 +313,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Contact Number"
                   value={dAddress.dContact}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -296,7 +330,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Address"
                   value={dAddress.dAddress}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -314,7 +347,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Town"
                   value={dAddress.dTown}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -332,7 +364,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter County"
                   value={dAddress.dCounty}
                   readOnly="readonly"
-                  
                 />
               </div>
               <div className="mb-4 w-full">
@@ -350,7 +381,6 @@ export default function ReviewForm(state) {
                   placeholder="Enter Country"
                   value={dAddress.dCountry}
                   readOnly="readonly"
-                  
                 />
               </div>
             </div>
@@ -398,16 +428,14 @@ export default function ReviewForm(state) {
               </div>
             </div>
           </div> */}
-          <NewCardForm data = {data}/>
+          <NewCardForm data={data} />
           <button
-          className="p-5 mt-5 m-auto w-64 font-medium text-white rounded-3xl bg-green-400 hover:shadow-lg hover:shadow-green-300"
-          type="submit"
-        >
-          Confirm and Pay
-        </button>
+            className="p-5 mt-5 m-auto w-64 font-medium text-white rounded-3xl bg-green-400 hover:shadow-lg hover:shadow-green-300"
+            type="submit"
+          >
+            Confirm and Pay
+          </button>
         </div>
-        
-       
       </form>
     </Suspense>
   );
