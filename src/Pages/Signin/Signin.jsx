@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import logo from "../../assets/Navbar/parcello.png";
@@ -16,6 +16,7 @@ export default function Signin() {
   const [password, setPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
+  const { auth, updateAuth } = useContext(AuthContext);
 
   // const submitHandler = async (e) => {
   //   e.preventDefault();
@@ -43,14 +44,17 @@ export default function Signin() {
 
       // const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-      updateAuth({
+      const item = {
         email: email,
-        // password: loginPass,
         accessToken,
         refreshToken,
-      });
+        isAuthenticated: true,
+      };
+      localStorage.setItem("item", JSON.stringify(item));
+      updateAuth(item);
       setEmail("");
       setPassword("");
+      navigate("/dashboard");
     } catch (e) {
       if (e.response?.status === 403) {
         error("Invalid Email id");
@@ -58,7 +62,7 @@ export default function Signin() {
     }
   };
   return (
-    <div className="flex h-screen overflow-hidden relative">
+    <div className="flex h-screen overflow-x-hidden relative">
       <div className="formBg h-full w-[55%]  flex items-center justify-center md:hidden">
         <img
           src={truck}
