@@ -7,7 +7,10 @@ import axios from "../../api/axios";
 import AuthContext from "../../context/AuthContext";
 const REGISTER_URL = "/auth/users/API/register/";
 import { useNavigate } from "react-router-dom";
-import dock from "../../assets/login/dock.jpg"
+import dock from "../../assets/login/dock.jpg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import exit from "../../assets/login/exit.svg";
 
 export default function Signup() {
   let navigate = useNavigate();
@@ -17,6 +20,10 @@ export default function Signup() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
+
+  const toastSuccess = () =>
+    toast.success("This is Toast Notification for Success");
+  const toastWarn = () => toast.warn("This is Toast Notification for Warn");
 
   const handleRegisterSubmit = async (event) => {
     event.preventDefault();
@@ -66,7 +73,8 @@ export default function Signup() {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    navigate("/signup/otp");
+    toastSuccess();
+    // navigate("/signup/otp");
 
     // history.push("/signup/otp");
     // const body = {
@@ -81,14 +89,17 @@ export default function Signup() {
       {/* <div className="formBg h-full w-[55%]  flex items-center justify-center md:hidden">
         <img src={dock} className="w-full h-full overflow-hidden object-cover" alt="" />
       </div> */}
+
+      <Link
+        to="/"
+        className="absolute -top-3 -right-3 bg-slate-500   rounded-full w-12 h-12 flex justify-start items-end p-4 cursor-pointer overflow-hidden"
+      >
+        <img src={exit} alt="exit" className="w-4 h-4 exit " />
+      </Link>
       <form
         className="mx-auto flex justify-center items-start flex-col gap-8 w-80"
         onSubmit={submitHandler}
       >
-        <div className=" my-5 h-5 flex">
-          <h1 className="text-lg font-bold">Parcello</h1>
-          <img src={logo} className="h-full w-full" alt="" />
-        </div>
         <div className="flex flex-col">
           <span className="text-xl text-primary font-semibold">
             Get Started With Parcello
@@ -198,6 +209,18 @@ export default function Signup() {
           </Link>
         </div>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }

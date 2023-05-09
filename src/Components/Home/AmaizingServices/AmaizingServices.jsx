@@ -1,6 +1,7 @@
 import React from "react";
 import { Suspense } from "react";
 import { BsFillEmojiSmileFill, BsGiftFill, BsLightningChargeFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 function AmaizingServices() {
   return (
@@ -13,9 +14,9 @@ function AmaizingServices() {
             </span>
             <h1 className=" font-extrabold text-5xl  text-center whitespace-nowrap sm:text-4xl">Amazing Services</h1>
           </div>
-          <button className="bg-[#02878A] text-white px-6 py-4 rounded-[90px]">
+          <Link to="/contact" className="bg-[#02878A] text-white px-6 py-4 rounded-[90px]">
             Contact Us
-          </button>
+          </Link>
         </div>
         <div className="flex flex-row items-center p-0 gap-6 md:flex-col">
           {/* card1 */}

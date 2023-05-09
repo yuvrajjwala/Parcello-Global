@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import logo from "../../assets/Navbar/parcello.png";
 import axios from "../../api/axios";
+import exit from "../../assets/login/exit.svg";
 import AuthContext from "../../context/AuthContext";
-import truck from "../../assets/login/truck.jpg"
+import truck from "../../assets/login/truck.jpg";
+import "./signin.css";
+import { useNavigate } from "react-router-dom";
 
 const LOGIN_URL = "/auth/users/API/login/";
 
@@ -12,6 +15,8 @@ export default function Signin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
+  const { auth, updateAuth } = useContext(AuthContext);
 
   // const submitHandler = async (e) => {
   //   e.preventDefault();
@@ -33,19 +38,23 @@ export default function Signin() {
           withCredentials: true,
         }
       );
+      // console.log(response);
       const accessToken = response?.data?.tokens?.access;
       const refreshToken = response?.data?.tokens?.refresh;
 
       // const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
-      updateAuth({
+      const item = {
         email: email,
-        // password: loginPass,
         accessToken,
         refreshToken,
-      });
+        isAuthenticated: true,
+      };
+      localStorage.setItem("item", JSON.stringify(item));
+      updateAuth(item);
       setEmail("");
       setPassword("");
+      navigate("/dashboard");
     } catch (e) {
       if (e.response?.status === 403) {
         error("Invalid Email id");
@@ -53,15 +62,27 @@ export default function Signin() {
     }
   };
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen overflow-x-hidden relative">
       <div className="formBg h-full w-[55%]  flex items-center justify-center md:hidden">
-        <img src={truck} className="w-full h-full overflow-hidden object-cover" alt="" />
+        <img
+          src={truck}
+          className="w-full h-full overflow-hidden object-cover"
+          alt=""
+        />
       </div>
-      <form className="mx-auto flex justify-center items-start flex-col gap-8 w-80" onSubmit={handleLoginSubmit}>
-        {/* <div className=" my-5 h-5 flex">
-          <h1 className="text-lg font-bold">Parcello</h1>
-          <img src={logo} className="h-full w-full" alt="" />
-        </div> */}
+      <Link
+        to="/"
+        className="absolute -top-3 -right-3 bg-slate-500   rounded-full w-12 h-12 flex justify-start items-end p-4 cursor-pointer overflow-hidden"
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        <img src={exit} alt="exit" className="w-4 h-4 exit " />
+      </Link>
+      <form
+        className="mx-auto flex justify-center items-start flex-col gap-8 w-80"
+        onSubmit={handleLoginSubmit}
+      >
         <div className="flex flex-col">
           <span className="text-xl text-primary font-semibold">
             Get Started With Parcello
@@ -106,7 +127,7 @@ export default function Signin() {
         </div>
 
         <button
-          className="bg-[#02878A] text-white w-full h-10 rounded-lg cursor-pointer disabled:bg-slate-500"
+          className="bg-[#02878A] text-white w-full h-10 rounded-lg cursor-pointer "
           type="submit"
           // onClick={submitHandler}
           disabled={email.length == 0 || password.length == 0 ? true : false}
