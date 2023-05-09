@@ -19,8 +19,10 @@ import "./result.css";
 
 import control from "../../assets/control.png";
 import NewCard from "../../Components/Result/NewCard";
-import Spinner from "../../Components/Result/Spinner";
-const DELIVERY_URL = "https://api.parcelloglobal.com/api/couriers/fetchbydelivery/";
+import Spinner from "../../Components/Utils/Spinner";
+
+const DELIVERY_URL =
+  "https://api.parcelloglobal.com/api/couriers/fetchbydelivery/";
 
 const Result = () => {
   const [open, setOpen] = useState(true);
@@ -111,7 +113,7 @@ const Result = () => {
           }
         );
         Data = await response?.data;
-        console.log(response.data)
+        console.log(response.data);
         setData(response.data);
       } else if (serviceType === "Domestic") {
         const response = await axios.post(
@@ -129,7 +131,7 @@ const Result = () => {
       }
     } catch (err) {
     } finally {
-      setFormError(false)
+      setFormError(false);
       setToggleStatic(false);
       setLoading(false);
     }
@@ -334,9 +336,11 @@ const Result = () => {
                     </>
                   ) : (
                     // data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
-                    data.filter((item)=> item.related_courier.length > 0 ).map((item, index) => (
-                      <NewCard data={item} serviceType={serviceType} />
-                    ))
+                    data
+                      .filter((item) => item.related_courier.length > 0)
+                      .map((item, index) => (
+                        <NewCard data={item} serviceType={serviceType} />
+                      ))
                   )}
                 </>
               )}

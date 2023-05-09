@@ -4,7 +4,7 @@ export default function Table() {
   return (
     <div className="flex flex-col">
       <div className="overflow-x-auto">
-        <div className="p-1.5 w-full inline-block align-middle">
+        <div className="p-20-04-2023.5 w-full inline-block align-middle">
           <div className="overflow-hidden border rounded-lg">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
@@ -25,31 +25,37 @@ export default function Table() {
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
                   >
-                    ID
+                    Date
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
                   >
-                    Name
+                    From
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase "
                   >
-                    Email
+                    To
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
                   >
-                    Edit
+                    Status
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
                   >
-                    Delete
+                    Payment
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase "
+                  >
+                    ...
                   </th>
                 </tr>
               </thead>
@@ -67,23 +73,26 @@ export default function Table() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    1
+                    20-04-2023
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                     Jone Doe
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    jonne62@gmail.com
+                    Jason
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-green-500 hover:text-green-700" href="#">
-                      Edit
+                      Delivered
                     </a>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-red-500 hover:text-red-700" href="#">
-                      Delete
+                      Pending
                     </a>
+                  </td>
+                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                    <a href="#">...</a>
                   </td>
                 </tr>
                 <tr>
@@ -99,23 +108,26 @@ export default function Table() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    1
+                    20-04-2023
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                     Jone Doe
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    jonne62@gmail.com
+                    Jason
+                  </td>
+                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                    <a className="text-yellow-500 hover:text-yellow-700" href="#">
+                      Shipping
+                    </a>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-green-500 hover:text-green-700" href="#">
-                      Edit
+                      Success
                     </a>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                    <a className="text-red-500 hover:text-red-700" href="#">
-                      Delete
-                    </a>
+                    <a href="#">...</a>
                   </td>
                 </tr>
                 <tr>
@@ -131,23 +143,26 @@ export default function Table() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    1
+                    20-04-2023
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                     Jone Doe
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    jonne62@gmail.com
+                    Jason
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-green-500 hover:text-green-700" href="#">
-                      Edit
+                      Delivered
                     </a>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-red-500 hover:text-red-700" href="#">
-                      Delete
+                      Pending
                     </a>
+                  </td>
+                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                    <a href="#">...</a>
                   </td>
                 </tr>
                 <tr>
@@ -163,23 +178,26 @@ export default function Table() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    1
+                    20-04-2023
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                     Jone Doe
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    jonne62@gmail.com
+                    Jason
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                    <a className="text-green-500 hover:text-green-700" href="#">
-                      Edit
+                    <a className="text-red-500 hover:text-red-700" href="#">
+                      Cancled
                     </a>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-red-500 hover:text-red-700" href="#">
-                      Delete
+                      Pending
                     </a>
+                  </td>
+                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                    <a href="#">...</a>
                   </td>
                 </tr>
                 <tr>
@@ -195,23 +213,26 @@ export default function Table() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    1
+                    20-04-2023
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                     Jone Doe
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    jonne62@gmail.com
+                    Jason
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-green-500 hover:text-green-700" href="#">
-                      Edit
+                      Delivered
                     </a>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-red-500 hover:text-red-700" href="#">
-                      Delete
+                      Pending
                     </a>
+                  </td>
+                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                    <a href="#">...</a>
                   </td>
                 </tr>
                 <tr>
@@ -227,23 +248,26 @@ export default function Table() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    1
+                    20-04-2023
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                     Jone Doe
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    jonne62@gmail.com
+                    Jason
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-green-500 hover:text-green-700" href="#">
-                      Edit
+                      Delivered
                     </a>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-red-500 hover:text-red-700" href="#">
-                      Delete
+                      Pending
                     </a>
+                  </td>
+                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                    <a href="#">...</a>
                   </td>
                 </tr>
                 <tr>
@@ -259,23 +283,26 @@ export default function Table() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    1
+                    20-04-2023
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                     Jone Doe
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    jonne62@gmail.com
+                    Jason
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-green-500 hover:text-green-700" href="#">
-                      Edit
+                      Delivered
                     </a>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-red-500 hover:text-red-700" href="#">
-                      Delete
+                      Pending
                     </a>
+                  </td>
+                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                    <a href="#">...</a>
                   </td>
                 </tr>
                 <tr>
@@ -291,23 +318,26 @@ export default function Table() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    1
+                    20-04-2023
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                     Jone Doe
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    jonne62@gmail.com
+                    Jason
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-green-500 hover:text-green-700" href="#">
-                      Edit
+                      Delivered
                     </a>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-red-500 hover:text-red-700" href="#">
-                      Delete
+                      Pending
                     </a>
+                  </td>
+                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                    <a href="#">...</a>
                   </td>
                 </tr>
                 <tr>
@@ -323,23 +353,26 @@ export default function Table() {
                     </div>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    1
+                    20-04-2023
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                     Jone Doe
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    jonne62@gmail.com
+                    Jason
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-green-500 hover:text-green-700" href="#">
-                      Edit
+                      Delivered
                     </a>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     <a className="text-red-500 hover:text-red-700" href="#">
-                      Delete
+                      Pending
                     </a>
+                  </td>
+                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                    <a href="#">...</a>
                   </td>
                 </tr>
               </tbody>
