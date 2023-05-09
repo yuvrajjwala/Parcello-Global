@@ -9,7 +9,6 @@ import { useState } from "react";
 import Login from "../../Components/login/Login";
 
 const Navbar = () => {
-  // const [openLogin, setOpenLogin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(true);
 
   const closeNavBar = useCallback(() => setIsCollapsed(true), []);
@@ -61,8 +60,7 @@ const Navbar = () => {
     <>
       <div className="flex w-full bg-white p-3 justify-between items-center px-8 text-sm text-slate-500 ">
         <div className="flex items-center">
-          <h1 className="text-2xl text-black font-bold">Parcello</h1>{" "}
-          <img className="max-w-[50px]" src={parcello}></img>
+          <img className="max-w-[120px]" src={parcello}></img>
         </div>
         <div className="flex items-center gap-5  md:hidden justify-end w-full">
           <NavLink
