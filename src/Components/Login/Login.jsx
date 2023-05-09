@@ -175,7 +175,7 @@ const Login = ({ openLogin, setOpenLogin }) => {
       setLoginEmail("");
       setLoginPass("");
       setOpenLogin(false);
-      notify("fuck u");
+      // notify("fuck u");
       // console.log("clicked");
     } catch (e) {
       if (e.response?.status === 403) {
