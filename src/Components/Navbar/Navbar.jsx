@@ -61,7 +61,6 @@ const Navbar = () => {
     <>
       <div className="flex w-full bg-white p-3 justify-between items-center px-8 text-sm text-slate-500 ">
         <Link to="/" className="flex items-center">
-          <h1 className="text-2xl text-black font-bold">Parcello</h1>{" "}
           <img className="max-w-[120px]" src={parcello}></img>
         </Link>
         <div className="flex items-center gap-5  md:hidden justify-end w-full">
