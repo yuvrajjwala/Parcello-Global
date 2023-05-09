@@ -2,6 +2,7 @@ import React, { lazy, Suspense, useState } from "react";
 import { CiBookmark, CiCircleInfo, CiDeliveryTruck } from "react-icons/ci";
 import NewCardForm from "../Booking/NewCardForm";
 import axios from "../../api/axios";
+import { toast } from "react-toastify";
 
 export default function ReviewForm(state) {
   const rAddress = state.rAddress;
@@ -70,30 +71,25 @@ export default function ReviewForm(state) {
       extended_liability:additional.extendedLiability,
       cancelling_option: true,
       cancelling_fee: 0,
-      total_price: data.price + data.vat,
+      total_price: Number(data.price) + Number(data.VAT),
       price: data.price,
-      VAT: data.vat,
-      courier_notes: additional.note,
-      document_type: "string",
-      customs_documents: "string",
-      label: "string",
-      indemnity_form: "string",
-      created_by: "string",
-      updated_by: "string",
-      courier_service: [0],
+      VAT: data.VAT,
+      courier_notes: additional.notes,
+      courier_service: [data],
       rate_card: [0],
     }
     console.log(body)
     try {
-      // const response = await axios.post(
-      //   "/api/bookings/delivery/",
-      //   body,
-      //   {
-      //     headers: { "content-Type": "application/json" },
-      //   }
-      // );
+      const response = await axios.post(
+        "/api/bookings/delivery/",
+        body,
+        {
+          headers: { "content-Type": "application/json" },
+        }
+      );
+      console.log(response)
     } catch (e) {
-      console.log(e);
+      toast.error("Something Went Wrong")
     }
   }
 

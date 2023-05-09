@@ -334,7 +334,7 @@ const Result = () => {
                     </>
                   ) : (
                     // data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
-                    data.map((item, index) => (
+                    data.filter((item)=> item.related_courier.length > 0 ).map((item, index) => (
                       <NewCard data={item} serviceType={serviceType} />
                     ))
                   )}
