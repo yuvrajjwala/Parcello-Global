@@ -3,12 +3,14 @@ import { CiBookmark, CiCircleInfo, CiDeliveryTruck } from "react-icons/ci";
 import NewCardForm from "../Booking/NewCardForm";
 import axios from "../../api/axios";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 export default function ReviewForm(state) {
   const rAddress = state.rAddress;
   const dAddress = state.dAddress;
   const additional = state.additional;
   const data = state.data;
+  const navigate = useNavigate()
   // const rAddress = {
   //   rPostcode: "KT174JL",
   //   rName: "Debabrata Batabyal",
@@ -90,6 +92,9 @@ export default function ReviewForm(state) {
         headers: { "content-Type": "application/json" },
       });
       console.log(response);
+      navigate("/payment", {
+        state: data,
+      });
     } catch (e) {
       toast.error("Something Went Wrong");
     }

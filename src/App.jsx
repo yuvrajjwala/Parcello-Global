@@ -24,6 +24,7 @@ import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import { Footer } from "./Components/Footer/Footer";
 import Spinner from "./Components/Utils/Spinner";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import Payment from "./Pages/payment/Payment";
 // import AuthProvider from "./context/AuthProvider";
 
 function App() {
@@ -88,6 +89,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup/otp" element={<Otp />} />
           <Route path="/result" element={<Result />}></Route>
+          <Route path="/payment" element={<Payment />}></Route>
+          <Route path="*" element={<ErrorPage />}></Route>
         </Routes>
 
         {/* {auth?.isAuthenticated ? (
