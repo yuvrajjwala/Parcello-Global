@@ -21,6 +21,8 @@ import AuthContext from "./context/AuthContext";
 import ScrollToTop from "./hooks/ScrollToTop";
 import Contact from "./Pages/Contact/Contact";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
+import { Footer } from "./Components/Footer/Footer";
+import Spinner from "./Components/Utils/Spinner";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -39,7 +41,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<div><Spinner/></div>}>
                 <Home />
               </Suspense>
             }
@@ -47,7 +49,7 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<div><Spinner/></div>}>
                 <Dashboard />
               </Suspense>
             }
@@ -55,7 +57,7 @@ function App() {
           <Route
             path="/reset"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<div><Spinner/></div>}>
                 <ResetPass />
               </Suspense>
             }
@@ -67,9 +69,10 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup/otp" element={<Otp />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="*"  element={<ErrorPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Router>
+      <Footer />
     </div>
   );
 }
