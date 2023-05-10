@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React, { Children, useEffect } from "react";
 import { ImArrowRight, ImTruck } from "react-icons/im";
 import { AiFillPrinter, AiOutlineRight } from "react-icons/ai";
 import { BsFillInfoCircleFill } from "react-icons/bs";
@@ -27,8 +27,11 @@ export default function NewCard({ data}) {
    const price = parseFloat(data.price)
    const vat = parseFloat(data.VAT)
 
-   const navigate = useNavigate()
-   const handleSubmit = (protection)=>{
+  useEffect(() => {
+    console.log(data);
+  });
+  const navigate = useNavigate();
+  const handleSubmit = (protection) => {
     navigate("/booking", {
       state: {
           courier_name: courier_name,
@@ -47,21 +50,28 @@ export default function NewCard({ data}) {
 
       },
     });
-   }
+  };
 
   return (
     <div className="flex flex-col w-full border-[1px] border-slate-300 rounded-md p-5 text-[#008185] justify-between">
       <div className="flex justify-between items-center w-full border-b-[1px] pb-2 border-slate-200 rounded-xl sm:flex-col">
         <div className="flex gap-2 items-center w-full">
           <div className=" w-36 h-16 rounded-lg ">
-            <img src={courier_logo} className="w-full h-full object-contain" alt="" />
+            <img
+              src={courier_logo}
+              className="w-full h-full object-contain"
+              alt=""
+            />
           </div>
           <h3 className="text-sm font-semibold text-[#008185]">
             {courier_name}
           </h3>
         </div>
         <div className=" items-center flex w-full justify-end">
-          <h3 className="text-sm px-2 text-slate-500 ">Max :{max_weight>0 && (max_weight+"kg")}-{max_length}x{max_width}x{max_height}</h3>
+          <h3 className="text-sm px-2 text-slate-500 ">
+            Max :{max_weight > 0 && max_weight + "kg"}-{max_length}x{max_width}x
+            {max_height}
+          </h3>
 
           <a href="" className="flex items-center text-blue-500">
             <p
@@ -75,7 +85,7 @@ export default function NewCard({ data}) {
         </div>
       </div>
       <div className="flex justify-between my-2 items-center md:flex-col w-full gap-5">
-        <div className="flex  gap-4 w-full items-center  md:flex-col justify-between" >
+        <div className="flex  gap-4 w-full items-center  md:flex-col justify-between">
           <div className="flex justify-center items-center gap-3">
             <div className="flex flex-col items-center justify-center p-3 border-[1px] border-slate-200 rounded-lg ">
               <h1 className="font-medium ">Rating : {roundedNumber}</h1>
@@ -103,9 +113,14 @@ export default function NewCard({ data}) {
           <div className=" border-[1px] border-slate-200 p-3 rounded-md flex gap-3 items-center md:flex md:w-full  justify-center">
             <div>
               <p className="font-bold text-lg">£{price}</p>
-              <p className="text-sm text-black">£{(price+vat).toFixed(2)} with vat</p>
+              <p className="text-sm text-black">
+                £{(price + vat).toFixed(2)} with vat
+              </p>
             </div>
-            <button onClick={()=> handleSubmit(false)} className=" p-3 max-w-[150px] md:max-w-fit rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center text-left w-full">
+            <button
+              onClick={() => handleSubmit(false)}
+              className=" p-3 max-w-[150px] md:max-w-fit rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center text-left w-full"
+            >
               <h1>Book without Protection</h1>
               <AiOutlineRight className="text-xl" />
             </button>
@@ -113,10 +128,15 @@ export default function NewCard({ data}) {
           <div className=" bg-sky-50  p-3 rounded-md flex gap-3 items-center md:flex md:w-full  justify-center">
             <div>
               <p className="font-bold text-lg">£{price}</p>
-              <p className="text-sm text-black">£{(price+vat).toFixed(2)} with vat</p>
+              <p className="text-sm text-black">
+                £{(price + vat).toFixed(2)} with vat
+              </p>
             </div>
-            <button onClick={()=> handleSubmit(true)} className=" bg-green-600 text-white p-3 max-w-[150px] md:max-w-fit rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center  text-left w-full">
-              <h1>Book with £{(price*0.2).toFixed(2)} Protection</h1>
+            <button
+              onClick={() => handleSubmit(true)}
+              className=" bg-green-600 text-white p-3 max-w-[150px] md:max-w-fit rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center  text-left w-full"
+            >
+              <h1>Book with £{(price * 0.2).toFixed(2)} Protection</h1>
               <AiOutlineRight className="text-xl" />
             </button>
           </div>

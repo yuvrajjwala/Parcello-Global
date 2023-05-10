@@ -21,55 +21,126 @@ import AuthContext from "./context/AuthContext";
 import ScrollToTop from "./hooks/ScrollToTop";
 import Contact from "./Pages/Contact/Contact";
 import ErrorPage from "./Pages/ErrorPage/ErrorPage";
+import { Footer } from "./Components/Footer/Footer";
+import Spinner from "./Components/Utils/Spinner";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+// import AuthProvider from "./context/AuthProvider";
 
 function App() {
   const [count, setCount] = useState(0);
   const { auth, updateAuth } = useContext(AuthContext);
 
   useEffect(() => {
-    const item = localStorage.getItem("auth");
-    if (item) updateAuth(JSON.parse(item));
-  }, []);
+    const item = localStorage.getItem("item");
+    if (item) {
+      const storedAuth = JSON.parse(item);
+      // console.log(item);
+      updateAuth(storedAuth);
+    }
+  }, [auth.isAuthenticated]);
 
+  // useEffect(() => {
+  //   console.log(isAuthenticated);
+  // }, []);
   return (
     <div className="App">
       <Router>
+        {/* <AuthProvider> */}
         <ScrollToTop />
         <Routes>
+          {/* <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          /> */}
+
           <Route
             path="/"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<div><Spinner/></div>}>
                 <Home />
               </Suspense>
             }
           />
           <Route
-            path="/dashboard"
-            element={
-              <Suspense fallback={<div>Loading...</div>}>
-                <Dashboard />
-              </Suspense>
-            }
-          />
+              path="/dashboard"
+              element={
+                <Suspense fallback={<div><Spinner/></div>}>
+                  <Dashboard />
+                </Suspense>
+              }
+            />
           <Route
             path="/reset"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<div><Spinner/></div>}>
                 <ResetPass />
               </Suspense>
             }
           />
-          <Route path="/result" element={<Result />}></Route>
+
           <Route path="/booking" element={<Booking />} />
           <Route path="/reviewOrder" element={<ReviewOrder />} />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup/otp" element={<Otp />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*"  element={<ErrorPage />} />
+          <Route path="/result" element={<Result />}></Route>
         </Routes>
+
+        {/* {auth?.isAuthenticated ? (
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Home />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Dashboard />
+                </Suspense>
+              }
+            />
+            <Route
+              path="/reset"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <ResetPass />
+                </Suspense>
+              }
+            />
+
+            <Route path="/booking" element={<Booking />} />
+            <Route path="/reviewOrder" element={<ReviewOrder />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        ) : (
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Home />
+                </Suspense>
+              }
+            />
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/signup/otp" element={<Otp />} />
+            <Route path="*" element={<Navigate to="/signin" />} />
+            <Route path="/result" element={<Result />}></Route>
+          </Routes>
+        )} */}
+        {/* </AuthProvider> */}
       </Router>
+      <Footer />
     </div>
   );
 }

@@ -4,7 +4,8 @@ import ham from "../../assets/Navbar/ham.svg";
 import close from "../../assets/Navbar/close.svg";
 import parcello from "../../assets/Navbar/parcello.png";
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AuthContext from "../../context/AuthContext";
 
 import Login from "../../Components/login/Login";
 
@@ -12,13 +13,17 @@ const Navbar = () => {
   const [openLogin, setOpenLogin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(true);
   const item = localStorage.getItem("item");
+  const { auth, updateAuth } = useContext(AuthContext);
 
   const closeNavBar = useCallback(() => setIsCollapsed(true), []);
 
+  // useEffect(() => {
+  //   window.addEventListener("scroll", closeNavBar);
   useEffect(() => {
     window.addEventListener("scroll", closeNavBar);
     return () => window.removeEventListener("scroll", closeNavBar);
   }, []);
+  // }, []);
 
   return (
     // <div className="navbar">
@@ -74,17 +79,17 @@ const Navbar = () => {
             Contact Us
           </NavLink>
 
-          {item ? (
-            <>
-              <NavLink
-                to="/dashboard"
-                onClick={() => {
-                  setOpenLogin(true);
-                }}
-              >
-                Dashboard
-              </NavLink>
-            </>
+          {auth?.isAuthenticated ? (
+            <button
+              className="font-medium cursor-pointer"
+              onClick={() => {
+                localStorage.clear();
+                updateAuth({ isAuthenticated: false });
+              }}
+            >
+              {" "}
+              Sign out
+            </button>
           ) : (
             <>
               <NavLink
@@ -102,7 +107,7 @@ const Navbar = () => {
                 }}
               >
                 Sign Up
-              </NavLink>
+              </NavLink>{" "}
             </>
           )}
 
@@ -151,46 +156,28 @@ const Navbar = () => {
             !isCollapsed ? " translate-x-0" : " translate-x-full"
           }`}
         >
-          {item ? (
-            <>
-              <NavLink
-                to="/dashboard"
-                onClick={() => {
-                  setOpenLogin(true);
-                }}
-                className={
-                  "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
-                }
-              >
-                Dashboard
-              </NavLink>
-            </>
-          ) : (
-            <>
-              <NavLink
-                to="/signin"
-                onClick={() => {
-                  setOpenLogin(true);
-                }}
-                className={
-                  "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
-                }
-              >
-                Log In
-              </NavLink>
-              <NavLink
-                to="/signup"
-                onClick={() => {
-                  setOpenLogin(true);
-                }}
-                className={
-                  "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
-                }
-              >
-                Sign Up
-              </NavLink>
-            </>
-          )}
+          <NavLink
+            to="/signin"
+            onClick={() => {
+              setOpenLogin(true);
+            }}
+            className={
+              "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
+            }
+          >
+            Log In
+          </NavLink>
+          <NavLink
+            to="/signup"
+            onClick={() => {
+              setOpenLogin(true);
+            }}
+            className={
+              "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
+            }
+          >
+            Sign Up
+          </NavLink>
 
           <NavLink
             to="/contact"

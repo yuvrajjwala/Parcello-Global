@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import control from "../../assets/control.png";
 import { AiFillHome } from "react-icons/ai";
 import { BsFillBoxFill } from "react-icons/bs";
@@ -11,6 +11,8 @@ import userImg from "../../assets/Testimonials/img1.svg";
 import search from "../../assets/dashboard/search.png";
 import Table from "../../Components/Dashboard/Table.jsx";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Dashboard = () => {
   const [open, setOpen] = useState(true);
@@ -24,6 +26,14 @@ const Dashboard = () => {
     { title: "Files ", src: "Folder", gap: true },
     { title: "Setting", src: "Setting" },
   ];
+  const toastSuccess = () => toast.success("logged in successfully");
+
+  useEffect(() => {
+    console.log("opened");
+    const item = localStorage.getItem("auth");
+    console.log(item);
+    // toastSuccess();
+  }, []);
 
   return (
     <div className="flex">
@@ -32,16 +42,15 @@ const Dashboard = () => {
           open ? "w-72" : "w-20 "
         } bg-white h-screen p-5  pt-8 relative duration-300`}
       >
-        <Link to="/">
-          <img
-            src={control}
-            className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
+        <img
+          src={control}
+          className={`absolute cursor-pointer -right-3 top-9 w-7 border-dark-purple
            border-2 rounded-full  ${!open && "rotate-180"}`}
-            onClick={() => setOpen(!open)}
-          />
-        </Link>
+          onClick={() => setOpen(!open)}
+        />
+        {/* </Link> */}
 
-        <div className="flex gap-x-4 items-center">
+        <Link to="/" className="flex gap-x-4 items-center">
           <img
             src={logo}
            
@@ -50,7 +59,7 @@ const Dashboard = () => {
             }`}
           />
           
-        </div>
+        </Link>
         <ul className="pt-6 h-[40%]">
           <li
             className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#008185] text-black text-sm items-center mb-2 ${
@@ -222,6 +231,7 @@ const Dashboard = () => {
         <div>
           <Table></Table>
         </div>
+        {/* <Link to="/booking">click me</Link> */}
       </div>
     </div>
   );
