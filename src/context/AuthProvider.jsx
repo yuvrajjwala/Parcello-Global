@@ -10,6 +10,18 @@ export const AuthProvider = ({ children }) => {
   // useEffect(() => {
   //   console.log(auth);
   // }, [auth]);
+
+  useEffect(() => {
+    console.log("auth updated", auth);
+    window.localStorage.setItem("auth", JSON.stringify(auth));
+  }, [auth]);
+
+  useEffect(() => {
+    const storedAuth = JSON.parse(localStorage.getItem("auth"));
+    if (storedAuth) {
+      setAuth(storedAuth);
+    }
+  }, []);
   return (
     <AuthContext.Provider value={{ auth, updateAuth }}>
       {children}

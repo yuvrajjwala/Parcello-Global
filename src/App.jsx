@@ -19,21 +19,74 @@ import Signup from "./Pages/Signup/Signup";
 import Otp from "./Pages/OTP/Otp";
 import AuthContext from "./context/AuthContext";
 import ScrollToTop from "./hooks/ScrollToTop";
+import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+// import AuthProvider from "./context/AuthProvider";
 
 function App() {
   const [count, setCount] = useState(0);
   const { auth, updateAuth } = useContext(AuthContext);
 
   useEffect(() => {
-    const item = localStorage.getItem("auth");
-    if (item) updateAuth(JSON.parse(item));
-  }, []);
+    const item = localStorage.getItem("item");
+    if (item) {
+      const storedAuth = JSON.parse(item);
+      // console.log(item);
+      updateAuth(storedAuth);
+    }
+  }, [auth.isAuthenticated]);
 
+  // useEffect(() => {
+  //   console.log(isAuthenticated);
+  // }, []);
   return (
     <div className="App">
       <Router>
+        {/* <AuthProvider> */}
         <ScrollToTop />
-        {auth?.isAuthenticated ? (
+        <Routes>
+          {/* <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          /> */}
+
+          <Route
+            path="/"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+              path="/dashboard"
+              element={
+                <Suspense fallback={<div>Loading...</div>}>
+                  <Dashboard />
+                </Suspense>
+              }
+            />
+          <Route
+            path="/reset"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <ResetPass />
+              </Suspense>
+            }
+          />
+
+          <Route path="/booking" element={<Booking />} />
+          <Route path="/reviewOrder" element={<ReviewOrder />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/signup/otp" element={<Otp />} />
+          <Route path="/result" element={<Result />}></Route>
+        </Routes>
+
+        {/* {auth?.isAuthenticated ? (
           <Routes>
             <Route
               path="/"
@@ -62,7 +115,7 @@ function App() {
 
             <Route path="/booking" element={<Booking />} />
             <Route path="/reviewOrder" element={<ReviewOrder />} />
-            <Route path="*" element={<Navigate to="/dashboard" />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         ) : (
           <Routes>
@@ -80,7 +133,8 @@ function App() {
             <Route path="*" element={<Navigate to="/signin" />} />
             <Route path="/result" element={<Result />}></Route>
           </Routes>
-        )}
+        )} */}
+        {/* </AuthProvider> */}
       </Router>
     </div>
   );

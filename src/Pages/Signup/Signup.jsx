@@ -5,12 +5,13 @@ import logo from "../../assets/Navbar/parcello.png";
 import isEmail from "validator/lib/isemail";
 import axios from "../../api/axios";
 import AuthContext from "../../context/AuthContext";
-const REGISTER_URL = "/auth/users/API/register/";
 import { useNavigate } from "react-router-dom";
 import dock from "../../assets/login/dock.jpg";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import exit from "../../assets/login/exit.svg";
+
+const REGISTER_URL = "/auth/users/API/register/";
 
 export default function Signup() {
   let navigate = useNavigate();
@@ -20,10 +21,9 @@ export default function Signup() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
-
-  const toastSuccess = () =>
-    toast.success("This is Toast Notification for Success");
-  const toastWarn = () => toast.warn("This is Toast Notification for Warn");
+  const [userName, setUserName] = useState("");
+  const toastSuccess = () => toast.success("signup successfully");
+  const toastWarn = () => toast.warn("User Already exists");
 
   const handleRegisterSubmit = async (event) => {
     event.preventDefault();
@@ -40,12 +40,8 @@ export default function Signup() {
       const response = await axios.post(
         REGISTER_URL,
         {
-          user_name: userName,
-          email: userEmail,
+          email: email,
           password: password,
-          interests: "hello",
-          first_name: firstName,
-          last_name: lastName,
         },
         {
           headers: {
@@ -56,17 +52,16 @@ export default function Signup() {
 
       //clear state and controlled inputs
       //need value attrib on inputs for this
-      setUserName("");
-      setUserEmail("");
+      setEmail("");
       setPassword("");
       setConfirmPassword("");
-      setFirstName("");
-      setLastName("");
-      setSignup(false);
+      toastSuccess();
+      navigate("/signin");
+
+      // setSignup(false);
     } catch (err) {
       if (err.response?.status === 400) {
-        error("User already exists");
-        setErrMsg("User already exists");
+        toastWarn();
       }
     }
   };
@@ -98,7 +93,7 @@ export default function Signup() {
       </Link>
       <form
         className="mx-auto flex justify-center items-start flex-col gap-8 w-80"
-        onSubmit={submitHandler}
+        onSubmit={handleRegisterSubmit}
       >
         <div className="flex flex-col">
           <span className="text-xl text-primary font-semibold">

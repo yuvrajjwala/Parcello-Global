@@ -4,20 +4,22 @@ import ham from "../../assets/Navbar/ham.svg";
 import close from "../../assets/Navbar/close.svg";
 import parcello from "../../assets/Navbar/parcello.png";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import AuthContext from "../../context/AuthContext";
 
 import Login from "../../Components/login/Login";
 
 const Navbar = () => {
   // const [openLogin, setOpenLogin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const { auth, updateAuth } = useContext(AuthContext);
 
   const closeNavBar = useCallback(() => setIsCollapsed(true), []);
 
-  useEffect(()=>{
-    window.addEventListener('scroll', closeNavBar);
+  useEffect(() => {
+    window.addEventListener("scroll", closeNavBar);
     return () => window.removeEventListener("scroll", closeNavBar);
-  },[])
+  }, []);
 
   return (
     // <div className="navbar">
@@ -74,22 +76,38 @@ const Navbar = () => {
             Contact Us
           </NavLink>
 
-          <NavLink
-            to="/signin"
-            onClick={() => {
-              setOpenLogin(true);
-            }}
-          >
-            Log In
-          </NavLink>
-          <NavLink
-            to="/signup"
-            onClick={() => {
-              setOpenLogin(true);
-            }}
-          >
-            Sign Up
-          </NavLink>
+          {auth?.isAuthenticated ? (
+            <button
+              className="font-medium cursor-pointer"
+              onClick={() => {
+                localStorage.clear();
+                updateAuth({ isAuthenticated: false });
+              }}
+            >
+              {" "}
+              Sign out
+            </button>
+          ) : (
+            <>
+              <NavLink
+                to="/signin"
+                onClick={() => {
+                  setOpenLogin(true);
+                }}
+              >
+                Log In
+              </NavLink>
+              <NavLink
+                to="/signup"
+                onClick={() => {
+                  setOpenLogin(true);
+                }}
+              >
+                Sign Up
+              </NavLink>{" "}
+            </>
+          )}
+
           <div className="flex dropdown relative items-center flex-col">
             <button className="">
               <img src={ham} className=" w-[18px] h-[18px]"></img>
@@ -129,8 +147,12 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className={`hidden overflow-hidden md:block  absolute`} >
-        <div className={`flex flex-col overflow-hidden right-0 ease-in-out duration-300  w-3/4  gap-4 h-screen fixed  bg-white z-40 text-slate-500 p-5 ${!isCollapsed ? " translate-x-0" : " translate-x-full"}`}  >
+      <div className={`hidden overflow-hidden md:block  absolute`}>
+        <div
+          className={`flex flex-col overflow-hidden right-0 ease-in-out duration-300  w-3/4  gap-4 h-screen fixed  bg-white z-40 text-slate-500 p-5 ${
+            !isCollapsed ? " translate-x-0" : " translate-x-full"
+          }`}
+        >
           <NavLink
             to="/signin"
             onClick={() => {

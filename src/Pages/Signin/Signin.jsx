@@ -8,6 +8,9 @@ import AuthContext from "../../context/AuthContext";
 import truck from "../../assets/login/truck.jpg";
 import "./signin.css";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const LOGIN_URL = "/auth/users/API/login/";
 
@@ -26,6 +29,8 @@ export default function Signin() {
   //   };
   //   console.log(body);
   // };
+  const toastSuccess = () => toast.success("signup successfully");
+  const toastWarn = () => toast.warn("Invalid Credentials");
 
   const handleLoginSubmit = async (event) => {
     event.preventDefault();
@@ -50,14 +55,16 @@ export default function Signin() {
         refreshToken,
         isAuthenticated: true,
       };
-      localStorage.setItem("item", JSON.stringify(item));
+      // localStorage.setItem("auth", JSON.stringify(item));
       updateAuth(item);
       setEmail("");
       setPassword("");
-      navigate("/dashboard");
+      // navigate("/dashboard");
     } catch (e) {
       if (e.response?.status === 403) {
-        error("Invalid Email id");
+        toastWarn();
+        // toastWarn("Invalid Credentials");
+        // error("Invalid Email id");
       }
     }
   };
@@ -141,6 +148,18 @@ export default function Signin() {
           </Link>
         </div>
       </form>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
     </div>
   );
 }
