@@ -85,14 +85,21 @@ export default function Signup() {
   };
 
   return (
-    <div className="flex h-screen">
-      {/* <div className="formBg h-full w-[55%]  flex items-center justify-center md:hidden">
-        <img src={dock} className="w-full h-full overflow-hidden object-cover" alt="" />
-      </div> */}
+    <div className="flex w-full h-screen overflow-hidden relative">
+      <div className="formBg h-full w-[55%]  flex items-center justify-center md:hidden">
+        <img
+          src={dock}
+          className="w-full h-full overflow-hidden object-cover"
+          alt=""
+        />
+      </div>
 
       <Link
         to="/"
         className="absolute -top-3 -right-3 bg-slate-500   rounded-full w-12 h-12 flex justify-start items-end p-4 cursor-pointer overflow-hidden"
+        onClick={() => {
+          navigate("/");
+        }}
       >
         <img src={exit} alt="exit" className="w-4 h-4 exit " />
       </Link>

@@ -7,7 +7,7 @@ const ErrorPage = () => {
     <>
     <Navbar/>
     <div className="max-h-screen flex flex-col items-center justify-center  p-6">
-      <img src={errorGif} alt="Error GIF" className=" w-[700px] md:w-96" />
+      <img src={errorGif} alt="Error GIF" className=" w-[40vw] md:w-96" />
       <h1 className="text-2xl md:text-4xl font-bold text-gray-800 mt-8">Oops! Something went wrong.</h1>
       <p className="text-gray-700 mt-4 text-center max-w-md">
         We're sorry, but the page you are looking for cannot be found.

@@ -426,7 +426,7 @@ export default function ReviewForm(state) {
           </div> */}
           <NewCardForm data={data} />
           <button
-            className="p-5 mt-5 m-auto w-64 font-medium text-white rounded-3xl bg-green-400 hover:shadow-lg hover:shadow-green-300"
+            className="p-5 my-5 m-auto w-64 font-medium text-white rounded-3xl bg-green-400 hover:shadow-lg hover:shadow-green-300"
             type="submit"
           >
             Confirm and Pay
