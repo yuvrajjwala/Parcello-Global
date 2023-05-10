@@ -17,13 +17,13 @@ const Navbar = () => {
 
   const closeNavBar = useCallback(() => setIsCollapsed(true), []);
 
-  useEffect(() => {
-    window.addEventListener("scroll", closeNavBar);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", closeNavBar);
   useEffect(() => {
     window.addEventListener("scroll", closeNavBar);
     return () => window.removeEventListener("scroll", closeNavBar);
   }, []);
-  }, []);
+  // }, []);
 
   return (
     // <div className="navbar">

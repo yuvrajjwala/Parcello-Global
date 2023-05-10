@@ -60,7 +60,7 @@ function App() {
           <Route
             path="/"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<div><Spinner/></div>}>
                 <Home />
               </Suspense>
             }
@@ -68,7 +68,7 @@ function App() {
           <Route
               path="/dashboard"
               element={
-                <Suspense fallback={<div>Loading...</div>}>
+                <Suspense fallback={<div><Spinner/></div>}>
                   <Dashboard />
                 </Suspense>
               }
@@ -76,7 +76,7 @@ function App() {
           <Route
             path="/reset"
             element={
-              <Suspense fallback={<div>Loading...</div>}>
+              <Suspense fallback={<div><Spinner/></div>}>
                 <ResetPass />
               </Suspense>
             }
