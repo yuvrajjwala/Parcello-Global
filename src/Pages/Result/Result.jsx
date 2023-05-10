@@ -307,7 +307,7 @@ const Result = () => {
             </div>
           </div>
 
-          <div className="flex mx-64 m-auto flex-col  md:mx-6">
+          <div className="flex max-w-[1293px] lg:w-[90vw] md:w-full m-auto flex-col ">
             <div className="flex justify-start text-left w-[100%] border-b-[2px] py-2 border-b-[#008185] mb-4">
               <p className="text-[20px] leading-6 font-semibold text-[#008185]">
                 Popular Domestic Services

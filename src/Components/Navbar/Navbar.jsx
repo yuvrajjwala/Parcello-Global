@@ -11,13 +11,14 @@ import Login from "../../Components/login/Login";
 const Navbar = () => {
   const [openLogin, setOpenLogin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const item = localStorage.getItem("item");
 
   const closeNavBar = useCallback(() => setIsCollapsed(true), []);
 
-  useEffect(()=>{
-    window.addEventListener('scroll', closeNavBar);
+  useEffect(() => {
+    window.addEventListener("scroll", closeNavBar);
     return () => window.removeEventListener("scroll", closeNavBar);
-  },[])
+  }, []);
 
   return (
     // <div className="navbar">
@@ -73,22 +74,38 @@ const Navbar = () => {
             Contact Us
           </NavLink>
 
-          <NavLink
-            to="/signin"
-            onClick={() => {
-              setOpenLogin(true);
-            }}
-          >
-            Log In
-          </NavLink>
-          <NavLink
-            to="/signup"
-            onClick={() => {
-              setOpenLogin(true);
-            }}
-          >
-            Sign Up
-          </NavLink>
+          {item ? (
+            <>
+              <NavLink
+                to="/dashboard"
+                onClick={() => {
+                  setOpenLogin(true);
+                }}
+              >
+                Dashboard
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink
+                to="/signin"
+                onClick={() => {
+                  setOpenLogin(true);
+                }}
+              >
+                Log In
+              </NavLink>
+              <NavLink
+                to="/signup"
+                onClick={() => {
+                  setOpenLogin(true);
+                }}
+              >
+                Sign Up
+              </NavLink>
+            </>
+          )}
+
           <div className="flex dropdown relative items-center flex-col">
             <button className="">
               <img src={ham} className=" w-[18px] h-[18px]"></img>
@@ -128,30 +145,52 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className={`hidden overflow-hidden md:block  absolute`} >
-        <div className={`flex flex-col overflow-hidden right-0 ease-in-out duration-300  w-3/4  gap-4 h-screen fixed  bg-white z-40 text-slate-500 p-5 ${!isCollapsed ? " translate-x-0" : " translate-x-full"}`}  >
-          <NavLink
-            to="/signin"
-            onClick={() => {
-              setOpenLogin(true);
-            }}
-            className={
-              "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
-            }
-          >
-            Log In
-          </NavLink>
-          <NavLink
-            to="/signup"
-            onClick={() => {
-              setOpenLogin(true);
-            }}
-            className={
-              "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
-            }
-          >
-            Sign Up
-          </NavLink>
+      <div className={`hidden overflow-hidden md:block  absolute`}>
+        <div
+          className={`flex flex-col overflow-hidden right-0 ease-in-out duration-300  w-3/4  gap-4 h-screen fixed  bg-white z-40 text-slate-500 p-5 ${
+            !isCollapsed ? " translate-x-0" : " translate-x-full"
+          }`}
+        >
+          {item ? (
+            <>
+              <NavLink
+                to="/dashboard"
+                onClick={() => {
+                  setOpenLogin(true);
+                }}
+                className={
+                  "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
+                }
+              >
+                Dashboard
+              </NavLink>
+            </>
+          ) : (
+            <>
+              <NavLink
+                to="/signin"
+                onClick={() => {
+                  setOpenLogin(true);
+                }}
+                className={
+                  "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
+                }
+              >
+                Log In
+              </NavLink>
+              <NavLink
+                to="/signup"
+                onClick={() => {
+                  setOpenLogin(true);
+                }}
+                className={
+                  "flex border-b-[1px] border-slate-300 w-full items-center justify-center p-2"
+                }
+              >
+                Sign Up
+              </NavLink>
+            </>
+          )}
 
           <NavLink
             to="/contact"
