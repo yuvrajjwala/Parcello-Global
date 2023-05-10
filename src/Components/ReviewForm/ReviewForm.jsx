@@ -68,28 +68,30 @@ export default function ReviewForm(state) {
       collection_date: additional.cDate,
       package_content: additional.pContent,
       value_of_content: additional.contentValue,
-      extended_liability:additional.extendedLiability,
+      extended_liability: "+0.00 for up to  £20 extended liability for FREE",
+      document_type: "string",
+      customs_documents: "string",
+      created_by: "string",
+      updated_by: "string",
       cancelling_option: true,
       cancelling_fee: 0,
       total_price: Number(data.price) + Number(data.VAT),
       price: data.price,
       VAT: data.VAT,
       courier_notes: additional.notes,
-      courier_service: [data],
-      rate_card: [0],
-    }
-    console.log(body)
+      courier_service: [data.courier_service],
+      rate_card: [data.rate_card],
+      label: "string",
+      indemnity_form: "string",
+    };
+    console.log(body);
     try {
-      const response = await axios.post(
-        "/api/bookings/delivery/",
-        body,
-        {
-          headers: { "content-Type": "application/json" },
-        }
-      );
-      console.log(response)
+      const response = await axios.post("/api/bookings/delivery/", body, {
+        headers: { "content-Type": "application/json" },
+      });
+      console.log(response);
     } catch (e) {
-      toast.error("Something Went Wrong")
+      toast.error("Something Went Wrong");
     }
   }
 

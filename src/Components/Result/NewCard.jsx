@@ -12,7 +12,9 @@ import { useNavigate } from "react-router-dom";
 export default function NewCard({ data}) {
    const courier_name = data.related_courier[0].courier_name
    const courier_logo = data.related_courier[0].courier_logo
+   const rate_card = data.id
    const max_height = data.max_height
+   const courier_service = data.related_courier[0].id
    const max_length = data.max_length
    const max_width = data.max_width
    const randomNumber = (Math.random() * 1) + 4; // Generate a random number between 4 and 5
@@ -39,7 +41,10 @@ export default function NewCard({ data}) {
           futureDate: dateString,
           price: price,
           VAT: vat,
-          protection : protection
+          protection : protection,
+          courier_service : courier_service,
+          rate_card : rate_card,
+
       },
     });
    }
