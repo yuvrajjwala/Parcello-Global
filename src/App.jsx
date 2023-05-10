@@ -19,6 +19,10 @@ import Signup from "./Pages/Signup/Signup";
 import Otp from "./Pages/OTP/Otp";
 import AuthContext from "./context/AuthContext";
 import ScrollToTop from "./hooks/ScrollToTop";
+import Contact from "./Pages/Contact/Contact";
+import ErrorPage from "./Pages/ErrorPage/ErrorPage";
+import { Footer } from "./Components/Footer/Footer";
+import Spinner from "./Components/Utils/Spinner";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 // import AuthProvider from "./context/AuthProvider";
 
@@ -136,6 +140,7 @@ function App() {
         )} */}
         {/* </AuthProvider> */}
       </Router>
+      <Footer />
     </div>
   );
 }

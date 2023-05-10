@@ -164,19 +164,15 @@ const Login = ({ openLogin, setOpenLogin }) => {
       const accessToken = response?.data?.tokens?.access;
       const refreshToken = response?.data?.tokens?.refresh;
 
-      // const accessToken = response?.data?.accessToken;
       const roles = response?.data?.roles;
       updateAuth({
         email: loginEmail,
-        // password: loginPass,
         accessToken,
         refreshToken,
       });
       setLoginEmail("");
       setLoginPass("");
       setOpenLogin(false);
-      // notify("fuck u");
-      // console.log("clicked");
     } catch (e) {
       if (e.response?.status === 403) {
         error("Invalid Email id");

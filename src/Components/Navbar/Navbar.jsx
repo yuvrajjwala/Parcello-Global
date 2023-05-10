@@ -3,22 +3,26 @@ import "./Navbar.css";
 import ham from "../../assets/Navbar/ham.svg";
 import close from "../../assets/Navbar/close.svg";
 import parcello from "../../assets/Navbar/parcello.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useState, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 
 import Login from "../../Components/login/Login";
 
 const Navbar = () => {
-  // const [openLogin, setOpenLogin] = useState(false);
+  const [openLogin, setOpenLogin] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const item = localStorage.getItem("item");
   const { auth, updateAuth } = useContext(AuthContext);
 
   const closeNavBar = useCallback(() => setIsCollapsed(true), []);
 
   useEffect(() => {
     window.addEventListener("scroll", closeNavBar);
+  useEffect(() => {
+    window.addEventListener("scroll", closeNavBar);
     return () => window.removeEventListener("scroll", closeNavBar);
+  }, []);
   }, []);
 
   return (
@@ -62,13 +66,12 @@ const Navbar = () => {
     // </div>
     <>
       <div className="flex w-full bg-white p-3 justify-between items-center px-8 text-sm text-slate-500 ">
-        <div className="flex items-center">
-          <h1 className="text-2xl text-black font-bold">Parcello</h1>{" "}
-          <img className="max-w-[50px]" src={parcello}></img>
-        </div>
+        <Link to="/" className="flex items-center">
+          <img className="max-w-[120px]" src={parcello}></img>
+        </Link>
         <div className="flex items-center gap-5  md:hidden justify-end w-full">
           <NavLink
-            to="/contactus"
+            to="/contact"
             onClick={() => {
               setOpenLogin(true);
             }}
@@ -177,7 +180,7 @@ const Navbar = () => {
           </NavLink>
 
           <NavLink
-            to="/contactus"
+            to="/contact"
             onClick={() => {
               setOpenLogin(true);
             }}

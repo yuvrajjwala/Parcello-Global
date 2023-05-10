@@ -53,50 +53,18 @@ const Dashboard = () => {
         <Link to="/" className="flex gap-x-4 items-center">
           <img
             src={logo}
-            // src="./src/assets/logo.png"
-            className={`cursor-pointer duration-500 w-8 h-auto border-[2px] border-black  rounded-full ${
+           
+            className={`cursor-pointer duration-500 h-10 ${
               open && "rotate-[360deg]"
             }`}
           />
-          <h1
-            className={`text-Black origin-left font-medium text-xl duration-200 ${
-              !open && "scale-0"
-            }`}
-          >
-            Parcello
-          </h1>
+          
         </Link>
         <ul className="pt-6 h-[40%]">
-          {/* {Menus.map((Menu, index) => (
-            <li
-              key={index}
-              className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-black text-sm items-center gap-x-4 
-              ${Menu.gap ? "mt-9" : "mt-2"} ${
-                index === 0 && "bg-light-white"
-              } `}
-            >
-              {Menu.title == "Home" ? (
-                <Menu.src className="w-[20px] h-[20px] " />
-              ) : (
-                <img
-                  src={`./src/assets/${Menu.src}.png`}
-                  className="text-[#969696] "
-                />
-              )}
-
-              <span
-                className={`${
-                  !open && "hidden"
-                } origin-left duration-200 text-[#969696] font-medium`}
-              >
-                {Menu.title}
-              </span>
-            </li>
-          ))} */}
           <li
-            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#0C105A] text-black text-sm items-center mb-2 ${
+            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#008185] text-black text-sm items-center mb-2 ${
               !open ? "justify-center" : ""
-            } gap-x-4 hover:bg-[#0C105A] hover:text-white
+            } gap-x-4 hover:bg-[#008185] hover:text-white
               "mt-9" `}
           >
             <AiFillHome className="w-[22px] h-[22px] " />
@@ -110,9 +78,9 @@ const Dashboard = () => {
             </span>
           </li>
           <li
-            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#0C105A] text-black text-sm items-center mb-2 ${
+            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#008185] text-black text-sm items-center mb-2 ${
               !open ? "justify-center" : ""
-            } gap-x-4 hover:bg-[#0C105A] hover:text-white
+            } gap-x-4 hover:bg-[#008185] hover:text-white
               "mt-9" `}
           >
             <BsFillBoxFill className="w-[22px] h-[22px] " />
@@ -126,9 +94,9 @@ const Dashboard = () => {
             </span>
           </li>
           <li
-            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#0C105A] text-black text-sm items-center mb-2 ${
+            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#008185] text-black text-sm items-center mb-2 ${
               !open ? "justify-center" : ""
-            } gap-x-4 hover:bg-[#0C105A] hover:text-white
+            } gap-x-4 hover:bg-[#008185] hover:text-white
               "mt-9" `}
           >
             <MdOutlineListAlt className="w-[22px] h-[22px] " />
@@ -142,9 +110,9 @@ const Dashboard = () => {
             </span>
           </li>
           <li
-            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#0C105A] text-black text-sm items-center mb-2 ${
+            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#008185] text-black text-sm items-center mb-2 ${
               !open ? "justify-center" : ""
-            } gap-x-4 hover:bg-[#0C105A] hover:text-white
+            } gap-x-4 hover:bg-[#008185] hover:text-white
               "mt-9" `}
           >
             <MdHelp className="w-[22px] h-[22px] " />
@@ -158,9 +126,9 @@ const Dashboard = () => {
             </span>
           </li>
           <li
-            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#0C105A] text-black text-sm items-center mb-2${
+            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#008185] text-black text-sm items-center mb-2${
               !open ? "justify-center" : ""
-            } gap-x-4 hover:bg-[#0C105A] hover:text-white
+            } gap-x-4 hover:bg-[#008185] hover:text-white
               "mt-9" `}
           >
             <GoTasklist className="w-[20px] h-[20px] " />
@@ -174,9 +142,9 @@ const Dashboard = () => {
             </span>
           </li>
           <li
-            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#0C105A] text-black text-sm items-center mb-2${
+            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#008185] text-black text-sm items-center mb-2${
               !open ? "justify-center" : ""
-            } gap-x-4 hover:bg-[#0C105A] hover:text-white
+            } gap-x-4 hover:bg-[#008185] hover:text-white
               "mt-9" `}
           >
             <BsFillInfoSquareFill className="w-[20px] h-[20px] " />
@@ -202,7 +170,7 @@ const Dashboard = () => {
               className={`rounded-full ${open ? "w-8 h-auto" : "w-12 h-auto"}`}
             />
             <div className={`mx-2 ${open ? "" : "hidden"}`}>
-              <h1 className="font-semibold text-black">Darlene Robert</h1>
+              <h1 className="font-semibold text-black">Jason Ramahia</h1>
             </div>
           </div>
         </div>
@@ -210,7 +178,7 @@ const Dashboard = () => {
       <div className="h-screen flex-1 p-7 bg-[#F6F8FA]">
         <div className="w-[100%] flex justify-between p-2 px-4 pr-8">
           <div>
-            <h1 className="font-bold text-black text-[19px]">Hello Darlene </h1>
+            <h1 className="font-bold text-black text-[19px]">Hello Jason! </h1>
             <p className="text-[#BBBCC5] text-[16px]">
               Let's check your orders today!
             </p>

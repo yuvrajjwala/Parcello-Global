@@ -19,8 +19,10 @@ import "./result.css";
 
 import control from "../../assets/control.png";
 import NewCard from "../../Components/Result/NewCard";
-import Spinner from "../../Components/Result/Spinner";
-const DELIVERY_URL = "/api/couriers/fetchbydelivery/";
+import Spinner from "../../Components/Utils/Spinner";
+
+const DELIVERY_URL =
+  "https://api.parcelloglobal.com/api/couriers/fetchbydelivery/";
 
 const Result = () => {
   const [open, setOpen] = useState(true);
@@ -111,6 +113,7 @@ const Result = () => {
           }
         );
         Data = await response?.data;
+        console.log(response.data);
         setData(response.data);
       } else if (serviceType === "Domestic") {
         const response = await axios.post(
@@ -128,7 +131,7 @@ const Result = () => {
       }
     } catch (err) {
     } finally {
-      setFormError(false)
+      setFormError(false);
       setToggleStatic(false);
       setLoading(false);
     }
@@ -211,7 +214,7 @@ const Result = () => {
               formError
                 ? " border-[#ff2525] shadow-red-300"
                 : " border-[#FCFCFD]"
-            }  w-fit md:w-full md:px-6 shadow-md  border-[2px] bg-white my-[50px] rounded-[24px] py-8 px-10`}
+            }  w-fit md:w-full md:px-6 shadow-md  border-[2px] bg-white my-[50px] md:mt-5 rounded-[24px] py-8 px-10`}
           >
             <div className="flex mb-2 w-[100%] md:flex-col gap-2 md:justify-center items-center">
               <div className="border-[2px] md:w-full flex justify-center border-[#E6E8EC] rounded-[90px] font-bold text-[14px] leading-[16px]  text-[#23262F] px-4 py-2">
@@ -304,7 +307,7 @@ const Result = () => {
             </div>
           </div>
 
-          <div className="flex px-6 m-auto flex-col">
+          <div className="flex max-w-[1293px] lg:w-[90vw] md:w-full m-auto flex-col ">
             <div className="flex justify-start text-left w-[100%] border-b-[2px] py-2 border-b-[#008185] mb-4">
               <p className="text-[20px] leading-6 font-semibold text-[#008185]">
                 Popular Domestic Services
@@ -313,7 +316,7 @@ const Result = () => {
             <div
               className={`flex ${
                 toggleStatic ? "flex-row" : "flex-col"
-              }  gap-5 flex-wrap px-2 justify-center min-h-fit mx-32 md:mx-16 sm:mx-0 py-4 md:px-0 my-4 bg-white calculator-background rounded-[24px]`}
+              }  gap-5 flex-wrap px-2 justify-center min-h-fit  sm:mx-0 py-4 md:px-0 my-4 bg-white calculator-background rounded-[24px]`}
             >
               {loading ? (
                 <Spinner />
@@ -333,9 +336,11 @@ const Result = () => {
                     </>
                   ) : (
                     // data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
-                    data.map((item, index) => (
-                      <NewCard data={item} serviceType={serviceType} />
-                    ))
+                    data
+                      .filter((item) => item.related_courier.length > 0)
+                      .map((item, index) => (
+                        <NewCard data={item} serviceType={serviceType} />
+                      ))
                   )}
                 </>
               )}
