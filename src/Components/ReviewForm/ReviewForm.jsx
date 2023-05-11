@@ -10,7 +10,7 @@ export default function ReviewForm(state) {
   const dAddress = state.dAddress;
   const additional = state.additional;
   const data = state.data;
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   // const rAddress = {
   //   rPostcode: "KT174JL",
   //   rName: "Debabrata Batabyal",
@@ -73,8 +73,6 @@ export default function ReviewForm(state) {
       extended_liability: "+0.00 for up to  £20 extended liability for FREE",
       document_type: "string",
       customs_documents: "string",
-      created_by: "string",
-      updated_by: "string",
       cancelling_option: true,
       cancelling_fee: 0,
       total_price: Number(data.price) + Number(data.VAT),
@@ -85,13 +83,18 @@ export default function ReviewForm(state) {
       rate_card: [data.rate_card],
       label: "string",
       indemnity_form: "string",
+      created_by: "parcelloglobal@gmail.com",
+      updated_by: "parcelloglobal@gmail.com",
     };
+
     console.log(body);
     try {
       const response = await axios.post("/api/bookings/delivery/", body, {
         headers: { "content-Type": "application/json" },
       });
-      console.log(response);
+      let id;
+      data.id = response?.data?.id;
+
       navigate("/payment", {
         state: data,
       });
