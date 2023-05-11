@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import logo from "../../assets/Navbar/parcello.png";
 import isEmail from "validator/lib/isemail";
 import axios from "../../api/axios";
-import AuthContext from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import dock from "../../assets/login/dock.jpg";
 import { ToastContainer, toast } from "react-toastify";
