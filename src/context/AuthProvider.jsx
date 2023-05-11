@@ -7,12 +7,8 @@ export const AuthProvider = ({ children }) => {
     setAuth(value);
   };
 
-  // useEffect(() => {
-  //   console.log(auth);
-  // }, [auth]);
 
   useEffect(() => {
-    console.log("auth updated", auth);
     window.localStorage.setItem("auth", JSON.stringify(auth));
   }, [auth]);
 

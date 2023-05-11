@@ -14,7 +14,7 @@ const Payment = () => {
   const [publicKey, setPublicKey] = useState("");
   const navigate = useNavigate();
 
-  console.log(state);
+  // console.log(state);
   const handleCheckout = async (event) => {
     event.preventDefault();
 
@@ -33,14 +33,8 @@ const Payment = () => {
       const paymentResponse = await axios.get(CHECKOUT_SESSION_URL + state.id);
 
       const payment_url = paymentResponse?.data?.url;
-      console.log(payment_url);
-      // navigate("/stripe", { state: { url: payment_url } });
       window.location.href = payment_url;
     } catch (err) {
-      console.log(err);
-      // if (err.response?.status === 400) {
-      //   toastWarn();
-      // }
     }
   };
   return (

@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 
 const Stripe = () => {
   const location = useLocation();
-  console.log(location.state.url);
   return (
     <div>
       Stripe

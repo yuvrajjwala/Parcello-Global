@@ -8,17 +8,15 @@ const ProtectedRoute = ({ children }) => {
   useEffect(() => {
     const item = JSON.parse(localStorage.getItem("auth"));
     // setIsAuthenticated(item?.isAuthenticated);
-    console.log(item?.isAuthenticated);
   }, []);
 
   if (!JSON.parse(localStorage.getItem("auth"))?.isAuthenticated) {
-    console.log(
-      "yes",
-      JSON.parse(localStorage.getItem("auth"))?.isAuthenticated
-    );
+    // console.log(
+    //   "yes",
+    //   JSON.parse(localStorage.getItem("auth"))?.isAuthenticated
+    // );
     return <Navigate to="/signin" />;
   } else {
-    console.log("no");
     return children;
   }
 };
