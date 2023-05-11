@@ -3,6 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import { BsSend } from "react-icons/bs";
 import emailjs from '@emailjs/browser';
 import { Footer } from "../../Components/Footer/Footer";
+import { ToastContainer, toast } from "react-toastify";
 
 const ContactForm = () => {
   const form = useRef()
@@ -15,9 +16,17 @@ const ContactForm = () => {
     e.preventDefault();
     emailjs.sendForm('service_nhh8ny5', 'template_aqnoo6c', form.current, 'g5T3VMRlFoq2_Xjci')
       .then((result) => {
-          console.log(result.text);
+          toast.success("Email Sent")
+          setEmail("")
+          setMessage("")
+          setName("")
+          setPhone("")
       }, (error) => {
-          console.log(error.text);
+          toast(error)
+          setEmail("")
+          setMessage("")
+          setName("")
+          setPhone("")
       });
   };
 
@@ -115,6 +124,7 @@ const ContactForm = () => {
         </form>
       </div>
       <Footer />
+      <ToastContainer/>
     </>
   );
 };
