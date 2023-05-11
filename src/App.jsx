@@ -24,6 +24,7 @@ import ErrorPage from "./Pages/ErrorPage/ErrorPage";
 import { Footer } from "./Components/Footer/Footer";
 import Spinner from "./Components/Utils/Spinner";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
+import Payment from "./Pages/payment/Payment";
 // import AuthProvider from "./context/AuthProvider";
 
 function App() {
