@@ -112,9 +112,11 @@ function App() {
           <Route path="/payment" element={<Payment />}></Route>
           <Route path="/contact" element={<ContactForm />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
-          <Route path="/successfullorder" element={<SuccessfullPayment />}></Route>
-          <Route path="/stripe" element={<Stripe />}></Route>
-
+          <Route
+            path="/successfullorder"
+            element={<SuccessfullPayment />}
+          ></Route>
+          {/* <Route path="/stripe" element={<Stripe />}></Route> */}
         </Routes>
 
         {/* {auth?.isAuthenticated ? (
@@ -167,7 +169,6 @@ function App() {
         )} */}
         {/* </AuthProvider> */}
       </Router>
-      
     </div>
   );
 }
