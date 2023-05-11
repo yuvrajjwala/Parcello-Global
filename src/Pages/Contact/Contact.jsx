@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import { BsSend } from "react-icons/bs";
 import emailjs from '@emailjs/browser';
+import { Footer } from "../../Components/Footer/Footer";
 
 const ContactForm = () => {
   const form = useRef()
@@ -113,6 +114,7 @@ const ContactForm = () => {
           </div>
         </form>
       </div>
+      <Footer />
     </>
   );
 };

@@ -4,6 +4,7 @@ import AmaizingServices from "../../Components/Home/AmaizingServices/AmaizingSer
 import LearnHow from "../../Components/Home/LearnHow/LearnHow";
 import FAQ from "../../Components/Home/FAQ/FAQ";
 import HeroSectionNew from "../../Components/Home/HeroSectionNew/HeroSectionNew";
+import { Footer } from "../../Components/Footer/Footer";
 // import Testimonials from "../../Components/Testimonials/Testimonialss";
 
 const Navbar = lazy(() => import("../../Components/Navbar/Navbar"));
@@ -34,6 +35,7 @@ const Home = () => {
       <LearnHow/>
       <Testimonials />
       <FAQ />
+      <Footer />
     </Suspense>
   );
 };

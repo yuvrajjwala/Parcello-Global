@@ -165,7 +165,7 @@ function App() {
         )} */}
         {/* </AuthProvider> */}
       </Router>
-      <Footer />
+      
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import ProgressBar from "../../Components/ProgressBar/ProgressBar";
 import ReviewForm from "../../Components/ReviewForm/ReviewForm";
 import { Link, useLocation } from "react-router-dom";
+import { Footer } from "../../Components/Footer/Footer";
 
 export default function Booking() {
   const { state } = useLocation();
@@ -19,6 +20,7 @@ export default function Booking() {
           data={state.state}
         />
       </div>
+      <Footer />
     </Suspense>
   );
 }
