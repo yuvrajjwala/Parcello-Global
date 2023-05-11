@@ -5,6 +5,7 @@ import PaymentCard from "../../Components/Payment/PaymentCard";
 import NewCardForm from "../../Components/Booking/NewCardForm";
 import Navbar from "../../Components/Navbar/Navbar";
 import axios from "../../api/axios";
+import ProgressBar from "../../Components/ProgressBar/ProgressBar";
 
 const CHECKOUT_CONFIG_URL = "api/payments/config/";
 const CHECKOUT_SESSION_URL = "api/payments/createcheckoutsession/";
@@ -46,7 +47,10 @@ const Payment = () => {
     <div className="w-[80%] m-auto">
       <Navbar />
       <div className="text-black text-[19px] font-semibold p-4">
-        <h1>Review your order</h1>
+      <div className="mb-10">
+      <ProgressBar step={3} />
+      </div>
+        <h1 className="text-2lg text-sky-600">Confirm your Payment</h1>
       </div>
       <div className=" h-[1px]  mx-4 my-4 w-[100%]  border-[1px]"></div>
       <div className="p-4">
