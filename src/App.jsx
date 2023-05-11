@@ -8,10 +8,9 @@ import {
 } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 import Result from "./Pages/Result/Result";
-
+import ResetPass from "./Pages/ResetPassword/ResetPass.jsx"
 const Dashboard = lazy(() => import("./Pages/dashboard/Dashboard.jsx"));
 const Home = lazy(() => import("./Pages/Home/Home"));
-const ResetPass = lazy(() => import("./pages/ResetPassword/ResetPass"));
 import Booking from "./Pages/Booking/Booking";
 import ReviewOrder from "./Pages/ReviewOrder/ReviewOrder";
 import Signin from "./Pages/Signin/Signin";
