@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import isEmail from "validator/lib/isemail";
+import { isEmail } from "validator/es/lib/isEmail";
 import axios from "../../api/axios";
 import { useNavigate } from "react-router-dom";
 import dock from "../../assets/login/dock.jpg";
