@@ -20,6 +20,7 @@ import "./result.css";
 import control from "../../assets/control.png";
 import NewCard from "../../Components/Result/NewCard";
 import Spinner from "../../Components/Utils/Spinner";
+import { Footer } from "../../Components/Footer/Footer";
 
 const DELIVERY_URL =
   "https://api.parcelloglobal.com/api/couriers/fetchbydelivery/";
@@ -140,8 +141,9 @@ const Result = () => {
   };
 
   return (
-    <div className="flex page">
-      {/* <div
+    <>
+      <div className="flex page">
+        {/* <div
         className={` ${
           open ? "w-72" : "w-20 "
         } bg-[#004446] h-auto min-h-[100vh] p-5  pt-8 relative duration-300 `}
@@ -186,12 +188,12 @@ const Result = () => {
           ))}
         </ul>
       </div> */}
-      <div className=" flex-1 px-7 py-0 md:px-3 sm:px-2">
-        {/* <Result /> */}
-        <div>
-          <Navbar></Navbar>
-          <div className="bg-[#02878A] flex justify-center my-2 w-[100%] mx-0 h-[1px]">
-            {/* <ul className="flex">
+        <div className=" flex-1 px-7 py-0 md:px-3 sm:px-2">
+          {/* <Result /> */}
+          <div>
+            <Navbar></Navbar>
+            <div className="bg-[#02878A] flex justify-center my-2 w-[100%] mx-0 h-[1px]">
+              {/* <ul className="flex">
               <li className="px-2 py-2 text-white font-semibold hover:bg-[#004446] cursor-pointer">
                 Collection
               </li>
@@ -208,148 +210,154 @@ const Result = () => {
                 All
               </li>
             </ul> */}
-          </div>
-          <div
-            className={`flex flex-col m-auto ${
-              formError
-                ? " border-[#ff2525] shadow-red-300"
-                : " border-[#FCFCFD]"
-            }  w-fit md:w-full md:px-6 shadow-md  border-[2px] bg-white my-[50px] md:mt-5 rounded-[24px] py-8 px-10`}
-          >
-            <div className="flex mb-2 w-[100%] md:flex-col gap-2 md:justify-center items-center">
-              <div className="border-[2px] md:w-full flex justify-center border-[#E6E8EC] rounded-[90px] font-bold text-[14px] leading-[16px]  text-[#23262F] px-4 py-2">
-                Try our shipping calculator
-              </div>
-              <div className="bg-[#008185] border-[2px] border-[#FFFFFF] rounded-[90px] px-4 py-2 font-bold text-[14px] leading-[16px] text-right text-white  flex justify-center md:w-full">
-                {serviceType}
-              </div>
             </div>
-            <div className="my-2 flex items-center justify-center md:flex-col ">
-              <form
-                className="flex md:flex-col w-full gap-3"
-                onSubmit={handleSubmit}
-              >
-                <div className="flex items-center mr-2">
-                  {/* logo */}
-                  <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
-                  <div className="flex flex-col w-full">
-                    <span className="font-semibold text-[24px] leading-[32px]">
-                      Length
-                    </span>
-                    <input
-                      type="text"
-                      placeholder="in cm"
-                      className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px] "
-                      onChange={(e) => setLength(e.target.value)}
-                      required
-                    />
-                  </div>
+            <div
+              className={`flex flex-col m-auto ${
+                formError
+                  ? " border-[#ff2525] shadow-red-300"
+                  : " border-[#FCFCFD]"
+              }  w-fit md:w-full md:px-6 shadow-md  border-[2px] bg-white my-[50px] md:mt-5 rounded-[24px] py-8 px-10`}
+            >
+              <div className="flex mb-2 w-[100%] md:flex-col gap-2 md:justify-center items-center">
+                <div className="border-[2px] md:w-full flex justify-center border-[#E6E8EC] rounded-[90px] font-bold text-[14px] leading-[16px]  text-[#23262F] px-4 py-2">
+                  Try our shipping calculator
                 </div>
-                <div>
-                  <div className="flex items-center mr-2  w-full">
+                <div className="bg-[#008185] border-[2px] border-[#FFFFFF] rounded-[90px] px-4 py-2 font-bold text-[14px] leading-[16px] text-right text-white  flex justify-center md:w-full">
+                  {serviceType}
+                </div>
+              </div>
+              <div className="my-2 flex items-center justify-center md:flex-col ">
+                <form
+                  className="flex md:flex-col w-full gap-3"
+                  onSubmit={handleSubmit}
+                >
+                  <div className="flex items-center mr-2">
                     {/* logo */}
                     <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
-                    <div className="flex flex-col  w-full">
+                    <div className="flex flex-col w-full">
                       <span className="font-semibold text-[24px] leading-[32px]">
-                        Width
+                        Length
                       </span>
                       <input
                         type="text"
                         placeholder="in cm"
-                        className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px]  w-full"
-                        onChange={(e) => setWidth(e.target.value)}
+                        className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px] "
+                        onChange={(e) => setLength(e.target.value)}
                         required
                       />
                     </div>
                   </div>
-                </div>
-                <div>
-                  <div className="flex items-center mr-2  w-full">
-                    {/* logo */}
-                    <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
-                    <div className="flex flex-col  w-full">
-                      <span className="font-semibold text-[24px] leading-[32px]">
-                        Height
-                      </span>
-                      <input
-                        type="text"
-                        placeholder="in cm"
-                        className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px]  w-full"
-                        onChange={(e) => setHeight(e.target.value)}
-                      />
+                  <div>
+                    <div className="flex items-center mr-2  w-full">
+                      {/* logo */}
+                      <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
+                      <div className="flex flex-col  w-full">
+                        <span className="font-semibold text-[24px] leading-[32px]">
+                          Width
+                        </span>
+                        <input
+                          type="text"
+                          placeholder="in cm"
+                          className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px]  w-full"
+                          onChange={(e) => setWidth(e.target.value)}
+                          required
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div>
-                  <div className="flex items-center mr-2  w-full">
-                    {/* logo */}
-                    <img src={wtIcon} alt="tape" className="w-8 h-auto mr-4" />
-                    <div className="flex flex-col  w-full">
-                      <span className="font-semibold text-[24px] leading-[32px]">
-                        Weight
-                      </span>
-                      <input
-                        type="text"
-                        placeholder="in Kg"
-                        className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px]  w-full"
-                        onChange={(e) => setWeight(e.target.value)}
-                      />
+                  <div>
+                    <div className="flex items-center mr-2  w-full">
+                      {/* logo */}
+                      <img src={tape} alt="tape" className="w-10 h-auto mr-2" />
+                      <div className="flex flex-col  w-full">
+                        <span className="font-semibold text-[24px] leading-[32px]">
+                          Height
+                        </span>
+                        <input
+                          type="text"
+                          placeholder="in cm"
+                          className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px]  w-full"
+                          onChange={(e) => setHeight(e.target.value)}
+                        />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <button
-                  type="submit"
-                  className="bg-[#008185] rounded-[90px]  px-6 text-white h-12 ease-in duration-300 hover:scale-110"
-                >
-                  Get Quote
-                </button>
-              </form>
+                  <div>
+                    <div className="flex items-center mr-2  w-full">
+                      {/* logo */}
+                      <img
+                        src={wtIcon}
+                        alt="tape"
+                        className="w-8 h-auto mr-4"
+                      />
+                      <div className="flex flex-col  w-full">
+                        <span className="font-semibold text-[24px] leading-[32px]">
+                          Weight
+                        </span>
+                        <input
+                          type="text"
+                          placeholder="in Kg"
+                          className="border-b-[1px]  focus:outline-none hover:outline-none my-[1px]  w-full"
+                          onChange={(e) => setWeight(e.target.value)}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    className="bg-[#008185] rounded-[90px]  px-6 text-white h-12 ease-in duration-300 hover:scale-110"
+                  >
+                    Get Quote
+                  </button>
+                </form>
+              </div>
             </div>
-          </div>
 
-          <div className="flex max-w-[1293px] lg:w-[90vw] md:w-full m-auto flex-col ">
-            <div className="flex justify-start text-left w-[100%] border-b-[2px] py-2 border-b-[#008185] mb-4">
-              <p className="text-[20px] leading-6 font-semibold text-[#008185]">
-                Popular Domestic Services
-              </p>
-            </div>
-            <div
-              className={`flex ${
-                toggleStatic ? "flex-row" : "flex-col"
-              }  gap-5 flex-wrap px-2 justify-center min-h-fit  sm:mx-0 py-4 md:px-0 my-4 bg-white calculator-background rounded-[24px]`}
-            >
-              {loading ? (
-                <Spinner />
-              ) : (
-                <>
-                  {toggleStatic ? (
-                    <>
-                      <button onClick={() => handleCardClick()}>
-                        <StaticCard company="citysprint" />
-                      </button>
-                      <button onClick={() => handleCardClick()}>
-                        <StaticCard company="dpd" />
-                      </button>
-                      <button onClick={() => handleCardClick()}>
-                        <StaticCard company="dhl" />
-                      </button>
-                    </>
-                  ) : (
-                    // data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
-                    data
-                      .filter((item) => item.related_courier.length > 0)
-                      .map((item, index) => (
-                        <NewCard data={item} serviceType={serviceType} />
-                      ))
-                  )}
-                </>
-              )}
+            <div className="flex max-w-[1293px] lg:w-[90vw] md:w-full m-auto flex-col ">
+              <div className="flex justify-start text-left w-[100%] border-b-[2px] py-2 border-b-[#008185] mb-4">
+                <p className="text-[20px] leading-6 font-semibold text-[#008185]">
+                  Popular Domestic Services
+                </p>
+              </div>
+              <div
+                className={`flex ${
+                  toggleStatic ? "flex-row" : "flex-col"
+                }  gap-5 flex-wrap px-2 justify-center min-h-fit  sm:mx-0 py-4 md:px-0 my-4 bg-white calculator-background rounded-[24px]`}
+              >
+                {loading ? (
+                  <Spinner />
+                ) : (
+                  <>
+                    {toggleStatic ? (
+                      <>
+                        <button onClick={() => handleCardClick()}>
+                          <StaticCard company="citysprint" />
+                        </button>
+                        <button onClick={() => handleCardClick()}>
+                          <StaticCard company="dpd" />
+                        </button>
+                        <button onClick={() => handleCardClick()}>
+                          <StaticCard company="dhl" />
+                        </button>
+                      </>
+                    ) : (
+                      // data.map((item, index) => <Card data={item} serviceType={serviceType}/>)
+                      data
+                        .filter((item) => item.related_courier.length > 0)
+                        .map((item, index) => (
+                          <NewCard data={item} serviceType={serviceType} />
+                        ))
+                    )}
+                  </>
+                )}
+              </div>
             </div>
           </div>
+          {/* <h1 className="text-2xl font-semibold ">H</h1> */}
         </div>
-        {/* <h1 className="text-2xl font-semibold ">H</h1> */}
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

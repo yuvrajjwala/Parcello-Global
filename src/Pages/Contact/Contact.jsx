@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import { BsSend } from "react-icons/bs";
+import emailjs from '@emailjs/browser';
+import { Footer } from "../../Components/Footer/Footer";
 
 const ContactForm = () => {
+  const form = useRef()
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -10,7 +13,12 @@ const ContactForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Implement form submission logic
+    emailjs.sendForm('service_nhh8ny5', 'template_aqnoo6c', form.current, 'g5T3VMRlFoq2_Xjci')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
   };
 
   return (
@@ -20,7 +28,7 @@ const ContactForm = () => {
         <h2 className="text-4xl md:text-3xl font-semibold mb-4">
           Love to hear from you <br /> Get in Touch 👋
         </h2>
-        <form onSubmit={handleSubmit} className="flex flex-col">
+        <form ref={form} onSubmit={handleSubmit} className="flex flex-col">
           <div className="flex md:flex-col justify-between w-full gap-5 md:gap-0">
             <div className="mb-4 w-full md:pr-2">
               <label
@@ -106,6 +114,7 @@ const ContactForm = () => {
           </div>
         </form>
       </div>
+      <Footer />
     </>
   );
 };

@@ -26,7 +26,7 @@ import Spinner from "./Components/Utils/Spinner";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Payment from "./Pages/payment/Payment";
 import { SuccessfullPayment } from "./Pages/payment/SuccessfullPayment";
-import Stripe from "./Pages/payment/Stripe";
+import ContactForm from "./Pages/Contact/Contact";
 // import AuthProvider from "./context/AuthProvider";
 
 function App() {
@@ -110,6 +110,7 @@ function App() {
           <Route path="/signup/otp" element={<Otp />} />
           <Route path="/result" element={<Result />}></Route>
           <Route path="/payment" element={<Payment />}></Route>
+          <Route path="/contact" element={<ContactForm />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
           <Route path="/successfullorder" element={<SuccessfullPayment />}></Route>
           <Route path="/stripe" element={<Stripe />}></Route>
@@ -166,7 +167,7 @@ function App() {
         )} */}
         {/* </AuthProvider> */}
       </Router>
-      <Footer />
+      
     </div>
   );
 }
