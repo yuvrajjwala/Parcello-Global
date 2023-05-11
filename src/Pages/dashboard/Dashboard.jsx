@@ -53,30 +53,30 @@ const Dashboard = () => {
         <Link to="/" className="flex gap-x-4 items-center">
           <img
             src={logo}
-           
             className={`cursor-pointer duration-500 h-10 ${
               open && "rotate-[360deg]"
             }`}
           />
-          
         </Link>
         <ul className="pt-6 h-[40%]">
-          <li
-            className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#008185] text-black text-sm items-center mb-2 ${
-              !open ? "justify-center" : ""
-            } gap-x-4 hover:bg-[#008185] hover:text-white
+          <Link to="/">
+            <li
+              className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#008185] text-black text-sm items-center mb-2 ${
+                !open ? "justify-center" : ""
+              } gap-x-4 hover:bg-[#008185] hover:text-white
               "mt-9" `}
-          >
-            <AiFillHome className="w-[22px] h-[22px] " />
-            <span
-              className={`${
-                !open && "hidden"
-              } origin-left duration-200 text-[#969696] font-medium hover:text-white text-[16px]`}
             >
-              {" "}
-              Home
-            </span>
-          </li>
+              <AiFillHome className="w-[22px] h-[22px] " />
+              <span
+                className={`${
+                  !open && "hidden"
+                } origin-left duration-200 text-[#969696] font-medium hover:text-white text-[16px]`}
+              >
+                {" "}
+                Home
+              </span>
+            </li>
+          </Link>
           <li
             className={`flex  rounded-md p-2 cursor-pointer hover:bg-[#008185] text-black text-sm items-center mb-2 ${
               !open ? "justify-center" : ""

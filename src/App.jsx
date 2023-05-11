@@ -113,7 +113,7 @@ function App() {
           <Route path="/contact" element={<ContactForm />}></Route>
           <Route path="*" element={<ErrorPage />}></Route>
           <Route
-            path="/successfullorder"
+            path="/success"
             element={<SuccessfullPayment />}
           ></Route>
           {/* <Route path="/stripe" element={<Stripe />}></Route> */}
