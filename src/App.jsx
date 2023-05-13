@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 import Result from "./Pages/Result/Result";
-import ResetPass from "./Pages/ResetPassword/ResetPass.jsx"
+import ResetPass from "./Pages/ResetPassword/ResetPass.jsx";
 const Dashboard = lazy(() => import("./Pages/dashboard/Dashboard.jsx"));
 const Home = lazy(() => import("./Pages/Home/Home"));
 import Booking from "./Pages/Booking/Booking";
@@ -44,8 +44,15 @@ function App() {
   // useEffect(() => {
   //   console.log(isAuthenticated);
   // }, []);
+
+  const app = {
+    maxWidth: "1655px",
+    display: "block",
+    margin: "auto",
+    boxShadow: "2px 2px 5px 5px #ededed",
+  };
   return (
-    <div className="App">
+    <div style={app} className="App">
       <Router>
         {/* <AuthProvider> */}
         <ScrollToTop />
