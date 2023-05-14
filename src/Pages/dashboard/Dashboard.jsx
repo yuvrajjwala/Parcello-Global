@@ -29,10 +29,7 @@ const Dashboard = () => {
   const toastSuccess = () => toast.success("logged in successfully");
 
   useEffect(() => {
-    console.log("opened");
     const item = localStorage.getItem("auth");
-    console.log(item);
-    // toastSuccess();
   }, []);
 
   return (

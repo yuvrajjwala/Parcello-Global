@@ -16,7 +16,7 @@ const ContactForm = () => {
     e.preventDefault();
     emailjs.sendForm('service_nhh8ny5', 'template_aqnoo6c', form.current, 'g5T3VMRlFoq2_Xjci')
       .then((result) => {
-          toast.success("Email Sent")
+          toast.success("Thankyou for contacting us!")
           setEmail("")
           setMessage("")
           setName("")

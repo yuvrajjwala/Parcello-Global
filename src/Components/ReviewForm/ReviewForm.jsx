@@ -87,7 +87,7 @@ export default function ReviewForm(state) {
       updated_by: "parcelloglobal@gmail.com",
     };
 
-    console.log(body);
+    // console.log(body);
     try {
       const response = await axios.post("/api/bookings/delivery/", body, {
         headers: { "content-Type": "application/json" },

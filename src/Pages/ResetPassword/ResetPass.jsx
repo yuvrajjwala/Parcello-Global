@@ -16,7 +16,7 @@ const ResetPass = () => {
         Fear not. we'll email you intsructions to reset your password.
       </p>
       <div className="flex flex-col w-[100%] my-4">
-        <span className="text-[20px] leading-[24px] text-[#02878A] my-2">
+        <span className="text-[20px] leading-[24px] text-[#028a5a] my-2">
           Email
         </span>
         <input
@@ -26,10 +26,10 @@ const ResetPass = () => {
           className="border-[1px] border-gray-300 w-[100%] px-2 py-2"
         />
         <div className="flex  items-center my-4">
-          <button className="w-[30%]  bg-[#02878A] py-2 px-2 text-white mb-2 mt-4 ease-out duration-300 transition hover:scale-110 mr-4">
+          <button className="w-[30%]  bg-[#028a5a] py-2 px-2 text-white mb-2 mt-4 ease-out duration-300 transition hover:scale-110 mr-4">
             Reset Password
           </button>
-          <a href="/" className="w-[30%] underline text-[#02878A]">
+          <a href="/" className="w-[30%] underline text-[#028a5a]">
             Return to login
           </a>
         </div>
