@@ -171,7 +171,7 @@ export default function Signup() {
             )}
           </button>
           {password != confirmPassword && password && confirmPassword && (
-            <span className=" text-red-600"> Passwoed Doesnot Match </span>
+            <span className=" text-red-600"> Password Don't Match </span>
           )}
         </div>
 
