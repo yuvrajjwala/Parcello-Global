@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-
 const LOGIN_URL = "/auth/users/API/login/";
 
 export default function Signin() {
@@ -55,7 +54,7 @@ export default function Signin() {
         refreshToken,
         isAuthenticated: true,
       };
-      // localStorage.setItem("auth", JSON.stringify(item));
+      localStorage.setItem("auth", JSON.stringify(item));
       updateAuth(item);
       setEmail("");
       setPassword("");

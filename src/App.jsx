@@ -15,7 +15,7 @@ import Booking from "./Pages/Booking/Booking";
 import ReviewOrder from "./Pages/ReviewOrder/ReviewOrder";
 import Signin from "./Pages/Signin/Signin";
 import Signup from "./Pages/Signup/Signup";
-import Otp from "./Pages/OTP/Otp";
+import EmailVerification from "./Pages/OTP/EmailVerification";
 import AuthContext from "./context/AuthContext";
 import ScrollToTop from "./hooks/ScrollToTop";
 import Contact from "./Pages/Contact/Contact";
@@ -26,20 +26,21 @@ import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Payment from "./Pages/payment/Payment";
 import { SuccessfullPayment } from "./Pages/payment/SuccessfullPayment";
 import ContactForm from "./Pages/Contact/Contact";
+import OrderCancelled from "./Pages/payment/OrderCancelled.jsx";
 // import AuthProvider from "./context/AuthProvider";
 
 function App() {
   const [count, setCount] = useState(0);
   const { auth, updateAuth } = useContext(AuthContext);
 
-  useEffect(() => {
-    const item = localStorage.getItem("item");
-    if (item) {
-      const storedAuth = JSON.parse(item);
-      // console.log(item);
-      updateAuth(storedAuth);
-    }
-  }, [auth.isAuthenticated]);
+  // useEffect(() => {
+  //   const item = localStorage.getItem("item");
+  //   if (item) {
+  //     const storedAuth = JSON.parse(item);
+  //     // console.log(item);
+  //     updateAuth(storedAuth);
+  //   }
+  // }, [auth.isAuthenticated]);
 
   // useEffect(() => {
   //   console.log(isAuthenticated);
@@ -57,14 +58,14 @@ function App() {
         {/* <AuthProvider> */}
         <ScrollToTop />
         <Routes>
-          {/* <Route
+          <Route
             path="/dashboard"
             element={
               <ProtectedRoute>
                 <Dashboard />
               </ProtectedRoute>
             }
-          /> */}
+          />
 
           <Route
             path="/"
@@ -80,7 +81,7 @@ function App() {
               </Suspense>
             }
           />
-          <Route
+          {/* <Route
             path="/dashboard"
             element={
               <Suspense
@@ -93,7 +94,7 @@ function App() {
                 <Dashboard />
               </Suspense>
             }
-          />
+          /> */}
           <Route
             path="/reset"
             element={
@@ -109,19 +110,64 @@ function App() {
             }
           />
 
-          <Route path="/booking" element={<Booking />} />
-          <Route path="/reviewOrder" element={<ReviewOrder />} />
+          <Route
+            path="/booking"
+            element={
+              <ProtectedRoute>
+                <Booking />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reviewOrder"
+            element={
+              <ProtectedRoute>
+                <ReviewOrder />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/signup/otp" element={<Otp />} />
-          <Route path="/result" element={<Result />}></Route>
-          <Route path="/payment" element={<Payment />}></Route>
-          <Route path="/contact" element={<ContactForm />}></Route>
+          <Route path="/signup/verify" element={<EmailVerification />} />
+          <Route
+            path="/result"
+            element={
+                <Result />
+            }
+          ></Route>
+          <Route
+            path="/payment"
+            element={
+              <ProtectedRoute>
+                <Payment />
+              </ProtectedRoute>
+            }
+          ></Route>
+          <Route
+            path="/contact"
+            element={
+              <ProtectedRoute>
+                <ContactForm />
+              </ProtectedRoute>
+            }
+          ></Route>
           <Route path="*" element={<ErrorPage />}></Route>
           <Route
             path="/successfullorder/:id"
-            element={<SuccessfullPayment />}
+            element={
+              <ProtectedRoute>
+                <SuccessfullPayment />
+              </ProtectedRoute>
+            }
           ></Route>
+          <Route
+            path="/ordercancelled"
+            element={
+              <ProtectedRoute>
+                <OrderCancelled />
+              </ProtectedRoute>
+            }
+          />
           {/* <Route path="/stripe" element={<Stripe />}></Route> */}
         </Routes>
 

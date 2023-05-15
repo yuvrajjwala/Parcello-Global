@@ -17,7 +17,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Dashboard = () => {
   const [open, setOpen] = useState(true);
   const Menus = [
-    { title: "Home", src: "AiFillHome" },
+    { title: "Home", src: "AiFillHome" }, 
     { title: "Send Parcel", src: "Chat" },
     { title: "Accounts", src: "User", gap: true },
     { title: "Schedule ", src: "Calendar" },

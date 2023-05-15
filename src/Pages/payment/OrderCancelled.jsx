@@ -1,11 +1,9 @@
 import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
-import SuccessImage from "../../assets/Order/OrderSuccess.gif";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
+import OrderFailed from "../../assets/Order/OrderFailed.png";
 
-export const SuccessfullPayment = () => {
-  const { id } = useParams();
+import { Link } from "react-router-dom";
+const OrderCancelled = () => {
   return (
     <>
       <Navbar />
@@ -13,16 +11,16 @@ export const SuccessfullPayment = () => {
         <div className="container px-4 mx-auto">
           <div className="max-w-2xl mx-auto text-center">
             <span className="inline-block mx-auto mb-6">
-              <img className="w-[250px]" src={SuccessImage} />
+              <img src={OrderFailed} className="w-[250px]" />
             </span>
 
-            <h3 className="text-2xl  text-green-600 mb-5">
-              Your order has been placed
+            <h3 className="text-2xl  text-red-600 mb-5">
+              Order is not Completed
             </h3>
-            <h6 className=" text-yellow-600 mb-5">Order ID: {id}</h6>
+            {/* <h6 className=" text-yellow-600 mb-5">Order ID: {id}</h6> */}
             <p className=" mb-12">
-              Thank you for choosing Parcello. Our courier partner will collect
-              the parcel from your address on specified time.
+              If you are facing any problem please contact us at
+              contact@parcello.co.uk
             </p>
 
             <a
@@ -33,17 +31,17 @@ export const SuccessfullPayment = () => {
                 <div className=" w-5/12  h-[40px]  group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
                   <Link
                     to="/"
-                    className="flex h-full w-full items-center justify-center bg-green-600 rounded-md"
+                    className="flex h-full w-full items-center justify-center bg-yellow-600  rounded-md"
                   >
                     <span className=" text-white">Home</span>
                   </Link>
                 </div>
                 <div className=" w-5/12 h-[40px] group-hover:translate-y-0 group-hover:translate-x-0 transition duration-300">
                   <Link
-                    to="/dashboard"
-                    className="flex h-full w-full items-center justify-center bg-yellow-600 rounded-md"
+                    to="/contact"
+                    className="flex h-full w-full items-center justify-center bg-green-600 rounded-md"
                   >
-                    <span className=" text-white">Order Dashboard</span>
+                    <span className=" text-white">Contact us</span>
                   </Link>
                 </div>
               </div>
@@ -54,3 +52,5 @@ export const SuccessfullPayment = () => {
     </>
   );
 };
+
+export default OrderCancelled;
