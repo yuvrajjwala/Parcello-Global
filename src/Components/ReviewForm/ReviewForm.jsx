@@ -78,7 +78,7 @@ export default function ReviewForm(state) {
       total_price: Number(data.price) + Number(data.VAT),
       price: data.price,
       VAT: data.VAT,
-      courier_notes: additional.notes,
+      courier_notes: 'courier notes',
       courier_service: [data.courier_service],
       rate_card: [data.rate_card],
       label: "string",
