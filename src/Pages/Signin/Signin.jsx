@@ -58,7 +58,7 @@ export default function Signin() {
       updateAuth(item);
       setEmail("");
       setPassword("");
-      navigate("/dashboard");
+      navigate("/");
     } catch (e) {
       if (e.response?.status === 403) {
         toastWarn();

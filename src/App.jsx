@@ -47,8 +47,15 @@ function App() {
   // useEffect(() => {
   //   console.log(isAuthenticated);
   // }, []);
+
+  const app = {
+    maxWidth: "1655px",
+    display: "block",
+    margin: "auto",
+    boxShadow: "2px 2px 5px 5px #ededed",
+  };
   return (
-    <div className="App">
+    <div style={app} className="App">
       <Router>
         {/* <AuthProvider> */}
         <ScrollToTop />
