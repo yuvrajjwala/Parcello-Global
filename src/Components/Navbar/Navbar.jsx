@@ -7,7 +7,6 @@ import { Link, NavLink } from "react-router-dom";
 import { useState, useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 
-import Login from "../../Components/login/Login";
 
 const Navbar = () => {
   const [openLogin, setOpenLogin] = useState(false);
