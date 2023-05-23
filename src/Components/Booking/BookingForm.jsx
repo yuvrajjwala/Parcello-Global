@@ -558,11 +558,11 @@ export default function BookingForm(state) {
               <input type="checkbox" className="m-3" required />
               <p>
                 I agree to the{" "}
-                <a className=" text-blue-500" href="">
+                <a className=" text-blue-500" href="https://www.parcello.co.uk/terms-and-conditions/">
                   Terms and Conditions
                 </a>{" "}
                 and{" "}
-                <a className=" text-blue-500" href="">
+                <a className=" text-blue-500" href="https://www.parcello.co.uk/privacy-policy/">
                   Privacy Policy
                 </a>{" "}
                 and confirm that my shipment complies with the{" "}

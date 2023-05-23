@@ -117,7 +117,7 @@ const Navbar = () => {
             </button>
             <div className="dropdown-content p-3 gap-2 absolute top-[15px]">
               <NavLink
-                to="/privacy"
+                to="https://www.parcello.co.uk/privacy-policy/"
                 onClick={() => {
                   setOpenLogin(true);
                 }}
@@ -128,7 +128,7 @@ const Navbar = () => {
                 Privacy
               </NavLink>
               <NavLink
-                to="/toc"
+                to="https://www.parcello.co.uk/terms-and-conditions/"
                 onClick={() => {
                   setOpenLogin(true);
                 }}

@@ -19,17 +19,17 @@ const Testimonialss = () => {
           <Suspense fallback={<div></div>}>
             <Card
               img={img1}
-              name={"Ronald Richards"}
-              organization={"Google inc."}
+              name={"Jenny Jen"}
+              organization={"London"}
             />
             <Card
               img={img1}
-              name={"Guy Hawkins"}
-              organization={"Paypal inc."}
+              name={"Buddy Moore"}
+              organization={"Enfield"}
             />
             <Card
               img={img3}
-              name={"Kristin Watson"}
+              name={"Brighton"}
               organization={"Microsoft inc."}
             />
           </Suspense>

@@ -25,10 +25,9 @@ function AmaizingServices() {
               <BsFillEmojiSmileFill />
             </span>
             <div className="flex flex-col items-start gap-4">
-              <h3 className=" font-semibold">1+M Reviewers</h3>
+              <h3 className=" font-semibold">Very Affordable</h3>
               <span className="text-[#777E91]">
-                We realize ideas from simple to complex, everything becomes easy
-                to use and reach the most potential customers.
+              We offer discounted parcel delivery services that enable our customers to compare, book, and send parcels.
               </span>
             </div>
           </div>
@@ -54,9 +53,9 @@ function AmaizingServices() {
               <BsGiftFill />
             </span>
             <div className="flex flex-col items-start gap-4">
-              <h3 className=" font-semibold">Free cancellation</h3>
+              <h3 className=" font-semibold">Best Couriers</h3>
               <span className="text-[#777E91]">
-              We realize ideas from simple to complex, everything becomes easy to use and reach the most potential customers.
+                Parcello has major accounts with the world’s largest and most trusted courier companies.
               </span>
             </div>
           </div>
