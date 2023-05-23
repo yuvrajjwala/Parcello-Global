@@ -2,6 +2,7 @@ import React from "react";
 import { Suspense, lazy } from "react";
 import img1 from "../../assets/Testimonials/img1.svg";
 import img3 from "../../assets/Testimonials/img3.svg";
+import img33 from "../../assets/Testimonials/img33.png";
 
 const Card = lazy(() => import("./Card.jsx"));
 const Testimonialss = () => {
@@ -18,19 +19,22 @@ const Testimonialss = () => {
         <div className="flex lg:flex-col items-center w-[100%] justify-between">
           <Suspense fallback={<div></div>}>
             <Card
-              img={img1}
+              img={img3}
               name={"Jenny Jen"}
               organization={"London"}
+              testimonialMessage={"I love using Parcello! They always deliver my packages on time and with great care. Highly recommended!"}
             />
             <Card
               img={img1}
               name={"Buddy Moore"}
               organization={"Enfield"}
+              testimonialMessage= {"Parcello is my top choice for shipping. Fast, reliable, and affordable. Can't ask for more!"}
             />
             <Card
-              img={img3}
+              img={img33}
               name={"Brighton"}
-              organization={"Microsoft inc."}
+              organization={"Michael T."}
+              testimonialMessage={"Parcello is fantastic! They handle my packages with utmost care and provide excellent customer service."}
             />
           </Suspense>
         </div>

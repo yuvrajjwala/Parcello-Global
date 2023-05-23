@@ -1,7 +1,7 @@
 import React from "react";
 import star from "../../assets/Testimonials/star.svg";
 import "./card.css";
-const Card = ({ img, name, organization }) => {
+const Card = ({ img, name, organization, testimonialMessage }) => {
   return (
     <div className="relative flex flex-col bg-white card-shadow rounded-[20px] mx-4 mt-28 mb-8 p-4 items-center text-center max-w-[352px]">
       {/* <div className="w-[120px] h-[120px] rounded-full absolute"> */}
@@ -19,8 +19,7 @@ const Card = ({ img, name, organization }) => {
       </span>
 
       <p className="my-4 font-normal text-[18px ] leading-[32px] text-[#70798B]">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt.
+     {testimonialMessage}
       </p>
       <div className="flex my-4">
         <img src={star} alt="star" className="mx-1" />

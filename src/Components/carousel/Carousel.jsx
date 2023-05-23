@@ -30,9 +30,7 @@ const Carousel = ({ slider }) => {
           <h1 className="text-[#23262F] font-semibold text-[24px] leading-[32px] mt-4 mb-2">
             London
           </h1>
-          <p className="text-[#777E91] font-normal text-[12px] leading-[20px]">
-            From: $26.00
-          </p>
+          
         </div>
         <div className="flex flex-col mx-2">
           <img src={city2} alt="location" className="w-[90%]" />
@@ -40,9 +38,7 @@ const Carousel = ({ slider }) => {
           <h1 className="text-[#23262F] font-semibold text-[24px] leading-[32px] mt-4 mb-2">
             Beijing
           </h1>
-          <p className="text-[#777E91] font-normal text-[12px] leading-[20px]">
-            From: $26.00
-          </p>
+          
         </div>
         <div className="flex flex-col mx-2">
           <img src={city3} alt="location" className="w-[90%]" />
@@ -50,9 +46,7 @@ const Carousel = ({ slider }) => {
           <h1 className="text-[#23262F] font-semibold text-[24px] leading-[32px] mt-4 mb-2">
             Barcelona
           </h1>
-          <p className="text-[#777E91] font-normal text-[12px] leading-[20px]">
-            From: $26.00
-          </p>
+          
         </div>
         <div className="flex flex-col mx-2">
           <img src={city1} alt="location" className="w-[90%]" />
@@ -60,9 +54,7 @@ const Carousel = ({ slider }) => {
           <h1 className="text-[#23262F] font-semibold text-[24px] leading-[32px] mt-4 mb-2">
             London
           </h1>
-          <p className="text-[#777E91] font-normal text-[12px] leading-[20px]">
-            From: $26.00
-          </p>
+          
         </div>
         <div className="flex flex-col mx-2">
           <img src={city2} alt="location" className="w-[90%]" />
@@ -70,9 +62,7 @@ const Carousel = ({ slider }) => {
           <h1 className="text-[#23262F] font-semibold text-[24px] leading-[32px] mt-4 mb-2">
             Beijing
           </h1>
-          <p className="text-[#777E91] font-normal text-[12px] leading-[20px]">
-            From: $26.00
-          </p>
+          
         </div>
         <div className="flex flex-col mx-2">
           <img src={city3} alt="location" className="w-[90%]" />
@@ -80,9 +70,7 @@ const Carousel = ({ slider }) => {
           <h1 className="text-[#23262F] font-semibold text-[24px] leading-[32px] mt-4 mb-2">
             Barcelona
           </h1>
-          <p className="text-[#777E91] font-normal text-[12px] leading-[20px] ">
-            From: $26.00
-          </p>
+         
         </div>
       </Slider>
       <button className="border-[2px] border-[#E6E8EC] rounded-[90px] items-center flex justify-center py-[12px] px-4 font-bold text-[16px] leading-[16px] font-dm my-8">

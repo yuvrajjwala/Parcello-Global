@@ -5,6 +5,7 @@ import LearnHow from "../../Components/Home/LearnHow/LearnHow";
 import FAQ from "../../Components/Home/FAQ/FAQ";
 import HeroSectionNew from "../../Components/Home/HeroSectionNew/HeroSectionNew";
 import { Footer } from "../../Components/Footer/Footer";
+import Spinner from "../../Components/Utils/Spinner";
 // import Testimonials from "../../Components/Testimonials/Testimonialss";
 
 const Navbar = lazy(() => import("../../Components/Navbar/Navbar"));
@@ -24,11 +25,9 @@ const Destinations = lazy(() =>
 
 const Home = () => {
   return (
-    <Suspense fallback={<div>lOADING</div>}>
+    <Suspense fallback={<div><Spinner/></div>}>
       <Navbar />
-      {/* <HeroSection /> */}
       <HeroSectionNew />
-      {/* <GetQouteForm /> */}
       <WhyUs />
       <AmaizingServices/>
       <Destinations />
