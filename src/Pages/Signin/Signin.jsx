@@ -131,7 +131,12 @@ export default function Signin() {
             )}
           </button>
         </div>
-
+        <div className=" flex justify-end w-[100%]">
+          <Link to="/reset" className="text-[14px] text-[#02878A]">
+            {" "}
+            Forgot Password?
+          </Link>
+        </div>
         <button
           className="bg-[#02878A] text-white w-full h-10 rounded-lg cursor-pointer "
           type="submit"

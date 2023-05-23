@@ -19,6 +19,88 @@ export default function HeroForm() {
   const [toZip, setToZip] = useState("");
   const [selectedOption, setSelectedOption] = useState("India");
 
+  const [InternationalDestinations, setInternationalDestinations] = useState({
+    countries: [
+      "England",
+      "Scotland and Wales",
+      "Northern Ireland",
+      "Republic of Ireland",
+      "Belgium",
+      "France",
+      "Germany",
+      "Luxembourg",
+      "Monaco",
+      "Netherlands",
+      "Austria",
+      "Azores",
+      "Czech Republic",
+      "Denmark",
+      "Finland",
+      "Greece",
+      "Italy",
+      "Madeira",
+      "Poland",
+      "Portugal",
+      "Spain",
+      "Sweden",
+      "Bulgaria",
+      "Croatia",
+      "Cyprus",
+      "Estonia",
+      "Hungary",
+      "Latvia",
+      "Lithuania",
+      "Malta",
+      "Romania",
+      "Slovakia",
+      "Slovenia",
+      "Albania",
+      "Andorra",
+      "Belarus",
+      "Bosnia & Herzegovina",
+      "Ceuta",
+      "Faroe Islands",
+      "Gibraltar",
+      "Greenland",
+      "Guernsey",
+      "Iceland",
+      "Jersey",
+      "Kosovo",
+      "Liechtenstein",
+      "Macedonia",
+      "Melilla",
+      "Moldova",
+      "Montenegro",
+      "Norway",
+      "Russia",
+      "San Marino",
+      "Serbia",
+      "Switzerland",
+      "Turkey",
+      "Ukraine",
+      "Canada",
+      "Mexico",
+      "Puerto Rico",
+      "United States of America",
+      "China",
+      "Hong Kong",
+      "Indonesia",
+      "Japan",
+      "Macau",
+      "Malaysia",
+      "Philippines",
+      "Singapore",
+      "South Africa",
+      "South Korea",
+      "Taiwan",
+      "Thailand",
+      "UAE",
+      "Australia",
+      "New Zealand",
+      "Rest of the World",
+    ],
+  });
+
   function handleSelect(event) {
     setSelectedOption(event.target.value);
   }
@@ -214,9 +296,12 @@ export default function HeroForm() {
                     value={selectedOption}
                     onChange={handleSelect}
                   >
-                    <option  value="India">India</option>
+                    {InternationalDestinations.countries.map((item, index) => {
+                      return <option value={item}>{item}</option>;
+                    })}
+                    {/* <option value="India">India</option>
                     <option value="USA">USA</option>
-                    <option value="China">China</option>
+                    <option value="China">China</option> */}
                   </select>
                 </div>
               </div>

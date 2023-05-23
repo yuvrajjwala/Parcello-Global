@@ -8,7 +8,8 @@ import {
 } from "react-router-dom";
 import React, { lazy, Suspense } from "react";
 import Result from "./Pages/Result/Result";
-import ResetPass from "./Pages/ResetPassword/ResetPass.jsx"
+import ResetPass from "./Pages/ResetPassword/ResetPass.jsx";
+import EnterPassword from "./Pages/ResetPassword/EnterPassword.jsx";
 const Dashboard = lazy(() => import("./Pages/dashboard/Dashboard.jsx"));
 const Home = lazy(() => import("./Pages/Home/Home"));
 import Booking from "./Pages/Booking/Booking";
@@ -27,6 +28,7 @@ import Payment from "./Pages/payment/Payment";
 import { SuccessfullPayment } from "./Pages/payment/SuccessfullPayment";
 import ContactForm from "./Pages/Contact/Contact";
 import OrderCancelled from "./Pages/payment/OrderCancelled.jsx";
+// import ResetPass from "./Pages/ResetPassword/ResetPass.jsx";
 // import AuthProvider from "./context/AuthProvider";
 
 function App() {
@@ -102,7 +104,7 @@ function App() {
               </Suspense>
             }
           />
-
+          <Route path="/auth/users/API/reset/:id" element={<EnterPassword />} />
           <Route
             path="/booking"
             element={
@@ -122,12 +124,7 @@ function App() {
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup/verify" element={<EmailVerification />} />
-          <Route
-            path="/result"
-            element={
-                <Result />
-            }
-          ></Route>
+          <Route path="/result" element={<Result />}></Route>
           <Route
             path="/payment"
             element={

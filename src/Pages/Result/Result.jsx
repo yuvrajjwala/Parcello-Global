@@ -47,7 +47,7 @@ const Result = () => {
   const [length, setLength] = useState("");
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
-  const [weight, setWeight] = useState(0);
+  const [weight, setWeight] = useState("");
   const [serviceType, setServiceType] = useState("Same Day");
   const [distance, setDistance] = useState(15);
   const [data, setData] = useState([]);
@@ -102,12 +102,14 @@ const Result = () => {
         const response = await axios.post(
           DELIVERY_URL,
           {
-            Length: parseInt(length),
-            Height: parseInt(height),
-            Width: parseInt(width),
+            // Length: parseInt(length),
+            Length: length,
+            Height: height,
+            Width: width,
             From: from,
             To: to,
             Service: serviceType,
+            Weight: weight,
           },
           {
             headers: { "content-Type": "application/json" },

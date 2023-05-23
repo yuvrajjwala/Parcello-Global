@@ -9,23 +9,27 @@ import dpd from "../../assets/Card/dpd.png";
 import StarRating from "./StarRating";
 import { useNavigate } from "react-router-dom";
 
-export default function NewCard({ data}) {
-   const courier_name = data.related_courier[0].courier_name
-   const courier_logo = data.related_courier[0].courier_logo
-   const rate_card = data.id
-   const max_height = data.max_height
-   const courier_service = data.related_courier[0].id
-   const max_length = data.max_length
-   const max_width = data.max_width
-   const randomNumber = (Math.random() * 1) + 4; // Generate a random number between 4 and 5
-   const roundedNumber = randomNumber.toFixed(1); // Round to one decimal place
-   const max_weight = data.max_weight
-   const today = new Date();
-   const futureDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 2); // Calculate the future date
-   const options = { weekday: 'short', day: 'numeric', month: 'long' };
-   const dateString = futureDate.toLocaleDateString('en-US', options); // Format the date string
-   const price = parseFloat(data.price)
-   const vat = parseFloat(data.VAT)
+export default function NewCard({ data }) {
+  const courier_name = data.related_courier[0].courier_name;
+  const courier_logo = data.related_courier[0].courier_logo;
+  const rate_card = data.id;
+  const max_height = data.max_height;
+  const courier_service = data.related_courier[0].id;
+  const max_length = data.max_length;
+  const max_width = data.max_width;
+  const randomNumber = Math.random() * 1 + 4; // Generate a random number between 4 and 5
+  const roundedNumber = randomNumber.toFixed(1); // Round to one decimal place
+  const max_weight = data.max_weight;
+  const today = new Date();
+  const futureDate = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate() + 2
+  ); // Calculate the future date
+  const options = { weekday: "short", day: "numeric", month: "long" };
+  const dateString = futureDate.toLocaleDateString("en-US", options); // Format the date string
+  const price = parseFloat(data.price);
+  const vat = parseFloat(data.VAT);
 
   useEffect(() => {
     console.log(data);
@@ -34,20 +38,19 @@ export default function NewCard({ data}) {
   const handleSubmit = (protection) => {
     navigate("/booking", {
       state: {
-          courier_name: courier_name,
-          courier_logo: courier_logo,
-          max_height: max_height,
-          max_length: max_length,
-          max_width: max_width,
-          ratingr: roundedNumber,
-          max_weight: max_weight,
-          futureDate: dateString,
-          price: price,
-          VAT: vat,
-          protection : protection,
-          courier_service : courier_service,
-          rate_card : rate_card,
-
+        courier_name: courier_name,
+        courier_logo: courier_logo,
+        max_height: max_height,
+        max_length: max_length,
+        max_width: max_width,
+        ratingr: roundedNumber,
+        max_weight: max_weight,
+        futureDate: dateString,
+        price: price,
+        VAT: vat,
+        protection: protection,
+        courier_service: courier_service,
+        rate_card: rate_card,
       },
     });
   };
@@ -60,7 +63,7 @@ export default function NewCard({ data}) {
             <img
               src={courier_logo}
               className="w-full h-full object-contain"
-              alt=""
+              alt="logo"
             />
           </div>
           <h3 className="text-sm font-semibold text-[#008185]">
