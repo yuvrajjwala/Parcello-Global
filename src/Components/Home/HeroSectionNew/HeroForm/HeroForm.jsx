@@ -17,7 +17,7 @@ export default function HeroForm() {
   const [to, setTo] = useState("");
   const [fromZip, setFromZip] = useState("");
   const [toZip, setToZip] = useState("");
-  const [selectedOption, setSelectedOption] = useState("India");
+  const [selectedOption, setSelectedOption] = useState("England");
 
   const [InternationalDestinations, setInternationalDestinations] = useState({
     countries: [
