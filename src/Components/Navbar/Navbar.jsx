@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useCallback, useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import "./Navbar.css";
 import ham from "../../assets/Navbar/ham.svg";
 import close from "../../assets/Navbar/close.svg";

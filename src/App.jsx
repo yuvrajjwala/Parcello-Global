@@ -143,9 +143,9 @@ function App() {
           <Route
             path="/contact"
             element={
-              <ProtectedRoute>
+          
                 <ContactForm />
-              </ProtectedRoute>
+              
             }
           ></Route>
           <Route path="*" element={<ErrorPage />}></Route>
