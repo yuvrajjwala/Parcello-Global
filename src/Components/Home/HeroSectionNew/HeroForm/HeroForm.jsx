@@ -17,12 +17,10 @@ export default function HeroForm() {
   const [to, setTo] = useState("");
   const [fromZip, setFromZip] = useState("");
   const [toZip, setToZip] = useState("");
-  const [selectedOption, setSelectedOption] = useState("England");
+  const [selectedOption, setSelectedOption] = useState("Northern Ireland");
 
   const [InternationalDestinations, setInternationalDestinations] = useState({
     countries: [
-      "England",
-      "Scotland and Wales",
       "Northern Ireland",
       "Republic of Ireland",
       "Belgium",
@@ -97,11 +95,11 @@ export default function HeroForm() {
       "UAE",
       "Australia",
       "New Zealand",
-      "Rest of the World",
     ],
   });
 
   function handleSelect(event) {
+    console.log(event.target.value);
     setSelectedOption(event.target.value);
   }
 
@@ -299,9 +297,6 @@ export default function HeroForm() {
                     {InternationalDestinations.countries.map((item, index) => {
                       return <option value={item}>{item}</option>;
                     })}
-                    {/* <option value="India">India</option>
-                    <option value="USA">USA</option>
-                    <option value="China">China</option> */}
                   </select>
                 </div>
               </div>
