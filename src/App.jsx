@@ -28,6 +28,7 @@ import Payment from "./Pages/payment/Payment";
 import { SuccessfullPayment } from "./Pages/payment/SuccessfullPayment";
 import ContactForm from "./Pages/Contact/Contact";
 import OrderCancelled from "./Pages/payment/OrderCancelled.jsx";
+import Terms from "./Pages/Terms/Terms";
 // import ResetPass from "./Pages/ResetPassword/ResetPass.jsx";
 // import AuthProvider from "./context/AuthProvider";
 
@@ -130,6 +131,7 @@ function App() {
           />
           <Route path="/signin" element={<Signin />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/terms" element={<Terms />} />
           <Route path="/signup/verify" element={<EmailVerification />} />
           <Route path="/result" element={<Result />}></Route>
           <Route
