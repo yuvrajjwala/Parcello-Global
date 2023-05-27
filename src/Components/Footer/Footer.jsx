@@ -39,7 +39,7 @@ export const Footer = () => {
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         
                       >
-                        Contact Us
+                        Contact Us 
                       </Link>
                     </li>
                   </ul>
