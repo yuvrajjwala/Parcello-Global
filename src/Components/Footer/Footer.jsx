@@ -19,12 +19,12 @@ export const Footer = () => {
                 <div className="w-full lg:w-4/12 px-4">
                   <ul className="list-unstyled">
                     <li>
-                      <a
+                      <Link
                         className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        href="https://www.parcello.co.uk/terms-and-conditions/"
+                        to="/terms"
                       >
                         Terms &amp; Conditions
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a

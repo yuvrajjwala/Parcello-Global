@@ -127,7 +127,7 @@ const Navbar = () => {
                 Privacy
               </NavLink>
               <NavLink
-                to="https://www.parcello.co.uk/terms-and-conditions/"
+                to="/terms"
                 onClick={() => {
                   setOpenLogin(true);
                 }}
