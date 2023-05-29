@@ -122,7 +122,8 @@ const Result = () => {
         const response = await axios.post(
           DELIVERY_URL,
           {
-            Distance: distance,
+            weight: weight,
+            // Distance: distance,
             service_type: serviceType,
           },
           {
@@ -347,7 +348,12 @@ const Result = () => {
                       data
                         .filter((item) => item.related_courier.length > 0)
                         .map((item, index) => (
-                          <NewCard data={item} serviceType={serviceType} />
+                          <NewCard
+                            data={item}
+                            serviceType={serviceType}
+                            from={from}
+                            to={to}
+                          />
                         ))
                     )}
                   </>

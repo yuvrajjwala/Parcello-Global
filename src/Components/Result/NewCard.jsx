@@ -9,7 +9,7 @@ import dpd from "../../assets/Card/dpd.png";
 import StarRating from "./StarRating";
 import { useNavigate } from "react-router-dom";
 
-export default function NewCard({ data }) {
+export default function NewCard({ data, from, to }) {
   const courier_name = data.related_courier[0].courier_name;
   const courier_logo = data.related_courier[0].courier_logo;
   const rate_card = data.id;
@@ -51,6 +51,8 @@ export default function NewCard({ data }) {
         protection: protection,
         courier_service: courier_service,
         rate_card: rate_card,
+        from: from,
+        to: to,
       },
     });
   };

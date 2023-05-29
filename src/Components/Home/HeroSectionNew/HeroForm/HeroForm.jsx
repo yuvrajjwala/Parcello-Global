@@ -14,6 +14,7 @@ export default function HeroForm() {
   const navigate = useNavigate();
   const [type, setType] = useState("Domestic");
   const [from, setFrom] = useState("");
+  const [weight, setWeight] = useState("");
   const [to, setTo] = useState("");
   const [fromZip, setFromZip] = useState("");
   const [toZip, setToZip] = useState("");
@@ -106,23 +107,12 @@ export default function HeroForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let currDist;
-    try {
-      const distanceRes = await axios.get(
-        `https://maps.googleapis.com/maps/api/distancematrix/json?&origins=${
-          fromZip + ",UK"
-        }&destinations=${toZip + ",UK"}"&&units=imperial&key=${apiKey}`
-      );
-
-      currDist = Math.round(
-        distanceRes.data.rows[0]?.elements[0]?.distance?.value / 1000 / 1.6
-      );
-    } catch (e) {}
 
     let body;
     if (type == "Domestic") {
       body = {
         service: "Domestic",
-        from: type,
+        weight: "weight",
         to: to,
       };
     } else if (type == "International") {
@@ -132,6 +122,19 @@ export default function HeroForm() {
         to: selectedOption,
       };
     } else if (type == "Same Day") {
+      try {
+        const distanceRes = await axios.get(
+          `https://maps.googleapis.com/maps/api/distancematrix/json?&origins=${
+            fromZip + ",UK"
+          }&destinations=${toZip + ",UK"}"&&units=imperial&key=${apiKey}`
+        );
+
+        currDist = Math.round(
+          distanceRes.data.rows[0]?.elements[0]?.distance?.value / 1000 / 1.6
+        );
+      } catch (e) {
+        console.log(e);
+      }
       body = {
         service: "Same Day",
         dist: currDist,
@@ -196,13 +199,13 @@ export default function HeroForm() {
                 <CiLocationOn className=" text-4xl" />
                 <div className="flex flex-col w-full">
                   <span className="font-semibold text-[24px] leading-[32px]">
-                    From
+                    Weight
                   </span>
                   <input
                     type="text"
-                    value={from}
-                    onChange={(e) => setFrom(e.target.value)}
-                    placeholder="Enter City"
+                    value={weight}
+                    onChange={(e) => setWeight(e.target.value)}
+                    placeholder="Enter Weight"
                     required
                     className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
                   />
