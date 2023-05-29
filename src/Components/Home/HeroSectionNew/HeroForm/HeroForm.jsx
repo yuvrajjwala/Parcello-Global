@@ -216,7 +216,7 @@ export default function HeroForm() {
                 <CiLocationArrow1 className=" text-4xl" />
                 <div className="flex flex-col w-full">
                   <span className="font-semibold text-[24px] leading-[32px]">
-                    To
+                    City
                   </span>
                   <input
                     type="text"
