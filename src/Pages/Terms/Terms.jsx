@@ -6,7 +6,7 @@ function Terms() {
   return (
     <>
       <Navbar />
-      <div className=" min-h-screen max-w-[70%] md:max-w-full flex gap-5 flex-col m-auto text-slate-700 py-6 sm:mx-6">
+      <div className=" min-h-screen max-w-[70%] md:max-w-full flex gap-5 flex-col m-auto text-slate-700 py-6 md:mx-6">
         <h1 className="text-4xl  font-bold py-5"> Terms and Conditions</h1>
         <div className="flex flex-col gap-2">
           <p>
@@ -58,7 +58,7 @@ function Terms() {
             help.
           </p>
         </div>
-        <ul className="flex flex-col gap-5 list-decimal  p-6">
+        <ul className="flex flex-col gap-5 list-decimal  md:p-6">
           <li>
             <strong>Definitions</strong>
             <ul className="mt-4">

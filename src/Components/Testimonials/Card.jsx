@@ -1,14 +1,14 @@
 import React from "react";
 import star from "../../assets/Testimonials/star.svg";
 import "./card.css";
-const Card = ({ img, name, organization }) => {
+const Card = ({ img, name, organization ,text}) => {
   return (
-    <div className="relative flex flex-col bg-white card-shadow rounded-[20px] mx-4 mt-28 mb-8 p-4 items-center text-center max-w-[352px]">
+    <div className="relative flex flex-col bg-white card-shadow rounded-[20px] mx-4 mt-28 mb-8 p-4 items-center text-center max-w-[352px] min-h-[650px]">
       {/* <div className="w-[120px] h-[120px] rounded-full absolute"> */}
       <img
         src={img}
         alt="profile"
-        className="w-[120px] h-[120px] absolute top-[-20%] left-[35%]"
+        className="w-[120px] h-[120px]  rounded-full"
       />
 
       <h1 className="mt-14 text-[#111029] font-semibold text-[24px] leading-[32px]">
@@ -19,8 +19,7 @@ const Card = ({ img, name, organization }) => {
       </span>
 
       <p className="my-4 font-normal text-[18px ] leading-[32px] text-[#70798B]">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt.
+        {text}
       </p>
       <div className="flex my-4">
         <img src={star} alt="star" className="mx-1" />

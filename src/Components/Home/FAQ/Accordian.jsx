@@ -14,13 +14,13 @@ function Accordian({con , i}) {
         onClick={() => setActiveAccoridan(!activeAccordian)}
         className="flex justify-between items-center gap-6 border-b-2  border-slate-200 p-4 w-full"
       >
-        <div className="flex gap-7">
+        <div className="flex gap-7 w-[80%]">
           <span className=" text-[#3B71FE] font-medium">{i + 1}</span>
-          <span className="font-medium">{con.head}</span>
+          <span className="font-medium text-left ">{con.head}</span>
         </div>
-        <BsArrowDownCircle className=" text-slate-500" />
+        <BsArrowDownCircle className=" text-slate-500 text-xl" />
       </button>
-      <div className=" text-sm text-slate-500">{con.content}</div>
+      <div className=" text-sm text-slate-500 text-left">{con.content}</div>
     </div>
   );
 }

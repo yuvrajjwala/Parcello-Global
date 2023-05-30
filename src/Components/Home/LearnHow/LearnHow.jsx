@@ -14,8 +14,8 @@ function LearnHow() {
               Learn how we help our customers achieve their goals
             </h1>
             <span className="  text-center text-[#777E90] text-xl sm:text-base">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elite Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+              At our parcello website, we are dedicated to helping our customers
+              achieve their goals of seamless and efficient package delivery.
             </span>
           </div>
           <div className="flex  flex-row items-start p-0 gap-8 lg:flex-col lg:w-[352px]">
@@ -33,9 +33,9 @@ function LearnHow() {
                   Warehousing and Distribution for Expansion
                 </h3>
                 <span className="text-[#777E90] text-sm text-center">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elite Ut
-                  elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                  leo.
+                  Warehousing and distribution are essential for expansion,
+                  providing increased storage capacity, streamlined distribution
+                  channels, and improved order fulfillment.
                 </span>
               </div>
             </div>
@@ -55,9 +55,9 @@ function LearnHow() {
                   Rail Transport Helps Shorten Transit Times
                 </h3>
                 <span className="text-[#777E90] text-sm text-center">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elite Ut
-                  elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                  leo.
+                  Rail transport is an efficient mode of transportation that can
+                  significantly contribute to shortening transit times for goods
+                  and passengers..
                 </span>
               </div>
             </div>
@@ -77,9 +77,9 @@ function LearnHow() {
                   Trusted Loaistics Partner and Mutual Core Values
                 </h3>
                 <span className="text-[#777E90] text-sm text-center">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elite Ut
-                  elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus
-                  leo.
+                  Rail transport can contribute to shortening transit times in
+                  parcelling by providing efficient long-haul transportation for
+                  bulk shipments.
                 </span>
               </div>
             </div>
