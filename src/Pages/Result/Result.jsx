@@ -57,6 +57,18 @@ const Result = () => {
   const [loading, setLoading] = useState(false);
   const [formError, setFormError] = useState(false);
 
+  const GetDomesticCards = async () => {
+    try {
+      console.log(location?.state?.body);
+      const response = await axios.post(DELIVERY_URL, location?.state?.body, {
+        headers: { "content-Type": "application/json" },
+      });
+      let Data = await response?.data;
+      setData(response.data);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   useEffect(() => {
     if (location?.state?.body?.service === "Same Day") {
       setDistance(location?.state?.body?.dist);
@@ -64,9 +76,15 @@ const Result = () => {
       setFrom(location?.state?.body?.from);
       setTo(location?.state?.body?.to);
     }
-
-    setServiceType(location?.state?.body?.service);
+    // console.log(location?.state?.body?.Service);
+    setServiceType(location?.state?.body?.Service);
   }, []);
+
+  useEffect(() => {
+    // console.log(serviceType);
+
+    GetDomesticCards();
+  }, [setServiceType]);
 
   const handleCardClick = () => {
     if (height && weight && length && width) {
@@ -214,14 +232,17 @@ const Result = () => {
               </li>
             </ul> */}
             </div>
+
             <div
-              className={`flex flex-col m-auto ${
+              className={` flex-col m-auto ${
                 formError
                   ? " border-[#ff2525] shadow-red-300"
                   : " border-[#FCFCFD]"
-              }  w-fit md:w-full md:px-6 shadow-md  border-[2px] bg-white my-[50px] md:mt-5 rounded-[24px] py-8 px-10`}
+              }  w-fit md:w-full md:px-6 shadow-md  border-[2px] bg-white my-[50px] md:mt-5 rounded-[24px] py-8 px-10 ${
+                serviceType === "Domestic" ? "hidden" : "flex"
+              } `}
             >
-              <div className="flex mb-2 w-[100%] md:flex-col gap-2 md:justify-center items-center">
+              <div className="   mb-2 w-[100%] md:flex-col gap-2 md:justify-center items-center flex">
                 <div className="border-[2px] md:w-full flex justify-center border-[#E6E8EC] rounded-[90px] font-bold text-[14px] leading-[16px]  text-[#23262F] px-4 py-2">
                   Try our shipping calculator
                 </div>
@@ -331,7 +352,7 @@ const Result = () => {
                   <Spinner />
                 ) : (
                   <>
-                    {toggleStatic ? (
+                    {toggleStatic && serviceType != "Domestic" ? (
                       <>
                         <button onClick={() => handleCardClick()}>
                           <StaticCard company="citysprint" />

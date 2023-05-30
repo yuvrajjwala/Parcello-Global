@@ -111,13 +111,13 @@ export default function HeroForm() {
     let body;
     if (type == "Domestic") {
       body = {
-        service: "Domestic",
-        weight: "weight",
-        to: to,
+        Service: "Domestic",
+        Weight: weight,
+        From: to,
       };
     } else if (type == "International") {
       body = {
-        service: "International",
+        Service: "International",
         from: "United Kingdom",
         to: selectedOption,
       };
