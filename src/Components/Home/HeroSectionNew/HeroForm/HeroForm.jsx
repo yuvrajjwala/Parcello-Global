@@ -18,95 +18,87 @@ export default function HeroForm() {
   const [to, setTo] = useState("");
   const [fromZip, setFromZip] = useState("");
   const [toZip, setToZip] = useState("");
-  const [selectedOption, setSelectedOption] = useState("Northern Ireland");
-  const [selectedDomFromOption, setSelectedDomFromOption] = useState("Scotland");
-  const [selectedDomToOption, setSelectedDomToOption] = useState("Scotland");
+  const [selectedOption, setSelectedOption] = useState("Albania");
+  const [selectedDomFromOption, setSelectedDomFromOption] =
+    useState("England");
+  const [selectedDomToOption, setSelectedDomToOption] = useState("England");
 
   const [InternationalDestinations, setInternationalDestinations] = useState({
     countries: [
-      "Northern Ireland",
-      "Republic of Ireland",
-      "Belgium",
-      "France",
-      "Germany",
-      "Luxembourg",
-      "Monaco",
-      "Netherlands",
-      "Austria",
-      "Azores",
-      "Czech Republic",
-      "Denmark",
-      "Finland",
-      "Greece",
-      "Italy",
-      "Madeira",
-      "Poland",
-      "Portugal",
-      "Spain",
-      "Sweden",
-      "Bulgaria",
-      "Croatia",
-      "Cyprus",
-      "Estonia",
-      "Hungary",
-      "Latvia",
-      "Lithuania",
-      "Malta",
-      "Romania",
-      "Slovakia",
-      "Slovenia",
       "Albania",
       "Andorra",
+      "Austria",
+      "Azores",
       "Belarus",
+      "Belgium",
       "Bosnia & Herzegovina",
+      "Bulgaria",
+      "Canada",
       "Ceuta",
+      "China",
+      "Croatia",
+      "Cyprus",
+      "Czech Republic",
+      "Denmark",
+      "Estonia",
       "Faroe Islands",
+      "Finland",
+      "France",
+      "Germany",
       "Gibraltar",
+      "Greece",
       "Greenland",
       "Guernsey",
+      "Hong Kong",
+      "Hungary",
       "Iceland",
+      "Indonesia",
+      "Ireland",
+      "Italy",
+      "Japan",
       "Jersey",
       "Kosovo",
+      "Latvia",
       "Liechtenstein",
+      "Lithuania",
+      "Luxembourg",
+      "Macau",
       "Macedonia",
-      "Melilla",
+      "Malaysia",
+      "Malta",
+      "Mexico",
       "Moldova",
+      "Monaco",
       "Montenegro",
+      "Netherlands",
+      "New Zealand",
       "Norway",
+      "Philippines",
+      "Poland",
+      "Portugal",
+      "Puerto Rico",
+      "Romania",
       "Russia",
       "San Marino",
       "Serbia",
-      "Switzerland",
-      "Turkey",
-      "Ukraine",
-      "Canada",
-      "Mexico",
-      "Puerto Rico",
-      "United States of America",
-      "China",
-      "Hong Kong",
-      "Indonesia",
-      "Japan",
-      "Macau",
-      "Malaysia",
-      "Philippines",
       "Singapore",
+      "Slovakia",
+      "Slovenia",
       "South Africa",
       "South Korea",
+      "Spain",
+      "Sweden",
+      "Switzerland",
       "Taiwan",
       "Thailand",
+      "Turkey",
       "UAE",
-      "Australia",
-      "New Zealand",
+      "Ukraine",
+      "United States of America",
     ],
   });
   const [dom, setDom] = useState({
-    countries: [
-      "Scotlad",
-      "Wales",
-      "Naga Island",
-      "Northern Ireland"
-    ],
+    countries: ["England", "Northern Ireland", "Scotland", "Wales"],
   });
 
   function handleSelect(event) {
@@ -214,7 +206,7 @@ export default function HeroForm() {
                   <select
                     className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
                     value={selectedDomFromOption}
-                    onChange={(e)=>setSelectedDomFromOption(e.target.value)}
+                    onChange={(e) => setSelectedDomFromOption(e.target.value)}
                   >
                     {dom.countries.map((item, index) => {
                       return <option value={item}>{item}</option>;
@@ -232,7 +224,7 @@ export default function HeroForm() {
                   <select
                     className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
                     value={selectedDomToOption}
-                    onChange={(e)=>setSelectedDomToOption(e.target.value)}
+                    onChange={(e) => setSelectedDomToOption(e.target.value)}
                   >
                     {dom.countries.map((item, index) => {
                       return <option value={item}>{item}</option>;
