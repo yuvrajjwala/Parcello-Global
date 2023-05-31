@@ -19,6 +19,8 @@ export default function HeroForm() {
   const [fromZip, setFromZip] = useState("");
   const [toZip, setToZip] = useState("");
   const [selectedOption, setSelectedOption] = useState("Northern Ireland");
+  const [selectedDomFromOption, setSelectedDomFromOption] = useState("Scotland");
+  const [selectedDomToOption, setSelectedDomToOption] = useState("Scotland");
 
   const [InternationalDestinations, setInternationalDestinations] = useState({
     countries: [
@@ -98,6 +100,14 @@ export default function HeroForm() {
       "New Zealand",
     ],
   });
+  const [dom, setDom] = useState({
+    countries: [
+      "Scotlad",
+      "Wales",
+      "Naga Island",
+      "Northern Ireland"
+    ],
+  });
 
   function handleSelect(event) {
     console.log(event.target.value);
@@ -112,8 +122,8 @@ export default function HeroForm() {
     if (type == "Domestic") {
       body = {
         service: "Domestic",
-        weight: "weight",
-        to: to,
+        from: selectedDomFromOption,
+        to: selectedDomToOption,
       };
     } else if (type == "International") {
       body = {
@@ -199,16 +209,17 @@ export default function HeroForm() {
                 <CiLocationOn className=" text-4xl" />
                 <div className="flex flex-col w-full">
                   <span className="font-semibold text-[24px] leading-[32px]">
-                    Weight
+                    From
                   </span>
-                  <input
-                    type="text"
-                    value={weight}
-                    onChange={(e) => setWeight(e.target.value)}
-                    placeholder="Enter Weight"
-                    required
+                  <select
                     className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
-                  />
+                    value={selectedDomFromOption}
+                    onChange={(e)=>setSelectedDomFromOption(e.target.value)}
+                  >
+                    {dom.countries.map((item, index) => {
+                      return <option value={item}>{item}</option>;
+                    })}
+                  </select>
                 </div>
               </div>
               <div className="flex items-center mr-2 gap-2 w-full">
@@ -216,16 +227,17 @@ export default function HeroForm() {
                 <CiLocationArrow1 className=" text-4xl" />
                 <div className="flex flex-col w-full">
                   <span className="font-semibold text-[24px] leading-[32px]">
-                    City
+                    To
                   </span>
-                  <input
-                    type="text"
-                    value={to}
-                    onChange={(e) => setTo(e.target.value)}
-                    placeholder="Enter City"
-                    required
+                  <select
                     className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
-                  />
+                    value={selectedDomToOption}
+                    onChange={(e)=>setSelectedDomToOption(e.target.value)}
+                  >
+                    {dom.countries.map((item, index) => {
+                      return <option value={item}>{item}</option>;
+                    })}
+                  </select>
                 </div>
               </div>
             </>

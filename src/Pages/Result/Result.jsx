@@ -123,6 +123,7 @@ const Result = () => {
           DELIVERY_URL,
           {
             weight: weight,
+            From : location.state.body.from,
             // Distance: distance,
             service_type: serviceType,
           },
