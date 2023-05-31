@@ -122,10 +122,10 @@ const Result = () => {
         const response = await axios.post(
           DELIVERY_URL,
           {
-            weight: weight,
+            Weight: weight,
             From : location.state.body.from,
             // Distance: distance,
-            service_type: serviceType,
+            Service: serviceType,
           },
           {
             headers: { "content-Type": "application/json" },
