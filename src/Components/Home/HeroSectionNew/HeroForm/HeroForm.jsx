@@ -136,7 +136,7 @@ export default function HeroForm() {
         console.log(e);
       }
       body = {
-        service: "Same Day",
+        Service: "Same Day",
         dist: currDist,
       };
     } else {
