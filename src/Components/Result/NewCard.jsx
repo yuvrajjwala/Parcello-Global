@@ -53,6 +53,7 @@ export default function NewCard({ data, from, to }) {
         rate_card: rate_card,
         from: from,
         to: to,
+        service_name : data.service_name
       },
     });
   };
@@ -69,16 +70,17 @@ export default function NewCard({ data, from, to }) {
             />
           </div>
           <h3 className="text-sm font-semibold text-[#008185]">
-            {courier_name}
+            {data.service_name}
           </h3>
         </div>
         <div className=" items-center flex w-full justify-end">
           <h3 className="text-sm px-2 text-slate-500 ">
-            Max :{max_weight > 0 && max_weight + "kg"}-{max_length}x{max_width}x
-            {max_height}
+            Max :{max_weight > 0 && max_weight + "kg"}
+            {/* {max_length}x{max_width}x
+            {max_height} */}
           </h3>
 
-          <a href="" className="flex items-center text-blue-500">
+          {/* <a href="" className="flex items-center text-blue-500">
             <p
               href=""
               className="border-l-2 underline  pl-4 border-l-slate-300 text-sm"
@@ -86,7 +88,7 @@ export default function NewCard({ data, from, to }) {
               More Details
             </p>
             <AiOutlineRight />
-          </a>
+          </a> */}
         </div>
       </div>
       <div className="flex justify-between my-2 items-center md:flex-col w-full gap-5">
@@ -115,7 +117,7 @@ export default function NewCard({ data, from, to }) {
         </div>
 
         <div className="flex justify-end items-center gap-2 w-full md:flex-col ">
-          <div className=" border-[1px] border-slate-200 p-3 rounded-md flex gap-3 items-center md:flex md:w-full  justify-center">
+          {/* <div className=" border-[1px] border-slate-200 p-3 rounded-md flex gap-3 items-center md:flex md:w-full  justify-center">
             <div>
               <p className="font-bold text-lg">£{price}</p>
               <p className="text-sm text-black">
@@ -129,7 +131,7 @@ export default function NewCard({ data, from, to }) {
               <h1>Book without Protection</h1>
               <AiOutlineRight className="text-xl" />
             </button>
-          </div>
+          </div> */}
           <div className=" bg-sky-50  p-3 rounded-md flex gap-3 items-center md:flex md:w-full  justify-center">
             <div>
               <p className="font-bold text-lg">£{price}</p>
@@ -141,7 +143,8 @@ export default function NewCard({ data, from, to }) {
               onClick={() => handleSubmit(true)}
               className=" bg-green-600 text-white p-3 max-w-[150px] md:max-w-fit rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center  text-left w-full"
             >
-              <h1>Book with £{(price * 0.2).toFixed(2)} Protection</h1>
+              {/* <h1>Book with £{(price * 0.2).toFixed(2)} Protection</h1> */}
+              <h1>Book Now</h1>
               <AiOutlineRight className="text-xl" />
             </button>
           </div>

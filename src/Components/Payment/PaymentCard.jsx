@@ -37,7 +37,7 @@ export default function NewCardForm({ data }) {
             />
           </div>
           <h3 className="text-sm font-semibold text-[#008185]">
-            {courier_name}
+            {data.service_name}
           </h3>
         </div>
         <div className=" items-center flex w-full justify-end">

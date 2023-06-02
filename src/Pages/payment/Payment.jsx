@@ -14,7 +14,7 @@ const Payment = () => {
   const [publicKey, setPublicKey] = useState("");
   const navigate = useNavigate();
 
-  // console.log(state);
+ console.log(state);
   const handleCheckout = async (event) => {
     event.preventDefault();
 
@@ -53,8 +53,8 @@ const Payment = () => {
       <div className=" h-[1px]  mx-4 my-4 w-[100%]  border-[1px]"></div>
       <div className="p-4">
         <div className="flex justify-between">
-          <h1 className="text-[19px] font-semibold ">Total :</h1>
-          <p className="text-[19px] font-semibold"> &euro; {state.price}</p>
+          <h1 className="text-[19px] font-semibold "> </h1>
+          <p className="text-2xl font-semibold ">Total :  £ {state.price}</p>
         </div>
         <div className="w-[100%] p-4 pr-0 flex justify-end">
           <button

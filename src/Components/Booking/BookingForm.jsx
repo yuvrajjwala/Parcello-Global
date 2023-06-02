@@ -14,7 +14,7 @@ export default function BookingForm(state) {
     rAddress: "",
     rTown: "",
     rCounty: "",
-    rCountry: "",
+    rCountry: state.from,
   });
 
   const [dAddress, setDaddress] = useState({
@@ -25,7 +25,7 @@ export default function BookingForm(state) {
     dAddress: "",
     dTown: "",
     dCounty: "",
-    dCountry: "",
+    dCountry: state.to,
   });
 
   const [additional, setAdditional] = useState({
@@ -215,6 +215,7 @@ export default function BookingForm(state) {
                   value={rAddress.rCountry}
                   onChange={handleReturnChange}
                   required
+                  readOnly
                 />
               </div>
             </div>
@@ -362,6 +363,7 @@ export default function BookingForm(state) {
                   value={dAddress.dCountry}
                   onChange={handleDeliveryChange}
                   required
+                  readOnly
                 />
               </div>
             </div>
