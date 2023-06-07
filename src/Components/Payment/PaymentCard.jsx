@@ -42,11 +42,12 @@ export default function NewCardForm({ data }) {
         </div>
         <div className=" items-center flex w-full justify-end">
           <h3 className="text-sm px-2 text-slate-500 ">
-            Max :{max_weight > 0 && max_weight + "kg"}-{max_length}x{max_width}x
-            {max_height}
+            Max :{max_weight > 0 && max_weight + "kg"}
+            {/* -{max_length}x{max_width}x
+            {max_height} */}
           </h3>
 
-          <a href="" className="flex items-center text-blue-500">
+          {/* <a href="" className="flex items-center text-blue-500">
             <p
               href=""
               className="border-l-2 underline  pl-4 border-l-slate-300 text-sm"
@@ -54,7 +55,7 @@ export default function NewCardForm({ data }) {
               More Details
             </p>
             <AiOutlineRight />
-          </a>
+          </a> */}
         </div>
       </div>
       <div className="flex justify-between my-2 items-center md:flex-col w-full gap-5">
