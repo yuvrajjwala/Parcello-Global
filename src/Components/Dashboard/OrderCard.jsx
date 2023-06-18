@@ -16,7 +16,7 @@ const OrderCard = ({
   const [pBg, setPBg] = useState("");
 
   useEffect(() => {
-    if (deliveryStatus === "Completed") {
+    if (deliveryStatus === "Delivered") {
       setDBorder("border-green-400");
       setDBg("bg-green-100");
     } else if (deliveryStatus === "Shipping") {
