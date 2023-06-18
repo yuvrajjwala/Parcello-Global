@@ -40,7 +40,7 @@ const Payment = () => {
     } catch (err) {}
   };
   return (
-    <div className="w-[80%] m-auto">
+    <div className="w-[80%] md:w-full m-auto">
       <Navbar />
       <div className="mb-10 flex flex-col gap-5 mx-5">
           <ProgressBar step={3} />
