@@ -13,8 +13,11 @@ const Payment = () => {
   const { state } = useLocation();
   const [publicKey, setPublicKey] = useState("");
   const navigate = useNavigate();
+  let price = state.price;
+  if (state.service_type != "International") {
+    price = state.price + state.price * 0.2;
+  }
 
- console.log(state);
   const handleCheckout = async (event) => {
     event.preventDefault();
 
@@ -34,16 +37,16 @@ const Payment = () => {
 
       const payment_url = paymentResponse?.data?.url;
       window.location.href = payment_url;
-    } catch (err) {
-    }
+    } catch (err) {}
   };
   return (
-    <div className="w-[80%] m-auto">
+    <div className="w-[80%] md:w-full m-auto">
       <Navbar />
+      <div className="mb-10 flex flex-col gap-5 mx-5">
+          <ProgressBar step={3} />
+        </div>
       <div className="text-black text-[19px] font-semibold p-4">
-      <div className="mb-10">
-      <ProgressBar step={3} />
-      </div>
+        
         <h1 className="text-2lg text-sky-600">Confirm your Payment</h1>
       </div>
       <div className=" h-[1px]  mx-4 my-4 w-[100%]  border-[1px]"></div>
@@ -54,7 +57,7 @@ const Payment = () => {
       <div className="p-4">
         <div className="flex justify-between">
           <h1 className="text-[19px] font-semibold "> </h1>
-          <p className="text-2xl font-semibold ">Total :  £ {state.price}</p>
+          <p className="text-2xl font-semibold ">Total : £ {price}</p>
         </div>
         <div className="w-[100%] p-4 pr-0 flex justify-end">
           <button

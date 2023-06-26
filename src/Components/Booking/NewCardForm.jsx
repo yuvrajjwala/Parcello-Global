@@ -21,6 +21,8 @@ export default function NewCardForm({ data }) {
   const dateString = data.futureDate;
   const price = parseFloat(data.price);
   const vat = parseFloat(data.VAT);
+  const service = data.service_type;
+  
 
   const navigate = useNavigate();
 
@@ -47,7 +49,7 @@ export default function NewCardForm({ data }) {
             {max_height} */}
           </h3>
 
-          <a href="" className="flex items-center text-blue-500">
+          {/* <a href="" className="flex items-center text-blue-500">
             <p
               href=""
               className="border-l-2 underline  pl-4 border-l-slate-300 text-sm"
@@ -55,7 +57,7 @@ export default function NewCardForm({ data }) {
               More Details
             </p>
             <AiOutlineRight />
-          </a>
+          </a> */}
         </div>
       </div>
       <div className="flex justify-between my-2 items-center flex-col w-full gap-5">
@@ -87,9 +89,11 @@ export default function NewCardForm({ data }) {
           <div className=" bg-sky-50  p-3 rounded-md flex gap-3 items-center md:flex md:w-full  justify-center">
             <div>
               <p className="font-bold text-lg">£{price}</p>
-              <p className="text-sm text-black">
-                £{(price + vat).toFixed(2)} with vat
-              </p>
+              {(service == "Domestic" || service == "Same Day") && (
+                  <p className="text-sm text-black">
+                    £{(price + price * 0.2).toFixed(2)} with vat
+                  </p>
+                )}
             </div>
             {data.protection ? (
               // <div

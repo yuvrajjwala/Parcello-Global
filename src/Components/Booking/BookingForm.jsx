@@ -31,24 +31,41 @@ export default function BookingForm(state) {
   const [additional, setAdditional] = useState({
     cDate: "",
     pContent: "",
-    liability: "",
     contentValue: "",
-    extendedLiability:
-      "I want to extend the liability for my parcel (subject to the restricted items list and Terms and Condition)",
     notes: "",
   });
+  const [liability, setLiability] = useState("I want to opt-out thus declaring my item of negligible value")
 
   function handleSubmit(event) {
     event.preventDefault();
+    additional.liability = liability
+    additional.extendedLiability = liability
     navigate("/reviewOrder", {
       state: {
         rAddress,
         dAddress,
         additional,
-        state
+        state,
       },
     });
   }
+
+  const [liabilityOptions, setLiabilityOptions] = useState({
+    liability: [
+      "I want to opt-out thus declaring my item of negligible value",
+      "+0.20 for up to £20 of extended liability",
+      "+1.80 for up to £50 of extended liability",
+      "+3.30 for up to £75 of extended liability",
+      "+4.80 for up to £100 of extended liability",
+      "+6.30 for up to £125 of extended liability",
+      "+7.80 for up to £150 of extended liability",
+      "+9.30 for up to £175 of extended liability",
+      "+10.80 for up to £200 of extended liability",
+      "+12.30 for up to £225 of extended liability",
+      "+13.80 for up to £250 of extended liability",
+      "+15.30 for up to £275 of extended liability",
+    ],
+  });
 
   const handleReturnChange = (e) => {
     setRaddress({ ...rAddress, [e.target.name]: e.target.value });
@@ -440,6 +457,7 @@ export default function BookingForm(state) {
                 value={additional.cDate}
                 onChange={handleAdditionalChange}
                 required
+                min={new Date().toISOString().split("T")[0]}
               />
             </div>
             <div className="my-4 w-full">
@@ -460,7 +478,7 @@ export default function BookingForm(state) {
                 required
               />
             </div>
-            <div className="my-4 w-full">
+            {/* <div className="my-4 w-full">
               <label
                 htmlFor="liability"
                 className="block font-medium text-gray-700  mb-2 required"
@@ -491,7 +509,7 @@ export default function BookingForm(state) {
               <label>
                 I want to opt-out thus declaring my item of negligible value
               </label>
-            </div>
+            </div> */}
             <div className="my-4 w-full">
               <label
                 htmlFor="contentValue"
@@ -510,7 +528,7 @@ export default function BookingForm(state) {
                 required
               />
             </div>
-            {additional.liability == "true" && (
+            {1 && (
               <div className="my-4 w-full">
                 <label
                   htmlFor="extendedLiability"
@@ -519,16 +537,14 @@ export default function BookingForm(state) {
                   Extended Liability (Max £1000 for this service):
                 </label>
                 <select
-                  id="extendedLiability"
-                  value={additional.extendedLiability}
-                  onChange={handleAdditionalChange}
-                  className="p-2 w-full"
-                  required
-                >
-                  <option value="No extended Liability Selected">
-                    No extended Liability Selected
-                  </option>
-                </select>
+                    className="border-b-[1px] w-full p-2"
+                    value={liability}
+                    onChange={(e) => setLiability(e.target.value)}
+                  >
+                    {liabilityOptions.liability.map((item, index) => {
+                      return <option value={item}>{item}</option>;
+                    })}
+                  </select>
               </div>
             )}
 
@@ -560,11 +576,17 @@ export default function BookingForm(state) {
               <input type="checkbox" className="m-3" required />
               <p>
                 I agree to the{" "}
-                <a className=" text-blue-500" href="https://www.parcello.co.uk/terms-and-conditions/">
+                <a
+                  className=" text-blue-500"
+                  href="https://www.parcello.co.uk/terms-and-conditions/"
+                >
                   Terms and Conditions
                 </a>{" "}
                 and{" "}
-                <a className=" text-blue-500" href="https://www.parcello.co.uk/privacy-policy/">
+                <a
+                  className=" text-blue-500"
+                  href="https://www.parcello.co.uk/privacy-policy/"
+                >
                   Privacy Policy
                 </a>{" "}
                 and confirm that my shipment complies with the{" "}

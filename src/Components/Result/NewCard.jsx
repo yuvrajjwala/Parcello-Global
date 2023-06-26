@@ -54,6 +54,7 @@ export default function NewCard({ data, from, to }) {
         from: from,
         to: to,
         service_name: data.service_name,
+        service_type: data.service_type,
       },
     });
   };
@@ -135,9 +136,11 @@ export default function NewCard({ data, from, to }) {
           <div className=" bg-sky-50  p-3 rounded-md flex gap-3 items-center md:flex md:w-full  justify-center">
             <div>
               <p className="font-bold text-lg">£{price}</p>
-              <p className="text-sm text-black">
-                £{(price + vat).toFixed(2)} with vat
-              </p>
+              {(data.service_type == "Domestic" ||data.service_type == "Same Day") && (
+                  <p className="text-sm text-black">
+                    £{(price + price * 0.2).toFixed(2)} with vat
+                  </p>
+                )}
             </div>
             <button
               onClick={() => handleSubmit(true)}

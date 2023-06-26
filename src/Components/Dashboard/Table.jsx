@@ -176,7 +176,7 @@ export default function Table() {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className=" w-full flex flex-col">
       <div className="overflow-x-auto">
         <div className="p-20-04-2023.5 w-full inline-block align-middle">
           <div className="overflow-hidden border rounded-lg">
