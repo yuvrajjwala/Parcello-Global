@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 import StarRating from "../Result/StarRating";
 
 export default function NewCardForm({ data }) {
-  // console.log(data);
+  console.log(data);
   const courier_name = data.courier_name;
   const courier_logo = data.courier_logo;
   const max_height = data.max_height;
@@ -36,13 +36,15 @@ export default function NewCardForm({ data }) {
             />
           </div>
           <h3 className="text-sm font-semibold text-[#008185]">
-            {courier_name}
+            {/* {courier_name} */}
+            {data.service_name}
           </h3>
         </div>
         <div className=" items-center flex w-full justify-end">
           <h3 className="text-sm px-2 text-slate-500 ">
-            Max :{max_weight > 0 && max_weight + "kg"}-{max_length}x{max_width}x
-            {max_height}
+            Max :{max_weight > 0 && max_weight + "kg"}
+            {/* -{max_length}x{max_width}x
+            {max_height} */}
           </h3>
 
           <a href="" className="flex items-center text-blue-500">
@@ -90,18 +92,32 @@ export default function NewCardForm({ data }) {
               </p>
             </div>
             {data.protection ? (
+              // <div
+              //   onClick={() => handleSubmit(true)}
+              //   className=" bg-green-600 text-white p-3 max-w-[150px] md:max-w-fit rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center  text-left w-full"
+              // >
+              //   <h1>Booked with £{(price * 0.2).toFixed(2)} Protection</h1>
+              // </div>
               <div
                 onClick={() => handleSubmit(true)}
                 className=" bg-green-600 text-white p-3 max-w-[150px] md:max-w-fit rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center  text-left w-full"
               >
-                <h1>Booked with £{(price * 0.2).toFixed(2)} Protection</h1>
+                {/* <h1>Booked with £{(price * 0.2).toFixed(2)} Protection</h1> */}
+                <h1>Book Now</h1>
               </div>
             ) : (
+              // <div
+              //   onClick={() => handleSubmit(true)}
+              //   className=" bg-green-600 text-white p-3 max-w-[150px] md:max-w-fit rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center  text-left w-full"
+              // >
+              //   <h1>Booked without Protection</h1>
+              // </div>
               <div
                 onClick={() => handleSubmit(true)}
                 className=" bg-green-600 text-white p-3 max-w-[150px] md:max-w-fit rounded-md border-[1px] border-slate-300 text-sm font-bold flex items-center  text-left w-full"
               >
-                <h1>Booked without Protection</h1>
+                {/* <h1>Booked with £{(price * 0.2).toFixed(2)} Protection</h1> */}
+                <h1>Book Now</h1>
               </div>
             )}
           </div>

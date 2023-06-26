@@ -18,85 +18,87 @@ export default function HeroForm() {
   const [to, setTo] = useState("");
   const [fromZip, setFromZip] = useState("");
   const [toZip, setToZip] = useState("");
-  const [selectedOption, setSelectedOption] = useState("Northern Ireland");
+  const [selectedOption, setSelectedOption] = useState("Albania");
+  const [selectedDomFromOption, setSelectedDomFromOption] =
+    useState("England");
+  const [selectedDomToOption, setSelectedDomToOption] = useState("England");
 
   const [InternationalDestinations, setInternationalDestinations] = useState({
     countries: [
-      "Northern Ireland",
-      "Republic of Ireland",
-      "Belgium",
-      "France",
-      "Germany",
-      "Luxembourg",
-      "Monaco",
-      "Netherlands",
-      "Austria",
-      "Azores",
-      "Czech Republic",
-      "Denmark",
-      "Finland",
-      "Greece",
-      "Italy",
-      "Madeira",
-      "Poland",
-      "Portugal",
-      "Spain",
-      "Sweden",
-      "Bulgaria",
-      "Croatia",
-      "Cyprus",
-      "Estonia",
-      "Hungary",
-      "Latvia",
-      "Lithuania",
-      "Malta",
-      "Romania",
-      "Slovakia",
-      "Slovenia",
       "Albania",
       "Andorra",
+      "Austria",
+      "Azores",
       "Belarus",
+      "Belgium",
       "Bosnia & Herzegovina",
+      "Bulgaria",
+      "Canada",
       "Ceuta",
+      "China",
+      "Croatia",
+      "Cyprus",
+      "Czech Republic",
+      "Denmark",
+      "Estonia",
       "Faroe Islands",
+      "Finland",
+      "France",
+      "Germany",
       "Gibraltar",
+      "Greece",
       "Greenland",
       "Guernsey",
+      "Hong Kong",
+      "Hungary",
       "Iceland",
+      "Indonesia",
+      "Ireland",
+      "Italy",
+      "Japan",
       "Jersey",
       "Kosovo",
+      "Latvia",
       "Liechtenstein",
+      "Lithuania",
+      "Luxembourg",
+      "Macau",
       "Macedonia",
-      "Melilla",
+      "Malaysia",
+      "Malta",
+      "Mexico",
       "Moldova",
+      "Monaco",
       "Montenegro",
+      "Netherlands",
+      "New Zealand",
       "Norway",
+      "Philippines",
+      "Poland",
+      "Portugal",
+      "Puerto Rico",
+      "Romania",
       "Russia",
       "San Marino",
       "Serbia",
-      "Switzerland",
-      "Turkey",
-      "Ukraine",
-      "Canada",
-      "Mexico",
-      "Puerto Rico",
-      "United States of America",
-      "China",
-      "Hong Kong",
-      "Indonesia",
-      "Japan",
-      "Macau",
-      "Malaysia",
-      "Philippines",
       "Singapore",
+      "Slovakia",
+      "Slovenia",
       "South Africa",
       "South Korea",
+      "Spain",
+      "Sweden",
+      "Switzerland",
       "Taiwan",
       "Thailand",
+      "Turkey",
       "UAE",
-      "Australia",
-      "New Zealand",
+      "Ukraine",
+      "United States of America",
     ],
+  });
+  const [dom, setDom] = useState({
+    countries: ["England", "Northern Ireland", "Scotland", "Wales"],
   });
 
   function handleSelect(event) {
@@ -111,13 +113,13 @@ export default function HeroForm() {
     let body;
     if (type == "Domestic") {
       body = {
-        Service: "Domestic",
-        Weight: weight,
-        From: to,
+        service: "Domestic",
+        from: selectedDomFromOption,
+        to: selectedDomToOption,
       };
     } else if (type == "International") {
       body = {
-        Service: "International",
+        service: "International",
         from: "United Kingdom",
         to: selectedOption,
       };
@@ -199,16 +201,17 @@ export default function HeroForm() {
                 <CiLocationOn className=" text-4xl" />
                 <div className="flex flex-col w-full">
                   <span className="font-semibold text-[24px] leading-[32px]">
-                    Weight
+                    From
                   </span>
-                  <input
-                    type="text"
-                    value={weight}
-                    onChange={(e) => setWeight(e.target.value)}
-                    placeholder="Enter Weight"
-                    required
+                  <select
                     className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
-                  />
+                    value={selectedDomFromOption}
+                    onChange={(e) => setSelectedDomFromOption(e.target.value)}
+                  >
+                    {dom.countries.map((item, index) => {
+                      return <option value={item}>{item}</option>;
+                    })}
+                  </select>
                 </div>
               </div>
               <div className="flex items-center mr-2 gap-2 w-full">
@@ -216,16 +219,17 @@ export default function HeroForm() {
                 <CiLocationArrow1 className=" text-4xl" />
                 <div className="flex flex-col w-full">
                   <span className="font-semibold text-[24px] leading-[32px]">
-                    City
+                    To
                   </span>
-                  <input
-                    type="text"
-                    value={to}
-                    onChange={(e) => setTo(e.target.value)}
-                    placeholder="Enter City"
-                    required
+                  <select
                     className="border-b-[1px] w-full focus:outline-none hover:outline-none my-[1px] bg-transparent"
-                  />
+                    value={selectedDomToOption}
+                    onChange={(e) => setSelectedDomToOption(e.target.value)}
+                  >
+                    {dom.countries.map((item, index) => {
+                      return <option value={item}>{item}</option>;
+                    })}
+                  </select>
                 </div>
               </div>
             </>
